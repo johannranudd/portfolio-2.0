@@ -1,5 +1,4 @@
 import { ContextProvider } from "@/context/context";
-import Link from "next/link";
 import "./globals.css";
 import NavBar from "./Navbar";
 
@@ -16,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ContextProvider>
-        <body className="min-h-screen">
+        <body className="relative min-h-screen">
           <NavBar />
           <main>{children}</main>
         </body>
