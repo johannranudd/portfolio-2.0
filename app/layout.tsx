@@ -1,4 +1,7 @@
+import { ContextProvider } from "@/context/context";
+import Link from "next/link";
 import "./globals.css";
+import NavBar from "./Navbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">{children}</body>
+      <ContextProvider>
+        <body className="min-h-screen">
+          <NavBar />
+          <main>{children}</main>
+        </body>
+      </ContextProvider>
     </html>
   );
 }
