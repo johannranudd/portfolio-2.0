@@ -1,78 +1,48 @@
 "use client";
 
-import { motion as m, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { useState } from "react";
+import { motion as m, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
-const modalVariant = {
-  initialState: {
-    opacity: 0,
-  },
-  animateState: {
-    opacity: 1,
-  },
-  exitState: {
-    opacity: 0,
-    // transition: {
-    //   delay: 1,
-    // },
-  },
-};
-
-const modalVariantChildren = {
-  initialState: {
-    y: "-100vh",
-  },
-  animateState: {
-    y: 0,
-    transition: {
-      delay: 0.2,
-    },
-  },
-  exitState: {
-    y: "-100vh",
-    // transition: {
-    //   delay: 0.5,
-    //   duration: 1,
-    // },
-  },
-};
+import { animationSequel } from "../Animations/modalAnimation";
 
 export default function ModalComponent() {
-  const [showModal, setShowModal] = useState(false);
+  const [isShown, setIsShown] = useState(false);
+  const controls = useAnimation();
 
+  const modalControls = useAnimation();
   const router = useRouter();
-  function handleExit() {
-    setShowModal(false);
-    router.push(`/about`);
-  }
+
+  useEffect(() => {
+    animationSequel({ controls, modalControls, router, setIsShown });
+  }, [isShown]);
 
   return (
     <div>
-      <button onClick={() => setShowModal(true)}>Open Modal</button>
-      <AnimatePresence mode="wait">
-        {showModal && (
+      <button onClick={() => setIsShown(true)} className="border border-black">
+        Open modal
+      </button>
+      {isShown && (
+        <m.div
+          initial={{ opacity: 0 }}
+          animate={controls}
+          onClick={() =>
+            animationSequel(
+              { controls, modalControls, router, setIsShown },
+              "exit"
+            )
+          }
+          className={`absolute top-0 left-0 w-full h-full grid place-items-center cursor-pointer bg-[#000000aa]`}
+        >
           <m.div
-            onClick={() => setShowModal(false)}
-            key="backdrop"
-            variants={modalVariant}
-            initial="initialState"
-            animate="animateState"
-            exit="exitState"
-            className={`absolute top-0 left-0 w-full h-full grid place-items-center cursor-pointer bg-[#000000aa]`}
+            key="modal"
+            initial={{ y: -800 }}
+            animate={modalControls}
+            className="h-48 w-48 grid place-items-center bg-[#def]"
           >
-            <m.div
-              key="modal"
-              variants={modalVariantChildren}
-              className="w-48 h-48 grid place-items-center bg-pink-100"
-            >
-              <p>Im a modal</p>
-              <button onClick={handleExit}>To about page</button>
-            </m.div>
+            <m.button className="p-2 border border-black">modal</m.button>
           </m.div>
-        )}
-      </AnimatePresence>
+        </m.div>
+      )}
     </div>
   );
 }
