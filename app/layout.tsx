@@ -1,5 +1,6 @@
 import { ContextProvider } from "@/context/context";
 import "./globals.css";
+import Sidebar from "./components/layout/Sidebar";
 import NavBar from "./components/layout/Navbar";
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
       <ContextProvider>
         <body className="relative min-h-screen">
           <NavBar />
+          <Sidebar />
           <main>{children}</main>
         </body>
       </ContextProvider>

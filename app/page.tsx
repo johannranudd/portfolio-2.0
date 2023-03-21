@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div>
       <h1>Home Page</h1>
-      <p>
+      <p className="">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia
         nulla est quibusdam tempora reprehenderit ab suscipit sit dolor?
         Consequatur odio repellat maxime accusamus rem earum praesentium
