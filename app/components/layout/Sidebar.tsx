@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <header className="hidden mdlg:block fixed h-full w-sidebarWidth flex flex-col justify-end bg-[#bb00bb6c]">
       <nav className="h-full flex flex-col justify-between items-center">
-        <div className="mb-20">Logo</div>
+        <div className="mb-20">&lt;/&gt;</div>
         <div className="flex flex-col space-y-3">
           {pageStructure.map((m) => {
             const { id, page, link } = m;
