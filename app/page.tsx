@@ -1,8 +1,7 @@
 export default function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p className="">
+    <div className="mt-navbarWidth w-[95%] mx-auto mdlg:mt-0 mdlg:ml-sidebarWidth mdlg:w-fit mdlg:p-2">
+      <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia
         nulla est quibusdam tempora reprehenderit ab suscipit sit dolor?
         Consequatur odio repellat maxime accusamus rem earum praesentium

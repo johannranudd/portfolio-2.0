@@ -8,19 +8,19 @@ import React, {
 } from "react";
 
 export interface ContextInterface {
-  isShowing: boolean;
-  setIsShowing: Dispatch<SetStateAction<boolean>>;
+  menuIsOpen: boolean;
+  setMenuIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Context = createContext<ContextInterface>({
-  isShowing: true,
-  setIsShowing: () => true,
+  menuIsOpen: false,
+  setMenuIsOpen: () => false,
 });
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {
-  const [isShowing, setIsShowing] = useState(true);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   return (
-    <Context.Provider value={{ isShowing, setIsShowing }}>
+    <Context.Provider value={{ menuIsOpen, setMenuIsOpen }}>
       {children}
     </Context.Provider>
   );

@@ -1,15 +1,13 @@
-import Link from "next/link";
+import MenuIcon from "./MenuIcon";
+import MobileMenu from "./MobileMenu";
 
 export default function NavBar() {
   return (
-    <header className="block fixed  w-full flex bg-[#03bb006c] md:hidden">
-      <nav className="py-2 max-w-screen-lg mx-auto">
-        <Link href={`/`} scroll={false}>
-          Home
-        </Link>
-        <Link href={`/about`} scroll={false}>
-          About
-        </Link>
+    <header className="h-navbarWidth block fixed w-full flex bg-[#03bb006c] mdlg:hidden">
+      <nav className="w-[95%] mx-auto flex justify-between items-center">
+        <div>Logo</div>
+        <MenuIcon />
+        <MobileMenu />
       </nav>
     </header>
   );
