@@ -4,7 +4,7 @@ import image1 from "../images/image-1.jpg";
 import image2 from "../images/image-2.jpg";
 import image3 from "../images/image-3.jpg";
 import harold from "../images/harold.png";
-import { motion as m, useScroll } from "framer-motion";
+import { motion as m, useScroll, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
 // const images = [
@@ -15,13 +15,21 @@ import { useEffect } from "react";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
+  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "70%"]);
+  const imageScroll1 = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+  const imageScroll2 = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+  const imageScroll3 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const imageScroll4 = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
 
   // useEffect(() => {
   //   console.log(scrollYProgress);
   // }, [scrollYProgress]);
   return (
-    <div className="mt-navbarWidth w-[95%] mx-auto mdlg:mt-0 mdlg:ml-sidebarWidth mdlg:w-fit">
-      <section className="relative h-screen bg-[#c2f6ff] mdlg:p-2">
+    <div className="mt-navbarWidth overflow-hidden w-[95%] mx-auto mdlg:mt-0 mdlg:ml-sidebarWidth mdlg:w-fit">
+      <m.section
+        style={{ y: sectionScroll }}
+        className="relative h-screen  -z-50 bg-[#c2f6ff] mdlg:p-2"
+      >
         <Image
           src={harold}
           alt="image of project"
@@ -33,9 +41,9 @@ export default function Home() {
           <h1 className="text-2xl">Johann Ranudd</h1>
           <p>- Front-end developer</p>
         </div>
-      </section>
-      <m.section>
-        <h2 className="text-center py-16 text-2xl">projects</h2>
+      </m.section>
+      <section className="mb-16 z-50 bg-white">
+        <h2 className="text-center py-8 text-2xl">projects</h2>
         <div className="grid grid-cols-2 items-center ">
           <div>
             <p>
@@ -47,33 +55,119 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className={`relative left-0 h-48 w-48`}>
+            {/* begins */}
+            <m.div
+              style={{ y: imageScroll1 }}
+              className={`relative top-[300px] left-[20%] h-48 w-48 duration-500 `}
+            >
               <Image
                 src={image1}
                 alt="image of project"
                 fill={true}
                 className="object-cover"
               />
-            </div>
-            <div className={`relative -top-[70px] left-[200px] h-48 w-48`}>
+            </m.div>
+            {/* fuel */}
+            <m.div
+              style={{ y: imageScroll2 }}
+              className={`relative -top-[100px] left-[30%] h-48 w-48 duration-500 `}
+            >
               <Image
                 src={image2}
                 alt="image of project"
                 fill={true}
                 className="object-cover"
               />
-            </div>
-            <div className={`relative -top-[85px] left-[40px] h-48 w-48`}>
+            </m.div>
+            <m.div
+              style={{ y: imageScroll3 }}
+              className={`relative -top-[70px] left-[15%] h-48 w-48 duration-500 `}
+            >
               <Image
                 src={image3}
                 alt="image of project"
                 fill={true}
                 className="object-cover"
               />
-            </div>
+            </m.div>
+            <m.div
+              style={{ y: imageScroll4 }}
+              className={`relative -top-[80px] left-[50%] h-48 w-48 duration-500 `}
+            >
+              <Image
+                src={image3}
+                alt="image of project"
+                fill={true}
+                className="object-cover"
+              />
+            </m.div>
           </div>
         </div>
-      </m.section>
+      </section>
+      <section>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
+          esse excepturi fugiat, dolorem soluta adipisci ipsa dicta voluptatibus
+          rerum amet laudantium, qui, perspiciatis illo consequuntur placeat
+          accusantium suscipit numquam nisi reprehenderit! Velit aliquam
+          molestiae doloribus amet aperiam voluptas at hic saepe. Nemo cum
+          assumenda officia quisquam eveniet repellendus dignissimos aliquam
+          porro sapiente libero adipisci laboriosam, ab quasi autem laudantium,
+          delectus unde, at odio doloribus magni doloremque fugit eaque
+          voluptas. Eveniet neque blanditiis perferendis voluptatibus mollitia
+          quia alias beatae. Dolore alias distinctio dicta doloremque
+          exercitationem praesentium optio sit iusto ipsum libero! Obcaecati
+          rerum unde non porro cupiditate voluptatem sapiente. Consectetur.
+        </p>
+      </section>
+      <section>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
+          esse excepturi fugiat, dolorem soluta adipisci ipsa dicta voluptatibus
+          rerum amet laudantium, qui, perspiciatis illo consequuntur placeat
+          accusantium suscipit numquam nisi reprehenderit! Velit aliquam
+          molestiae doloribus amet aperiam voluptas at hic saepe. Nemo cum
+          assumenda officia quisquam eveniet repellendus dignissimos aliquam
+          porro sapiente libero adipisci laboriosam, ab quasi autem laudantium,
+          delectus unde, at odio doloribus magni doloremque fugit eaque
+          voluptas. Eveniet neque blanditiis perferendis voluptatibus mollitia
+          quia alias beatae. Dolore alias distinctio dicta doloremque
+          exercitationem praesentium optio sit iusto ipsum libero! Obcaecati
+          rerum unde non porro cupiditate voluptatem sapiente. Consectetur.
+        </p>
+      </section>
+      <section>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
+          esse excepturi fugiat, dolorem soluta adipisci ipsa dicta voluptatibus
+          rerum amet laudantium, qui, perspiciatis illo consequuntur placeat
+          accusantium suscipit numquam nisi reprehenderit! Velit aliquam
+          molestiae doloribus amet aperiam voluptas at hic saepe. Nemo cum
+          assumenda officia quisquam eveniet repellendus dignissimos aliquam
+          porro sapiente libero adipisci laboriosam, ab quasi autem laudantium,
+          delectus unde, at odio doloribus magni doloremque fugit eaque
+          voluptas. Eveniet neque blanditiis perferendis voluptatibus mollitia
+          quia alias beatae. Dolore alias distinctio dicta doloremque
+          exercitationem praesentium optio sit iusto ipsum libero! Obcaecati
+          rerum unde non porro cupiditate voluptatem sapiente. Consectetur.
+        </p>
+      </section>
+      <section>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
+          esse excepturi fugiat, dolorem soluta adipisci ipsa dicta voluptatibus
+          rerum amet laudantium, qui, perspiciatis illo consequuntur placeat
+          accusantium suscipit numquam nisi reprehenderit! Velit aliquam
+          molestiae doloribus amet aperiam voluptas at hic saepe. Nemo cum
+          assumenda officia quisquam eveniet repellendus dignissimos aliquam
+          porro sapiente libero adipisci laboriosam, ab quasi autem laudantium,
+          delectus unde, at odio doloribus magni doloremque fugit eaque
+          voluptas. Eveniet neque blanditiis perferendis voluptatibus mollitia
+          quia alias beatae. Dolore alias distinctio dicta doloremque
+          exercitationem praesentium optio sit iusto ipsum libero! Obcaecati
+          rerum unde non porro cupiditate voluptatem sapiente. Consectetur.
+        </p>
+      </section>
     </div>
   );
 }
