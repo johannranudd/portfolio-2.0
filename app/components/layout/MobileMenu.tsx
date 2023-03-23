@@ -6,18 +6,12 @@ import Link from "next/link";
 import BtnColorMode from "../ui/BtnColorMode";
 
 export default function MobileMenu() {
-  const { menuIsOpen, setMenuIsOpen } = useGlobalContext();
-  const [windowWidth, setWindowWidth] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth;
-    } else {
-      return 0;
-    }
-  });
+  const { menuIsOpen, setMenuIsOpen, windowWidth, setWindowWidth } =
+    useGlobalContext();
 
   function handleResize() {
     setWindowWidth(window.innerWidth);
-    if (windowWidth > 900) {
+    if (windowWidth > 1024) {
       setMenuIsOpen(false);
     }
   }

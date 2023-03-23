@@ -6,7 +6,8 @@ import museumImage from "../images/museum.png";
 import todoImage from "../images/todo.png";
 import harold from "../images/harold.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useGlobalContext } from "@/context/context";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -17,7 +18,7 @@ export default function Home() {
   // const imageScroll4 = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
 
   return (
-    <div className="mt-navbarWidth overflow-hidden 900:mt-0 900:ml-sidebarWidth 900:w-fit">
+    <div className="mt-navbarWidth overflow-hidden lg:mt-0 lg:ml-sidebarWidth lg:w-fit">
       <HeroComponent scrollYProgress={scrollYProgress} />
       <ProjectsComponent scrollYProgress={scrollYProgress} />
       <TechComponent />
@@ -26,13 +27,14 @@ export default function Home() {
 }
 
 function ProjectsComponent({ scrollYProgress }: any) {
-  // const heroRef = useRef<HTMLDivElement>(null);
+  const { windowWidth } = useGlobalContext();
+
   const projects = [
     {
       id: 1,
       imageUrl: blogImage,
       alt: "alt text",
-      x: -130,
+      x: -150,
       y: 30,
       z: "z-50",
       scrollRate: 1.5,
@@ -50,8 +52,8 @@ function ProjectsComponent({ scrollYProgress }: any) {
       id: 3,
       imageUrl: museumImage,
       alt: "alt text",
-      x: -220,
-      y: -150,
+      x: -400,
+      y: -100,
       z: "z-10",
       scrollRate: 3,
     },
@@ -59,29 +61,32 @@ function ProjectsComponent({ scrollYProgress }: any) {
       id: 4,
       imageUrl: todoImage,
       alt: "alt text",
-      x: 40,
-      y: -210,
+      x: -70,
+      y: -130,
       z: "z-0",
       scrollRate: 4,
     },
   ];
   return (
-    <section className="px-2 pb-[700px] mb-16 900:grid 900:flex 900:grid-cols-2 bg-white">
+    <section className="px-4  bg-white lg:h-[34rem] lg:grid lg:flex lg:grid-cols-2 ">
       <div>
         <h2 className="py-6 text-2xl">projects</h2>
-        <p className="900:max-w-[370px]">
+        <p className="lg:max-w-[370px]">
           Here are some of my most recent projects.
           <br /> Click the image to learn more about each application.
         </p>
       </div>
-      <ul className="relative grid xs:grid-cols-auto-grid-220 xs:gap-x-3 900:block">
+      <ul className="relative grid xs:grid-cols-auto-grid-220 xs:gap-x-3 lg:block">
         {projects.map((p, index) => {
           const { id, imageUrl, alt, x, y, z, scrollRate } = p;
-          const imageScroll = useTransform(
-            scrollYProgress,
-            [0, 1],
-            ["0%", `-${scrollRate * 50}%`]
-          );
+          let imageScroll;
+          if (windowWidth >= 1024) {
+            imageScroll = useTransform(
+              scrollYProgress,
+              [0, 1],
+              ["0%", `-${scrollRate * 50}%`]
+            );
+          }
           return (
             <m.li
               key={id}
@@ -89,14 +94,10 @@ function ProjectsComponent({ scrollYProgress }: any) {
                 top: y,
                 left: x,
                 y: imageScroll,
-                // transition: `${index * 0.2}s`,
               }}
-              className={`w-full 900:relative ${z}`}
+              className={`w-full lg:relative ${z} duration-300`}
             >
-              <div
-                // style={{ y: sectionScroll }}
-                className="relative h-72 xs:h-56 w-full"
-              >
+              <div className="relative h-80 w-full xs:h-56 lg:h-64">
                 <Image
                   src={imageUrl}
                   alt={alt}
@@ -122,7 +123,7 @@ function HeroComponent({ scrollYProgress }: any) {
     const { height }: any = heroTextRef.current?.getBoundingClientRect();
     if (typeof bottom === "number" && heroTextRef.current) {
       const bottomHalf = bottom / 2 - height;
-      if (window.innerWidth < 900) {
+      if (window.innerWidth < 1024) {
         heroTextRef.current.style.bottom = `${bottomHalf + 15}px`;
       } else {
         heroTextRef.current.style.bottom = `${bottomHalf + 40}px`;
@@ -146,7 +147,7 @@ function HeroComponent({ scrollYProgress }: any) {
       <div ref={heroRef} className="relative border border-red-500 -z-50">
         <m.section
           style={{ y: sectionScroll }}
-          className="relative h-screen -z-50 bg-[#c2f6ff] 900:p-2"
+          className="relative h-screen -z-50 bg-[#c2f6ff] lg:p-2"
         >
           <Image
             src={harold}
@@ -170,7 +171,7 @@ function HeroComponent({ scrollYProgress }: any) {
 
 function TechComponent() {
   return (
-    <div className="bg-white">
+    <div id="scroll-to-me" className="bg-white">
       <section>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit

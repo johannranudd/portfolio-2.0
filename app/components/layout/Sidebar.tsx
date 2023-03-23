@@ -5,16 +5,16 @@ import BtnColorMode from "../ui/BtnColorMode";
 
 export default function Sidebar() {
   return (
-    <header className="hidden 900:block fixed h-full w-sidebarWidth bg-[#bb00bb60]">
+    <header className="hidden lg:block fixed h-full w-sidebarWidth bg-[#bb00bb60]">
       <nav className="h-full flex flex-col justify-between items-center">
         <div className="mb-20">&lt;/&gt;</div>
         <div className="flex flex-col space-y-3">
           {pageStructure.map((m) => {
             const { id, page, link } = m;
             return (
-              <Link key={id} href={link} scroll={false} className="capitalize">
+              <a key={id} href={link} className="capitalize">
                 {page}
-              </Link>
+              </a>
             );
           })}
         </div>

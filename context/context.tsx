@@ -10,17 +10,31 @@ import React, {
 export interface ContextInterface {
   menuIsOpen: boolean;
   setMenuIsOpen: Dispatch<SetStateAction<boolean>>;
+  windowWidth: number;
+  setWindowWidth: Dispatch<SetStateAction<number>>;
 }
 
 export const Context = createContext<ContextInterface>({
   menuIsOpen: false,
   setMenuIsOpen: () => false,
+  windowWidth: 0,
+  setWindowWidth: () => {},
 });
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth;
+    } else {
+      return 0;
+    }
+  });
+
   return (
-    <Context.Provider value={{ menuIsOpen, setMenuIsOpen }}>
+    <Context.Provider
+      value={{ menuIsOpen, setMenuIsOpen, windowWidth, setWindowWidth }}
+    >
       {children}
     </Context.Provider>
   );

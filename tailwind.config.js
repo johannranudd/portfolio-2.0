@@ -15,14 +15,14 @@ module.exports = {
       screens: {
         sm: "640px",
         md: "768px",
-        900: "900px",
+        mlg: "1000px",
         lg: "1024px",
         xl: "1280px",
         "2xl": "1440px",
         "3xl": "1536px",
       },
       gridTemplateColumns: {
-        "auto-grid-220": "repeat(auto-fit, minmax(220px, 1fr))",
+        "auto-grid-220": "repeat(auto-fit, minmax(210px, 1fr))",
       },
       width: {
         navbarWidth: "50px",
