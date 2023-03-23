@@ -48,8 +48,12 @@ function HeroComponent() {
     const { bottom }: any = heroRef.current?.getBoundingClientRect();
     const { height }: any = heroTextRef.current?.getBoundingClientRect();
     if (typeof bottom === "number" && heroTextRef.current) {
-      const bottomHalf = bottom / 2 - height + 15;
-      heroTextRef.current.style.bottom = `${bottomHalf}px`;
+      const bottomHalf = bottom / 2 - height;
+      if (window.innerWidth < 900) {
+        heroTextRef.current.style.bottom = `${bottomHalf + 15}px`;
+      } else {
+        heroTextRef.current.style.bottom = `${bottomHalf + 40}px`;
+      }
     }
   }
 
@@ -58,19 +62,15 @@ function HeroComponent() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      adjustHeroText();
-    });
+    window.addEventListener("scroll", () => adjustHeroText);
     return () => {
-      window.removeEventListener("scroll", () => {
-        // console.log(sectionScroll);
-      });
+      window.removeEventListener("scroll", () => adjustHeroText);
     };
   }, [scrollYProgress]);
 
   return (
     <>
-      <div ref={heroRef} className="relative border border-red-500">
+      <div ref={heroRef} className="relative border border-red-500 -z-50">
         <m.section
           style={{ y: sectionScroll }}
           className="relative h-screen -z-50 bg-[#c2f6ff] 900:p-2"
