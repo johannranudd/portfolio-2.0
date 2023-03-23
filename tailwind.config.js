@@ -1,20 +1,29 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
+      "4xs": "300px",
+      "3xs": "350px",
       xxs: "400px",
       xs: "480px",
-      sm: "640px",
-      md: "768px",
-      900: "900px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      ...defaultTheme.screens,
     },
-
     extend: {
+      screens: {
+        sm: "640px",
+        md: "768px",
+        900: "900px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1440px",
+        "3xl": "1536px",
+      },
+      gridTemplateColumns: {
+        "auto-grid-220": "repeat(auto-fit, minmax(220px, 1fr))",
+      },
       width: {
         navbarWidth: "50px",
         sidebarWidth: "70px",

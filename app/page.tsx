@@ -1,24 +1,16 @@
 "use client";
 import Image from "next/image";
-import image1 from "../images/image-1.jpg";
-import image2 from "../images/image-2.jpg";
-import image3 from "../images/image-3.jpg";
+import blogImage from "../images/blog.png";
+import coffeeShopImage from "../images/coffee-shop.png";
+import museumImage from "../images/museum.png";
+import todoImage from "../images/todo.png";
 import harold from "../images/harold.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-// const images = [
-//   { id: 1, imageUrl: image1, alt: "alt text", position: 85 },
-//   { id: 2, imageUrl: image2, alt: "alt text", position: 14 },
-//   { id: 3, imageUrl: image3, alt: "alt text", position: 55 },
-// ];
-
 export default function Home() {
-  // const mainTextScroll = useTransform(
-  //   scrollYProgress,
-  //   [0, 1],
-  //   ["0px", "1000px"]
-  // );
+  const { scrollYProgress } = useScroll();
+
   // const imageScroll1 = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
   // const imageScroll2 = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
   // const imageScroll3 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
@@ -26,21 +18,102 @@ export default function Home() {
 
   return (
     <div className="mt-navbarWidth overflow-hidden 900:mt-0 900:ml-sidebarWidth 900:w-fit">
-      <HeroComponent
-      // sectionScroll={sectionScroll}
-      // mainTextScroll={mainTextScroll}
-      />
-      <ProjectsComponent />
+      <HeroComponent scrollYProgress={scrollYProgress} />
+      <ProjectsComponent scrollYProgress={scrollYProgress} />
       <TechComponent />
     </div>
   );
 }
 
-function HeroComponent() {
-  // { sectionScroll, mainTextScroll }: any
-  const { scrollYProgress } = useScroll();
+function ProjectsComponent({ scrollYProgress }: any) {
+  // const heroRef = useRef<HTMLDivElement>(null);
+  const projects = [
+    {
+      id: 1,
+      imageUrl: blogImage,
+      alt: "alt text",
+      x: -130,
+      y: 30,
+      z: "z-50",
+      scrollRate: 1.5,
+    },
+    {
+      id: 2,
+      imageUrl: coffeeShopImage,
+      alt: "alt text",
+      x: 100,
+      y: -20,
+      z: "z-10",
+      scrollRate: 2,
+    },
+    {
+      id: 3,
+      imageUrl: museumImage,
+      alt: "alt text",
+      x: -220,
+      y: -150,
+      z: "z-10",
+      scrollRate: 3,
+    },
+    {
+      id: 4,
+      imageUrl: todoImage,
+      alt: "alt text",
+      x: 40,
+      y: -210,
+      z: "z-0",
+      scrollRate: 4,
+    },
+  ];
+  return (
+    <section className="px-2 pb-[700px] mb-16 900:grid 900:flex 900:grid-cols-2 bg-white">
+      <div>
+        <h2 className="py-6 text-2xl">projects</h2>
+        <p className="900:max-w-[370px]">
+          Here are some of my most recent projects.
+          <br /> Click the image to learn more about each application.
+        </p>
+      </div>
+      <ul className="relative grid xs:grid-cols-auto-grid-220 xs:gap-x-3 900:block">
+        {projects.map((p, index) => {
+          const { id, imageUrl, alt, x, y, z, scrollRate } = p;
+          const imageScroll = useTransform(
+            scrollYProgress,
+            [0, 1],
+            ["0%", `-${scrollRate * 50}%`]
+          );
+          return (
+            <m.li
+              key={id}
+              style={{
+                top: y,
+                left: x,
+                y: imageScroll,
+                // transition: `${index * 0.2}s`,
+              }}
+              className={`w-full 900:relative ${z}`}
+            >
+              <div
+                // style={{ y: sectionScroll }}
+                className="relative h-72 xs:h-56 w-full"
+              >
+                <Image
+                  src={imageUrl}
+                  alt={alt}
+                  fill={true}
+                  className="object-contain"
+                />
+              </div>
+            </m.li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+function HeroComponent({ scrollYProgress }: any) {
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const mainTextScroll = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
   const heroRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
 
@@ -62,9 +135,9 @@ function HeroComponent() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => adjustHeroText);
+    window.addEventListener("scroll", adjustHeroText);
     return () => {
-      window.removeEventListener("scroll", () => adjustHeroText);
+      window.removeEventListener("scroll", adjustHeroText);
     };
   }, [scrollYProgress]);
 
@@ -82,12 +155,7 @@ function HeroComponent() {
             className="object-cover"
           />
         </m.section>
-        <div
-          ref={heroTextRef}
-          //  top-[85%]
-          // style={{ top: mainTextScroll }}
-          className="absolute -z-50 bg-red-500"
-        >
+        <div ref={heroTextRef} className="absolute -z-50 bg-red-500">
           <p>hello my name is</p>
           <h1 className="text-2xl">Johann Ranudd</h1>
           <p>- Front-end developer</p>
@@ -100,81 +168,9 @@ function HeroComponent() {
   );
 }
 
-function ProjectsComponent() {
-  return (
-    <section className="mb-16 z-50 bg-white">
-      <h2 className="text-center py-8 text-2xl">projects</h2>
-      <div className="">
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-            blanditiis, amet corporis debitis velit ipsam magnam quasi incidunt
-            recusandae, odio numquam explicabo iure cum fugit nihil enim labore
-            provident eos modi vitae quam quas dolor. Ea quis tempora voluptate
-            quaerat?
-          </p>
-        </div>
-
-        <div>
-          {/* begins */}
-          <m.div
-            // style={{ y: imageScroll1 }}
-            className={`relative h-48 w-48 `}
-            // className={`relative top-[300px] left-[20%] h-48 w-48 duration-500 `}
-          >
-            <Image
-              src={image1}
-              alt="image of project"
-              fill={true}
-              className="object-cover"
-            />
-          </m.div>
-          {/* fuel */}
-          <m.div
-            // style={{ y: imageScroll2 }}
-            className={`relative h-48 w-48 `}
-            // className={`relative -top-[100px] left-[30%] h-48 w-48 duration-500 `}
-          >
-            <Image
-              src={image2}
-              alt="image of project"
-              fill={true}
-              className="object-cover"
-            />
-          </m.div>
-          <m.div
-            // style={{ y: imageScroll3 }}
-            className={`relative h-48 w-48 `}
-            // className={`relative -top-[70px] left-[15%] h-48 w-48 duration-500 `}
-          >
-            <Image
-              src={image3}
-              alt="image of project"
-              fill={true}
-              className="object-cover"
-            />
-          </m.div>
-          <m.div
-            // style={{ y: imageScroll4 }}
-            className={`relative h-48 w-48 `}
-            // className={`relative -top-[80px] left-[50%] h-48 w-48 duration-500 `}
-          >
-            <Image
-              src={image3}
-              alt="image of project"
-              fill={true}
-              className="object-cover"
-            />
-          </m.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function TechComponent() {
   return (
-    <>
+    <div className="bg-white">
       <section>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
@@ -239,6 +235,6 @@ function TechComponent() {
           rerum unde non porro cupiditate voluptatem sapiente. Consectetur.
         </p>
       </section>
-    </>
+    </div>
   );
 }
