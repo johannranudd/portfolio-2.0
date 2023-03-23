@@ -5,7 +5,7 @@ import image2 from "../images/image-2.jpg";
 import image3 from "../images/image-3.jpg";
 import harold from "../images/harold.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 // const images = [
 //   { id: 1, imageUrl: image1, alt: "alt text", position: 85 },
@@ -14,30 +14,21 @@ import { useEffect } from "react";
 // ];
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const mainTextScroll = useTransform(scrollYProgress, [0, 1], ["50%", "185%"]);
+  // const mainTextScroll = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   ["0px", "1000px"]
+  // );
   // const imageScroll1 = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
   // const imageScroll2 = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
   // const imageScroll3 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
   // const imageScroll4 = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
 
-  useEffect(() => {
-    // window.addEventListener("scroll", () => {
-    //   console.log(scrollYProgress);
-    // });
-    // return () => {
-    //   window.removeEventListener("scroll", () => {
-    //     // console.log(sectionScroll);
-    //   });
-    // };
-  }, [scrollYProgress]);
-
   return (
     <div className="mt-navbarWidth overflow-hidden 900:mt-0 900:ml-sidebarWidth 900:w-fit">
       <HeroComponent
-        sectionScroll={sectionScroll}
-        mainTextScroll={mainTextScroll}
+      // sectionScroll={sectionScroll}
+      // mainTextScroll={mainTextScroll}
       />
       <ProjectsComponent />
       <TechComponent />
@@ -45,34 +36,67 @@ export default function Home() {
   );
 }
 
-function HeroComponent({ sectionScroll, mainTextScroll }: any) {
-  // console.log(mainTextScroll);
+function HeroComponent() {
+  // { sectionScroll, mainTextScroll }: any
+  const { scrollYProgress } = useScroll();
+  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const mainTextScroll = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
+
+  function adjustHeroText() {
+    const { bottom }: any = heroRef.current?.getBoundingClientRect();
+    const { height }: any = heroTextRef.current?.getBoundingClientRect();
+    if (typeof bottom === "number" && heroTextRef.current) {
+      const bottomHalf = bottom / 2 - height + 15;
+      heroTextRef.current.style.bottom = `${bottomHalf}px`;
+    }
+  }
+
+  useEffect(() => {
+    adjustHeroText();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      adjustHeroText();
+    });
+    return () => {
+      window.removeEventListener("scroll", () => {
+        // console.log(sectionScroll);
+      });
+    };
+  }, [scrollYProgress]);
+
   return (
-    <div className="relative">
-      <m.section
-        style={{ y: sectionScroll }}
-        className="relative  h-screen -z-50 bg-[#c2f6ff] 900:p-2"
-      >
-        <Image
-          src={harold}
-          alt="image of project"
-          fill={true}
-          className="object-cover"
-        />
-      </m.section>
-      <m.div
-        //  top-[85%]
-        style={{ top: mainTextScroll }}
-        className="absolute -z-50"
-      >
-        <p>hello my name is</p>
-        <h1 className="text-2xl">Johann Ranudd</h1>
-        <p>- Front-end developer</p>
-        <button className="cursor-pointer border hover:bg-blue-500">
-          click
-        </button>
-      </m.div>
-    </div>
+    <>
+      <div ref={heroRef} className="relative border border-red-500">
+        <m.section
+          style={{ y: sectionScroll }}
+          className="relative h-screen -z-50 bg-[#c2f6ff] 900:p-2"
+        >
+          <Image
+            src={harold}
+            alt="image of project"
+            fill={true}
+            className="object-cover"
+          />
+        </m.section>
+        <div
+          ref={heroTextRef}
+          //  top-[85%]
+          // style={{ top: mainTextScroll }}
+          className="absolute -z-50 bg-red-500"
+        >
+          <p>hello my name is</p>
+          <h1 className="text-2xl">Johann Ranudd</h1>
+          <p>- Front-end developer</p>
+          <button className="cursor-pointer border hover:bg-blue-500">
+            click
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -80,7 +104,7 @@ function ProjectsComponent() {
   return (
     <section className="mb-16 z-50 bg-white">
       <h2 className="text-center py-8 text-2xl">projects</h2>
-      <div className="grid grid-cols-2 items-center ">
+      <div className="">
         <div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
@@ -95,7 +119,8 @@ function ProjectsComponent() {
           {/* begins */}
           <m.div
             // style={{ y: imageScroll1 }}
-            className={`relative top-[300px] left-[20%] h-48 w-48 duration-500 `}
+            className={`relative h-48 w-48 `}
+            // className={`relative top-[300px] left-[20%] h-48 w-48 duration-500 `}
           >
             <Image
               src={image1}
@@ -107,7 +132,8 @@ function ProjectsComponent() {
           {/* fuel */}
           <m.div
             // style={{ y: imageScroll2 }}
-            className={`relative -top-[100px] left-[30%] h-48 w-48 duration-500 `}
+            className={`relative h-48 w-48 `}
+            // className={`relative -top-[100px] left-[30%] h-48 w-48 duration-500 `}
           >
             <Image
               src={image2}
@@ -118,7 +144,8 @@ function ProjectsComponent() {
           </m.div>
           <m.div
             // style={{ y: imageScroll3 }}
-            className={`relative -top-[70px] left-[15%] h-48 w-48 duration-500 `}
+            className={`relative h-48 w-48 `}
+            // className={`relative -top-[70px] left-[15%] h-48 w-48 duration-500 `}
           >
             <Image
               src={image3}
@@ -129,7 +156,8 @@ function ProjectsComponent() {
           </m.div>
           <m.div
             // style={{ y: imageScroll4 }}
-            className={`relative -top-[80px] left-[50%] h-48 w-48 duration-500 `}
+            className={`relative h-48 w-48 `}
+            // className={`relative -top-[80px] left-[50%] h-48 w-48 duration-500 `}
           >
             <Image
               src={image3}
