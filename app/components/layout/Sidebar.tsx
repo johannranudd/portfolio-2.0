@@ -5,7 +5,7 @@ import BtnColorMode from "../ui/BtnColorMode";
 
 export default function Sidebar() {
   return (
-    <header className="hidden mdlg:block fixed h-full w-sidebarWidth flex flex-col justify-end bg-[#bb00bb6c]">
+    <header className="hidden 900:block fixed h-full w-sidebarWidth bg-[#bb00bb60]">
       <nav className="h-full flex flex-col justify-between items-center">
         <div className="mb-20">&lt;/&gt;</div>
         <div className="flex flex-col space-y-3">

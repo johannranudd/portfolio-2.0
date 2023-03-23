@@ -18,8 +18,10 @@ export default function RootLayout({
       <ContextProvider>
         <body className="relative min-h-screen">
           <NavBar />
-          <Sidebar />
-          <main>{children}</main>
+          <div className="max-w-screen-2xl mx-auto">
+            <Sidebar />
+            <main>{children}</main>
+          </div>
         </body>
       </ContextProvider>
     </html>
