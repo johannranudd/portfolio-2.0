@@ -12,6 +12,7 @@ import { motion as m, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "@/context/context";
 import Link from "next/link";
+import { FaGithub, FaLink } from "react-icons/fa";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -31,26 +32,29 @@ function ProjectsComponent({ scrollYProgress }: any) {
       id: 1,
       imageUrl: image1,
       alt: "alt text",
+      tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
     },
     {
       id: 2,
       imageUrl: image2,
       alt: "alt text",
+      tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
     },
     {
       id: 3,
       imageUrl: image3,
       alt: "alt text",
+      tech: ["JavaScript", "SASS", "Rest API", "HTML"],
     },
   ];
 
   return (
-    <section className="max-w-screen-lg md:mx-auto bg-white w-full">
+    <section className="max-w-screen-lg md:mx-auto bg-white mb-20">
       <div className="px-4  md:mx-sidebarWidth">
-        <h2 className="py-6 text-2xl">projects</h2>
-        <ul className="flex flex-col w-full space-y-12">
+        <h2 className="py-16 text-2xl">projects</h2>
+        <ul className="flex flex-col w-full space-y-20">
           {projects.map((p, index) => {
-            const { id, imageUrl, alt } = p;
+            const { id, imageUrl, alt, tech } = p;
             let reversed = false;
             if (index % 2 == 0) {
               reversed = true;
@@ -59,7 +63,7 @@ function ProjectsComponent({ scrollYProgress }: any) {
               <>
                 <li
                   key={id}
-                  className={`relative w-full text-white border border-red-500  md:text-black`}
+                  className={`relative w-full text-white md:text-black`}
                 >
                   <div
                     className={`absolute h-full flex flex-col justify-center space-y-2 ${
@@ -74,6 +78,19 @@ function ProjectsComponent({ scrollYProgress }: any) {
                       ut ratione, aliquam dignissimos accusamus neque, tempore
                       consequatur optio, sapiente cum quidem ad delectus.
                     </p>
+                    <ul className="flex space-x-3 z-50">
+                      {tech.map((t, index) => {
+                        return <li key={index}>{t}</li>;
+                      })}
+                    </ul>
+                    <div className="flex space-x-3 z-50">
+                      <Link href={`https://github.com/`}>
+                        <FaGithub />
+                      </Link>
+                      <Link href={`https://github.com/`}>
+                        <FaLink />
+                      </Link>
+                    </div>
                   </div>
                   <Link href={"https://twitter.com/"}>
                     <div
