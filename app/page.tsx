@@ -77,7 +77,7 @@ function ProjectsComponent({ scrollYProgress }: any) {
                     <p className="text-xl">project name</p>
                     <div>
                       <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        Lorem ipsum, dolor siit amet consectetur adipisicing
                         elit. Eius voluptatibus modi, architecto fuga dolorem
                         magni perspiciatis dolore laudantium provident quis!
                       </p>
