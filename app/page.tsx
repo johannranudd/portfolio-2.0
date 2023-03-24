@@ -11,6 +11,8 @@ import image3 from "../images/socialmedia.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "@/context/context";
+import Link from "next/link";
+import { FaGithub, FaLink } from "react-icons/fa";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -30,61 +32,83 @@ function ProjectsComponent({ scrollYProgress }: any) {
       id: 1,
       imageUrl: image1,
       alt: "alt text",
-      x: -150,
-      y: 120,
-      z: "z-50",
-      scrollRate: 0,
+      tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
     },
     {
       id: 2,
       imageUrl: image2,
       alt: "alt text",
-      x: 150,
-      y: 90,
-      z: "z-10",
-      scrollRate: 0,
+      tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
     },
     {
       id: 3,
       imageUrl: image3,
       alt: "alt text",
-      x: -180,
-      y: 370,
-      z: "z-10",
-      scrollRate: 0,
+      tech: ["JavaScript", "SASS", "Rest API", "HTML"],
     },
   ];
 
   return (
-    <section className="px-2 bg-white">
-      <div className="md:mx-sidebarWidth">
-        <h2 className="py-6 text-2xl">projects</h2>
-        <ul className="">
+    <section className="max-w-screen-lg md:mx-auto bg-white mb-20">
+      <div className="px-4  md:mx-sidebarWidth">
+        <h2 className="py-16 text-2xl">projects</h2>
+        <ul className="flex flex-col w-full space-y-20">
           {projects.map((p, index) => {
-            const { id, imageUrl, alt, x, y, z, scrollRate } = p;
+            const { id, imageUrl, alt, tech } = p;
+            let reversed = false;
+            if (index % 2 == 0) {
+              reversed = true;
+            }
             return (
-              <li key={id} className={`relative h-96 w-full text-white`}>
-                <Image
-                  src={imageUrl}
-                  alt={alt}
-                  fill={true}
-                  className="object-cover"
-                />
-                <div className="absolute z-50 w-full h-full bg-[#00000093] hover:bg-transparent duration-300">
-                  <h3>title</h3>
-                  <div>
-                    <p className="text-lg">featured project</p>
-                    <p className="text-xl">project name</p>
-                    <div>
-                      <p>
-                        Lorem ipsum, dolor siit amet consectetur adipisicing
-                        elit. Eius voluptatibus modi, architecto fuga dolorem
-                        magni perspiciatis dolore laudantium provident quis!
-                      </p>
+              <>
+                <li
+                  key={id}
+                  className={`relative w-full text-white md:text-black`}
+                >
+                  <div
+                    className={`absolute h-full flex flex-col justify-center space-y-2 ${
+                      !reversed ? "md:items-end" : "md:items-start"
+                    } `}
+                  >
+                    <p className="text-md z-50">Featured project</p>
+                    <h4 className="text-xl z-50">project name</h4>
+                    <p className="p-4 bg-[#2445c9] rounded-md w-[60%] z-50">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Harum autem cupiditate accusamus voluptatem in. Eius iure
+                      ut ratione, aliquam dignissimos accusamus neque, tempore
+                      consequatur optio, sapiente cum quidem ad delectus.
+                    </p>
+                    <ul className="flex space-x-3 z-50">
+                      {tech.map((t, index) => {
+                        return <li key={index}>{t}</li>;
+                      })}
+                    </ul>
+                    <div className="flex space-x-3 z-50">
+                      <Link href={`https://github.com/`}>
+                        <FaGithub />
+                      </Link>
+                      <Link href={`https://github.com/`}>
+                        <FaLink />
+                      </Link>
                     </div>
                   </div>
-                </div>
-              </li>
+                  <Link href={"https://twitter.com/"}>
+                    <div
+                      className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+                        !reversed ? "md:mr-auto" : "md:ml-auto"
+                      } `}
+                    >
+                      <div className="z-10 absolute w-full h-full  rounded-md bg-[#000000ba] md:bg-[#00000046] hover:bg-transparent duration-300"></div>
+                      <Image
+                        src={imageUrl}
+                        alt={alt}
+                        fill={true}
+                        className="object-cover object-top rounded-md"
+                      />
+                    </div>
+                  </Link>
+                </li>
+              </>
             );
           })}
         </ul>
@@ -124,7 +148,7 @@ function HeroComponent({ scrollYProgress }: any) {
 
   return (
     <>
-      <div ref={heroRef} className="relative border border-red-500 -z-50">
+      <div ref={heroRef} className="relative border border-red-500 -z-50 ">
         <m.section
           // style={{ y: sectionScroll }}
           className="relative h-screen -z-50 bg-[#c2f6ff]"

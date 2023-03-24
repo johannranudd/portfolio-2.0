@@ -22,19 +22,19 @@ body {
 a {
   text-decoration: none;
 }
-/* .project-image-backdrop {
-  position: relative;
-}
-.project-image-backdrop::before {
-  content: " ";
+
+.backdrop::before {
   position: absolute;
+  content: " ";
   top: 0;
   left: 0;
   right: 0;
+  background: #000;
   width: 100%;
   height: 100%;
-  background: #000;
-} */
+  z-index: 999;
+  /* border-radius: 5px; */
+}
 
 @media (prefers-color-scheme: dark) {
   /* html {
