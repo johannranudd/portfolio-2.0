@@ -30,61 +30,65 @@ function ProjectsComponent({ scrollYProgress }: any) {
       id: 1,
       imageUrl: image1,
       alt: "alt text",
-      x: -150,
-      y: 120,
-      z: "z-50",
-      scrollRate: 0,
     },
     {
       id: 2,
       imageUrl: image2,
       alt: "alt text",
-      x: 150,
-      y: 90,
-      z: "z-10",
-      scrollRate: 0,
     },
     {
       id: 3,
       imageUrl: image3,
       alt: "alt text",
-      x: -180,
-      y: 370,
-      z: "z-10",
-      scrollRate: 0,
     },
   ];
 
   return (
-    <section className="px-2 bg-white">
-      <div className="md:mx-sidebarWidth">
+    <section className="max-w-screen-lg md:mx-auto bg-white w-full">
+      <div className="px-4  md:mx-sidebarWidth">
         <h2 className="py-6 text-2xl">projects</h2>
-        <ul className="">
+        <ul className="flex flex-col w-full space-y-12">
           {projects.map((p, index) => {
-            const { id, imageUrl, alt, x, y, z, scrollRate } = p;
+            const { id, imageUrl, alt } = p;
+            let reversed = false;
+            if (index % 2 == 0) {
+              reversed = true;
+            }
             return (
-              <li key={id} className={`relative h-96 w-full text-white`}>
-                <Image
-                  src={imageUrl}
-                  alt={alt}
-                  fill={true}
-                  className="object-cover"
-                />
-                <div className="absolute z-50 w-full h-full bg-[#00000093] hover:bg-transparent duration-300">
-                  <h3>title</h3>
-                  <div>
-                    <p className="text-lg">featured project</p>
-                    <p className="text-xl">project name</p>
-                    <div>
-                      <p>
-                        Lorem ipsum, dolor siit amet consectetur adipisicing
-                        elit. Eius voluptatibus modi, architecto fuga dolorem
-                        magni perspiciatis dolore laudantium provident quis!
-                      </p>
-                    </div>
+              <>
+                <li
+                  key={id}
+                  className={`relative w-full text-white border border-red-500 group md:text-black`}
+                >
+                  <div
+                    className={`absolute z-10 h-full flex flex-col justify-center space-y-2 ${
+                      !reversed ? "md:items-end" : "md:items-start"
+                    } `}
+                  >
+                    <p className="text-md">Featured project</p>
+                    <h4 className="text-xl">project name</h4>
+                    <p className="p-4 bg-[#2445c9] rounded-md w-[60%]">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Harum autem cupiditate accusamus voluptatem in. Eius iure
+                      ut ratione, aliquam dignissimos accusamus neque, tempore
+                      consequatur optio, sapiente cum quidem ad delectus.
+                    </p>
                   </div>
-                </div>
-              </li>
+                  <div
+                    className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+                      !reversed ? "md:mr-auto" : "md:ml-auto"
+                    } z-0 cursor-pointer`}
+                  >
+                    <div className="absolute w-full h-full z-50 rounded-md bg-[#000000ba] md:bg-[#00000046] group-hover:bg-transparent duration-300"></div>
+                    <Image
+                      src={imageUrl}
+                      alt={alt}
+                      fill={true}
+                      className="object-cover object-top z-0 rounded-md"
+                    />
+                  </div>
+                </li>
+              </>
             );
           })}
         </ul>
@@ -124,7 +128,7 @@ function HeroComponent({ scrollYProgress }: any) {
 
   return (
     <>
-      <div ref={heroRef} className="relative border border-red-500 -z-50">
+      <div ref={heroRef} className="relative border border-red-500 -z-50 ">
         <m.section
           // style={{ y: sectionScroll }}
           className="relative h-screen -z-50 bg-[#c2f6ff]"
