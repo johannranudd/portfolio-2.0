@@ -37,9 +37,9 @@ export default function MobileMenu() {
           const { id, page, link } = m;
           return (
             <li key={id} className="">
-              <Link href={link} scroll={false} className="capitalize">
+              <a href={link} className="capitalize">
                 {page}
-              </Link>
+              </a>
             </li>
           );
         })}

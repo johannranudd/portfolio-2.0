@@ -1,7 +1,8 @@
 import { ContextProvider } from "@/context/context";
 import "./globals.css";
-import Sidebar from "./components/layout/Sidebar";
 import NavBar from "./components/layout/Navbar";
+import SidebarLeft from "./components/layout/SidebarLeft";
+import SidebarRight from "./components/layout/SidebarRight";
 
 export const metadata = {
   title: "Portfolio | Johann Ranudd",
@@ -18,10 +19,9 @@ export default function RootLayout({
       <ContextProvider>
         <body className="relative min-h-screen">
           <NavBar />
-          <div className="max-w-screen-2xl mx-auto">
-            <Sidebar />
-            <main>{children}</main>
-          </div>
+          <SidebarLeft />
+          <SidebarRight />
+          <main>{children}</main>
         </body>
       </ContextProvider>
     </html>
