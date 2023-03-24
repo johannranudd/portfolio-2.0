@@ -11,6 +11,7 @@ import image3 from "../images/socialmedia.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "@/context/context";
+import Link from "next/link";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -58,35 +59,37 @@ function ProjectsComponent({ scrollYProgress }: any) {
               <>
                 <li
                   key={id}
-                  className={`relative w-full text-white border border-red-500 group md:text-black`}
+                  className={`relative w-full text-white border border-red-500  md:text-black`}
                 >
                   <div
-                    className={`absolute z-10 h-full flex flex-col justify-center space-y-2 ${
+                    className={`absolute h-full flex flex-col justify-center space-y-2 ${
                       !reversed ? "md:items-end" : "md:items-start"
                     } `}
                   >
-                    <p className="text-md">Featured project</p>
-                    <h4 className="text-xl">project name</h4>
-                    <p className="p-4 bg-[#2445c9] rounded-md w-[60%]">
+                    <p className="text-md z-50">Featured project</p>
+                    <h4 className="text-xl z-50">project name</h4>
+                    <p className="p-4 bg-[#2445c9] rounded-md w-[60%] z-50">
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                       Harum autem cupiditate accusamus voluptatem in. Eius iure
                       ut ratione, aliquam dignissimos accusamus neque, tempore
                       consequatur optio, sapiente cum quidem ad delectus.
                     </p>
                   </div>
-                  <div
-                    className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
-                      !reversed ? "md:mr-auto" : "md:ml-auto"
-                    } z-0 cursor-pointer`}
-                  >
-                    <div className="absolute w-full h-full z-50 rounded-md bg-[#000000ba] md:bg-[#00000046] group-hover:bg-transparent duration-300"></div>
-                    <Image
-                      src={imageUrl}
-                      alt={alt}
-                      fill={true}
-                      className="object-cover object-top z-0 rounded-md"
-                    />
-                  </div>
+                  <Link href={"https://twitter.com/"}>
+                    <div
+                      className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+                        !reversed ? "md:mr-auto" : "md:ml-auto"
+                      } `}
+                    >
+                      <div className="z-10 absolute w-full h-full  rounded-md bg-[#000000ba] md:bg-[#00000046] hover:bg-transparent duration-300"></div>
+                      <Image
+                        src={imageUrl}
+                        alt={alt}
+                        fill={true}
+                        className="object-cover object-top rounded-md"
+                      />
+                    </div>
+                  </Link>
                 </li>
               </>
             );
