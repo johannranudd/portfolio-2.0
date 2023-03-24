@@ -35,38 +35,39 @@ function ProjectsComponent({ scrollYProgress }: any) {
       imageUrl: blogImage,
       alt: "alt text",
       x: -150,
-      y: 30,
+      y: 120,
       z: "z-50",
-      scrollRate: 1.5,
+      scrollRate: 0,
     },
     {
       id: 2,
       imageUrl: coffeeShopImage,
       alt: "alt text",
-      x: 100,
-      y: -20,
+      x: 150,
+      y: 90,
       z: "z-10",
-      scrollRate: 2,
+      scrollRate: 0,
     },
     {
       id: 3,
       imageUrl: museumImage,
       alt: "alt text",
-      x: -400,
-      y: -100,
+      x: -180,
+      y: 370,
       z: "z-10",
-      scrollRate: 3,
+      scrollRate: 0,
     },
     {
       id: 4,
       imageUrl: todoImage,
       alt: "alt text",
-      x: -70,
-      y: -130,
+      x: 120,
+      y: 340,
       z: "z-0",
-      scrollRate: 4,
+      scrollRate: 0,
     },
   ];
+
   return (
     <section className="px-4  bg-white lg:h-[34rem] lg:grid lg:flex lg:grid-cols-2 ">
       <div>
@@ -76,7 +77,7 @@ function ProjectsComponent({ scrollYProgress }: any) {
           <br /> Click the image to learn more about each application.
         </p>
       </div>
-      <ul className="relative grid xs:grid-cols-auto-grid-220 xs:gap-x-3 lg:block">
+      <ul className="relative -left-20 grid xs:grid-cols-auto-grid-220 xs:gap-x-3 lg:block">
         {projects.map((p, index) => {
           const { id, imageUrl, alt, x, y, z, scrollRate } = p;
           let imageScroll;
@@ -84,7 +85,7 @@ function ProjectsComponent({ scrollYProgress }: any) {
             imageScroll = useTransform(
               scrollYProgress,
               [0, 1],
-              ["0%", `-${scrollRate * 50}%`]
+              ["0%", `-100%`]
             );
           }
           return (
@@ -95,9 +96,9 @@ function ProjectsComponent({ scrollYProgress }: any) {
                 left: x,
                 y: imageScroll,
               }}
-              className={`w-full lg:relative ${z} duration-300`}
+              className={`w-full lg:absolute ${z} duration-300`}
             >
-              <div className="relative h-80 w-full xs:h-56 lg:h-64">
+              <div className="relative h-80 w-full xs:h-56 xl:h-64">
                 <Image
                   src={imageUrl}
                   alt={alt}
@@ -239,3 +240,49 @@ function TechComponent() {
     </div>
   );
 }
+
+// * relative
+// imageScroll = useTransform(
+//   scrollYProgress,
+//   [0, 1],
+//   ["0%", `-${scrollRate * 50}%`]
+// );
+// * scroll settings
+//  const projects = [
+//    {
+//      id: 1,
+//      imageUrl: blogImage,
+//      alt: "alt text",
+//      x: -150,
+//      y: 90,
+//      z: "z-50",
+//      scrollRate: 1.5,
+//    },
+//    {
+//      id: 2,
+//      imageUrl: coffeeShopImage,
+//      alt: "alt text",
+//      x: 100,
+//      y: 70,
+//      z: "z-10",
+//      scrollRate: 2,
+//    },
+//    {
+//      id: 3,
+//      imageUrl: museumImage,
+//      alt: "alt text",
+//      x: -400,
+//      y: -30,
+//      z: "z-10",
+//      scrollRate: 3,
+//    },
+//    {
+//      id: 4,
+//      imageUrl: todoImage,
+//      alt: "alt text",
+//      x: -70,
+//      y: -60,
+//      z: "z-0",
+//      scrollRate: 4,
+//    },
+//  ];
