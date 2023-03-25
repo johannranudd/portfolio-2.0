@@ -14,6 +14,9 @@ import { useGlobalContext } from "@/context/context";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
 
+import BIRDS from "vanta/dist/vanta.birds.min";
+import * as THREE from "three";
+
 export default function Home() {
   const { scrollYProgress } = useScroll();
 
@@ -23,6 +26,110 @@ export default function Home() {
       <ProjectsComponent scrollYProgress={scrollYProgress} />
       <TechComponent />
     </div>
+  );
+}
+
+function HeroComponent({ scrollYProgress }: any) {
+  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
+
+  function adjustHeroText() {
+    const { bottom }: any = heroRef.current?.getBoundingClientRect();
+    const { height }: any = heroTextRef.current?.getBoundingClientRect();
+    if (typeof bottom === "number" && heroTextRef.current) {
+      const bottomHalf = bottom / 2 - height;
+      if (window.innerWidth < 1024) {
+        heroTextRef.current.style.bottom = `${bottomHalf + 15}px`;
+      } else {
+        heroTextRef.current.style.bottom = `${bottomHalf + 40}px`;
+      }
+    }
+  }
+
+  // useEffect(() => {
+  //   adjustHeroText();
+  // }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", adjustHeroText);
+    return () => {
+      window.removeEventListener("scroll", adjustHeroText);
+    };
+  }, [scrollYProgress]);
+
+  useEffect(() => {
+    adjustHeroText();
+
+    const threeScript = document.createElement("script");
+    threeScript.setAttribute("id", "threeScript");
+    threeScript.setAttribute(
+      "src",
+      "https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
+    );
+    document.getElementsByTagName("head")[0].appendChild(threeScript);
+    return () => {
+      if (threeScript) {
+        threeScript.remove();
+      }
+    };
+  }, []);
+  const [vantaEffect, setVantaEffect] = useState<any>(0);
+  const vantaRef = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        BIRDS({
+          el: vantaRef.current,
+          THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          quantity: 5,
+        })
+      );
+    }
+
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
+
+  return (
+    <>
+      {/* <div className="w-[100vw] h-[100vh]">
+        <div ref={vantaRef} className="w-full h-full bg-black"></div>
+      </div> */}
+      <div ref={heroRef} className="relative border border-red-500 -z-50 ">
+        <m.section
+          ref={vantaRef}
+          style={{ y: sectionScroll }}
+          className="relative h-screen -z-50 bg-[#c2f6ff]"
+        >
+          {/* <Image
+            src={harold}
+            alt="image of project"
+            fill={true}
+            className="object-cover"
+          /> */}
+        </m.section>
+        <div
+          ref={heroTextRef}
+          className="absolute -z-50 bg-red-500 md:mx-sidebarWidth"
+        >
+          <p>hello my name is</p>
+          <h1 className="text-2xl">Johann Ranudd</h1>
+          <p>- Front-end developer</p>
+          <button className="cursor-pointer border hover:bg-blue-500">
+            click
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -117,65 +224,6 @@ function ProjectsComponent({ scrollYProgress }: any) {
         </div>
       </div>
     </section>
-  );
-}
-
-function HeroComponent({ scrollYProgress }: any) {
-  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLDivElement>(null);
-
-  function adjustHeroText() {
-    const { bottom }: any = heroRef.current?.getBoundingClientRect();
-    const { height }: any = heroTextRef.current?.getBoundingClientRect();
-    if (typeof bottom === "number" && heroTextRef.current) {
-      const bottomHalf = bottom / 2 - height;
-      if (window.innerWidth < 1024) {
-        heroTextRef.current.style.bottom = `${bottomHalf + 15}px`;
-      } else {
-        heroTextRef.current.style.bottom = `${bottomHalf + 40}px`;
-      }
-    }
-  }
-
-  useEffect(() => {
-    adjustHeroText();
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", adjustHeroText);
-    return () => {
-      window.removeEventListener("scroll", adjustHeroText);
-    };
-  }, [scrollYProgress]);
-
-  return (
-    <>
-      <div ref={heroRef} className="relative border border-red-500 -z-50 ">
-        <m.section
-          style={{ y: sectionScroll }}
-          className="relative h-screen -z-50 bg-[#c2f6ff]"
-        >
-          <Image
-            src={harold}
-            alt="image of project"
-            fill={true}
-            className="object-cover"
-          />
-        </m.section>
-        <div
-          ref={heroTextRef}
-          className="absolute -z-50 bg-red-500 md:mx-sidebarWidth"
-        >
-          <p>hello my name is</p>
-          <h1 className="text-2xl">Johann Ranudd</h1>
-          <p>- Front-end developer</p>
-          <button className="cursor-pointer border hover:bg-blue-500">
-            click
-          </button>
-        </div>
-      </div>
-    </>
   );
 }
 
