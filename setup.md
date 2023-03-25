@@ -1,4 +1,4 @@
-1. `npx create-next-app@latest --typescript`
+1. `npx create-next-app@latest --typescript .`
 2. `npm install -D tailwindcss postcss autoprefixer`
 3. `npx tailwindcss init -p`
 
@@ -25,3 +25,16 @@ create color theme:
 `npm i next-themes`
 `npm i react-icons`
 `npm i sharp` ?????
+
+framer motion:
+
+`npm install framer-motion`
+
+vanta and three:
+
+`npm i vanta`
+`npm i three@0.122.0`
+`https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js`
+`npm i --save-dev @types/vanta`
+`npm i --save-dev @types/three`
+create file named vanta.d.ts and insert: `declare module "vanta/dist/vanta.birds.min";`
