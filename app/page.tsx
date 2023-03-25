@@ -49,69 +49,72 @@ function ProjectsComponent({ scrollYProgress }: any) {
   ];
 
   return (
-    <section className="max-w-screen-lg md:mx-auto bg-white mb-20">
-      <div className="px-4  md:mx-sidebarWidth">
-        <h2 className="py-16 text-2xl">projects</h2>
-        <ul className="flex flex-col w-full space-y-20">
-          {projects.map((p, index) => {
-            const { id, imageUrl, alt, tech } = p;
-            let reversed = false;
-            if (index % 2 == 0) {
-              reversed = true;
-            }
-            return (
-              <>
-                <li
-                  key={id}
-                  className={`relative w-full text-white md:text-black`}
-                >
-                  <div
-                    className={`absolute h-full flex flex-col justify-center space-y-2 ${
-                      !reversed ? "md:items-end" : "md:items-start"
-                    } `}
+    <section className=" bg-white mb-20">
+      <div className="max-w-screen-lg md:mx-auto">
+        <div className="px-4  md:mx-sidebarWidth">
+          <h2 className="py-16 text-2xl">projects</h2>
+          <ul className="flex flex-col w-full space-y-20">
+            {projects.map((p, index) => {
+              const { id, imageUrl, alt, tech } = p;
+              let reversed = false;
+              if (index % 2 == 0) {
+                reversed = true;
+              }
+              return (
+                <>
+                  <li
+                    key={id}
+                    className={`relative w-full text-white md:text-black`}
                   >
-                    <p className="text-md z-50">Featured project</p>
-                    <h4 className="text-xl z-50">project name</h4>
-                    <p className="p-4 bg-[#2445c9] rounded-md w-[60%] z-50">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Harum autem cupiditate accusamus voluptatem in. Eius iure
-                      ut ratione, aliquam dignissimos accusamus neque, tempore
-                      consequatur optio, sapiente cum quidem ad delectus.
-                    </p>
-                    <ul className="flex space-x-3 z-50">
-                      {tech.map((t, index) => {
-                        return <li key={index}>{t}</li>;
-                      })}
-                    </ul>
-                    <div className="flex space-x-3 z-50">
-                      <Link href={`https://github.com/`}>
-                        <FaGithub />
-                      </Link>
-                      <Link href={`https://github.com/`}>
-                        <FaLink />
-                      </Link>
-                    </div>
-                  </div>
-                  <Link href={"https://twitter.com/"}>
                     <div
-                      className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
-                        !reversed ? "md:mr-auto" : "md:ml-auto"
+                      className={`absolute h-full flex flex-col justify-center space-y-2 ${
+                        !reversed ? "md:items-end" : "md:items-start"
                       } `}
                     >
-                      <div className="z-10 absolute w-full h-full  rounded-md bg-[#000000ba] md:bg-[#00000046] hover:bg-transparent duration-300"></div>
-                      <Image
-                        src={imageUrl}
-                        alt={alt}
-                        fill={true}
-                        className="object-cover object-top rounded-md"
-                      />
+                      <p className="text-md z-50">Featured project</p>
+                      <h4 className="text-xl z-50">project name</h4>
+                      <p className="p-4 bg-[#2445c9] rounded-md w-[60%] z-50">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Harum autem cupiditate accusamus voluptatem in.
+                        Eius iure ut ratione, aliquam dignissimos accusamus
+                        neque, tempore consequatur optio, sapiente cum quidem ad
+                        delectus.
+                      </p>
+                      <ul className="flex space-x-3 z-50">
+                        {tech.map((t, index) => {
+                          return <li key={index}>{t}</li>;
+                        })}
+                      </ul>
+                      <div className="flex space-x-3 z-50">
+                        <Link href={`https://github.com/`}>
+                          <FaGithub />
+                        </Link>
+                        <Link href={`https://github.com/`}>
+                          <FaLink />
+                        </Link>
+                      </div>
                     </div>
-                  </Link>
-                </li>
-              </>
-            );
-          })}
-        </ul>
+                    <Link href={"https://twitter.com/"}>
+                      <div
+                        className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+                          !reversed ? "md:mr-auto" : "md:ml-auto"
+                        } `}
+                      >
+                        <div className="z-10 absolute w-full h-full  rounded-md bg-[#000000ba] md:bg-[#00000046] hover:bg-transparent duration-300"></div>
+                        <Image
+                          src={imageUrl}
+                          alt={alt}
+                          fill={true}
+                          className="object-cover object-top rounded-md"
+                        />
+                      </div>
+                    </Link>
+                  </li>
+                </>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   );
@@ -150,7 +153,7 @@ function HeroComponent({ scrollYProgress }: any) {
     <>
       <div ref={heroRef} className="relative border border-red-500 -z-50 ">
         <m.section
-          // style={{ y: sectionScroll }}
+          style={{ y: sectionScroll }}
           className="relative h-screen -z-50 bg-[#c2f6ff]"
         >
           <Image
