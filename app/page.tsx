@@ -1,28 +1,106 @@
 "use client";
 import Image from "next/image";
-import blogImage from "../images/blog.png";
-import coffeeShopImage from "../images/coffee-shop.png";
-import museumImage from "../images/museum.png";
-import todoImage from "../images/todo.png";
 import harold from "../images/hero5.jpg";
 import image1 from "../images/auction.png";
 import image2 from "../images/ecommerce.png";
 import image3 from "../images/socialmedia.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { useGlobalContext } from "@/context/context";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
+import { adjustHeroText } from "./utils/generics";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { useBox, Physics } from "@react-three/cannon";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div>
+    <>
       <HeroComponent scrollYProgress={scrollYProgress} />
-      <ProjectsComponent scrollYProgress={scrollYProgress} />
-      <TechComponent />
-    </div>
+      {/* <ProjectsComponent scrollYProgress={scrollYProgress} /> */}
+      {/* <TechComponent /> */}
+    </>
+  );
+}
+
+function HeroComponent({ scrollYProgress }: any) {
+  // const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // const heroRef = useRef<HTMLDivElement>(null);
+  // const heroTextRef = useRef<HTMLDivElement>(null);
+
+  // useEffect(() => {
+  //   adjustHeroText(heroRef, heroTextRef);
+  // }, []);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () =>
+  //     adjustHeroText(heroRef, heroTextRef)
+  //   );
+  //   return () => {
+  //     window.removeEventListener("scroll", () =>
+  //       adjustHeroText(heroRef, heroTextRef)
+  //     );
+  //   };
+  // }, [scrollYProgress]);
+  // -z-10
+  return (
+    <>
+      <div
+        // ref={heroRef}
+        className="relative border border-red-500 "
+      >
+        <m.section
+          // style={{ y: sectionScroll }}
+          className="relative h-screen  bg-[#c2f6ff] z-0"
+        >
+          <Canvas>
+            <OrbitControls />
+            <ambientLight intensity={0.5} />
+            <spotLight position={[7, 10, 5]} angle={0.3} />
+            <Physics>
+              <Box />
+              <Plane />
+            </Physics>
+          </Canvas>
+          {/* <Image
+            src={harold}
+            alt="image of project"
+            fill={true}
+            className="object-cover"
+          /> */}
+        </m.section>
+        {/* <div
+          ref={heroTextRef}
+          className="absolute bg-red-500 md:mx-sidebarWidth"
+        >
+          <p>hello my name is</p>
+          <h1 className="text-2xl">Johann Ranudd</h1>
+          <p>- Front-end developer</p>
+          <button className="cursor-pointer border hover:bg-blue-500">
+            click
+          </button>
+        </div> */}
+      </div>
+    </>
+  );
+}
+
+function Plane() {
+  return (
+    <mesh position={[0, -10, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <planeGeometry args={[100, 100]} />
+      <meshStandardMaterial color="blue" />
+    </mesh>
+  );
+}
+function Box() {
+  return (
+    <mesh>
+      <boxGeometry />
+      <meshStandardMaterial color="hotpink" />
+    </mesh>
   );
 }
 
@@ -49,7 +127,7 @@ function ProjectsComponent({ scrollYProgress }: any) {
   ];
 
   return (
-    <section className=" bg-white mb-20">
+    <section className="bg-white mb-20">
       <div className="max-w-screen-lg md:mx-auto">
         <div className="px-4  md:mx-sidebarWidth">
           <h2 className="py-16 text-2xl">projects</h2>
@@ -117,65 +195,6 @@ function ProjectsComponent({ scrollYProgress }: any) {
         </div>
       </div>
     </section>
-  );
-}
-
-function HeroComponent({ scrollYProgress }: any) {
-  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLDivElement>(null);
-
-  function adjustHeroText() {
-    const { bottom }: any = heroRef.current?.getBoundingClientRect();
-    const { height }: any = heroTextRef.current?.getBoundingClientRect();
-    if (typeof bottom === "number" && heroTextRef.current) {
-      const bottomHalf = bottom / 2 - height;
-      if (window.innerWidth < 1024) {
-        heroTextRef.current.style.bottom = `${bottomHalf + 15}px`;
-      } else {
-        heroTextRef.current.style.bottom = `${bottomHalf + 40}px`;
-      }
-    }
-  }
-
-  useEffect(() => {
-    adjustHeroText();
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", adjustHeroText);
-    return () => {
-      window.removeEventListener("scroll", adjustHeroText);
-    };
-  }, [scrollYProgress]);
-
-  return (
-    <>
-      <div ref={heroRef} className="relative border border-red-500 -z-50 ">
-        <m.section
-          style={{ y: sectionScroll }}
-          className="relative h-screen -z-50 bg-[#c2f6ff]"
-        >
-          <Image
-            src={harold}
-            alt="image of project"
-            fill={true}
-            className="object-cover"
-          />
-        </m.section>
-        <div
-          ref={heroTextRef}
-          className="absolute -z-50 bg-red-500 md:mx-sidebarWidth"
-        >
-          <p>hello my name is</p>
-          <h1 className="text-2xl">Johann Ranudd</h1>
-          <p>- Front-end developer</p>
-          <button className="cursor-pointer border hover:bg-blue-500">
-            click
-          </button>
-        </div>
-      </div>
-    </>
   );
 }
 
