@@ -5,13 +5,34 @@ import image1 from "../images/auction.png";
 import image2 from "../images/ecommerce.png";
 import image3 from "../images/socialmedia.png";
 import { motion as m, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
 import { adjustHeroText } from "./utils/generics";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { useBox, Physics } from "@react-three/cannon";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { MathUtils } from "three";
+import { OrbitControls, useTexture, Plane } from "@react-three/drei";
+import { useBox, Physics, usePlane } from "@react-three/cannon";
+import vertexShader from "./components/shaders/vertexShader";
+import fragmentShader from "./components/shaders/fragmentShader";
+import rockTexture from "../images/coast_sand_rocks_02_arm_1k.jpg";
+// import rockTexture from "../textures/coast_sand_rocks_02_diff_1k.jpg";
+
+function Terrain() {
+  const colorTexture = useTexture(rockTexture.src);
+
+  return (
+    <Plane args={[10, 10]} rotation-x={-Math.PI / 2}>
+      <meshStandardMaterial map={colorTexture} />
+    </Plane>
+  );
+  // return (
+  //   <mesh position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+  //     <planeGeometry args={[100, 100]} />
+  //     <meshStandardMaterial map={colorTexture} />
+  //   </mesh>
+  // );
+}
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -45,6 +66,7 @@ function HeroComponent({ scrollYProgress }: any) {
   //   };
   // }, [scrollYProgress]);
   // -z-10
+
   return (
     <>
       <div
@@ -55,14 +77,12 @@ function HeroComponent({ scrollYProgress }: any) {
           // style={{ y: sectionScroll }}
           className="relative h-screen  bg-[#c2f6ff] z-0"
         >
-          <Canvas>
+          <Canvas camera={{ position: [0, 5, 5] }}>
             <OrbitControls />
             <ambientLight intensity={0.5} />
             <spotLight position={[7, 10, 5]} angle={0.3} />
-            <Physics>
-              <Box />
-              <Plane />
-            </Physics>
+            <Terrain />
+            {/* <Blob /> */}
           </Canvas>
           {/* <Image
             src={harold}
@@ -71,6 +91,7 @@ function HeroComponent({ scrollYProgress }: any) {
             className="object-cover"
           /> */}
         </m.section>
+
         {/* <div
           ref={heroTextRef}
           className="absolute bg-red-500 md:mx-sidebarWidth"
@@ -87,22 +108,77 @@ function HeroComponent({ scrollYProgress }: any) {
   );
 }
 
-function Plane() {
-  return (
-    <mesh position={[0, -10, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-      <planeGeometry args={[100, 100]} />
-      <meshStandardMaterial color="blue" />
-    </mesh>
-  );
-}
-function Box() {
-  return (
-    <mesh>
-      <boxGeometry />
-      <meshStandardMaterial color="hotpink" />
-    </mesh>
-  );
-}
+// function PlaneComponent() {
+//   const [usePlaneRef]: any = usePlane(() => ({
+//     position: [0, -2, 0],
+//     rotation: [-Math.PI / 2, 0, 0],
+//   }));
+//   const colorTexture = useTexture(`${rockTexture}`);
+
+//   return (
+//     <mesh
+//       ref={usePlaneRef}
+//       position={[0, -2, 0]}
+//       rotation={[-Math.PI / 2, 0, 0]}
+//     >
+//       <planeGeometry args={[100, 100]} />
+//       <meshStandardMaterial color="blue" />
+//     </mesh>
+//   );
+// }
+
+// function Blob() {
+//   const meshRef: any = useRef();
+//   const hover = useRef(false);
+//   const uniforms: any = useMemo(() => {
+//     return {
+//       u_time: { value: 0 },
+//       u_intensity: { value: 0.3 },
+//     };
+//   }, []);
+
+//   useFrame((state) => {
+//     const { clock } = state;
+//     if (meshRef.current) {
+//       meshRef.current.material.uniforms.u_time.value =
+//         0.4 * clock.getElapsedTime();
+
+//       meshRef.current.material.uniforms.u_intensity.value = MathUtils.lerp(
+//         meshRef.current.material.uniforms.u_intensity.value,
+//         hover.current ? 1 : 0.15,
+//         0.02
+//       );
+//     }
+//   });
+//   return (
+//     <mesh
+//       ref={meshRef}
+//       scale={1.5}
+//       position={[0, 0, 0]}
+//       onPointerOver={() => (hover.current = true)}
+//       onPointerOut={() => (hover.current = false)}
+//     >
+//       <icosahedronBufferGeometry args={[2, 20]} />
+//       {/* <meshStandardMaterial color="hotpink" /> */}
+//       <shaderMaterial
+//         vertexShader={vertexShader}
+//         fragmentShader={fragmentShader}
+//         uniforms={uniforms}
+//       />
+//     </mesh>
+//   );
+// }
+
+// function Box() {
+//   const [useBoxRef]: any = useBox(() => ({ mass: 1, position: [0, 2, 0] }));
+
+//   return (
+//     <mesh ref={useBoxRef} position={[0, 2, 0]}>
+//       <boxGeometry />
+//       <meshStandardMaterial color="hotpink" />
+//     </mesh>
+//   );
+// }
 
 function ProjectsComponent({ scrollYProgress }: any) {
   const projects = [
