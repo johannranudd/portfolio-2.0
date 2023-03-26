@@ -16,6 +16,7 @@ import {
   useTexture,
   Plane,
   MeshWobbleMaterial,
+  Sphere,
 } from "@react-three/drei";
 import { useBox, Physics, usePlane } from "@react-three/cannon";
 import vertexShader from "./components/shaders/vertexShader";
@@ -29,32 +30,36 @@ import { setInterval } from "timers/promises";
 import { group } from "console";
 
 // function Terrain() {
-// const textures = useTexture({
-//   map: rockTextureDiff.src,
-//   displacementMap: rockTextureDisp.src,
-// });
+//   const textures = useTexture({
+//     map: rockTextureDiff.src,
+//     displacementMap: rockTextureDisp.src,
+//   });
 
 //   return (
 //     <>
-//       <Plane args={[10, 10]} rotation-x={-Math.PI / 2}>
+//       <Sphere args={[10, 10]} rotation-x={-Math.PI / 2}>
 //         <meshStandardMaterial {...textures} />
-//       </Plane>
-//       <Plane args={[10, 10, 16, 16]} rotation-x={-Math.PI / 2} position-y={0.1}>
+//       </Sphere>
+//       <Sphere
+//         args={[10, 10, 160, 160]}
+//         rotation-x={-Math.PI / 2}
+//         position-y={0.1}
+//       >
 //         <meshStandardMaterial
 //           {...textures}
 //           wireframe
 //           color={"white"}
 //           map={null}
 //         />
-//       </Plane>
+//       </Sphere>
 //     </>
 //   );
-// return (
-//   <mesh position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-//     <planeGeometry args={[100, 100]} />
-//     <meshStandardMaterial map={colorTexture} />
-//   </mesh>
-// );
+//   // return (
+//   //   <mesh position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+//   //     <planeGeometry args={[100, 100]} />
+//   //     <meshStandardMaterial map={colorTexture} />
+//   //   </mesh>
+//   // );
 // }
 
 function SphereComponent() {
@@ -83,7 +88,7 @@ function SphereComponent() {
   return (
     <mesh ref={meshRef} position={[0, 2, 0]}>
       {/* <boxGeometry /> */}
-      <sphereGeometry args={[1, 64]} />
+      <sphereGeometry args={[10, 64]} />
       {/* <MeshWobbleMaterial color="hotpink" speed={1} factor={0.6} /> */}
       <meshStandardMaterial {...textures} />
     </mesh>
@@ -133,11 +138,12 @@ function HeroComponent({ scrollYProgress }: any) {
           // style={{ y: sectionScroll }}
           className="relative h-screen  bg-[#c2f6ff] z-0"
         >
-          <Canvas camera={{ position: [0, 5, 5] }}>
+          <Canvas camera={{ position: [0, 5, 50] }}>
             <OrbitControls />
             <ambientLight intensity={0.5} />
-            <spotLight position={[7, 10, 5]} angle={0.3} />
-            <SphereComponent />
+            <spotLight position={[7, 100, 50]} angle={0.3} />
+            {/* <SphereComponent /> */}
+            {/* <Terrain /> */}
           </Canvas>
           {/* <Image
             src={harold}
