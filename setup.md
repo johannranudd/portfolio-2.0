@@ -34,3 +34,5 @@ three:
 `npm install three @types/three @react-three/fiber`
 drei:
 `npm install @react-three/drei`
+react-intersection-observer:
+`npm i react-intersection-observer`
