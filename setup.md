@@ -31,4 +31,6 @@ framer motion:
 `npm install framer-motion`
 
 three:
-`npm i react-three`
+`npm install three @types/three @react-three/fiber`
+drei:
+`npm install @react-three/drei`
