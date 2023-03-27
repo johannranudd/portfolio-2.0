@@ -10,88 +10,71 @@ import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
 import { adjustHeroText } from "./utils/generics";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import { MathUtils } from "three";
 import {
   OrbitControls,
   useTexture,
   Plane,
   MeshWobbleMaterial,
   Sphere,
+  MeshTransmissionMaterial,
 } from "@react-three/drei";
 import { useBox, Physics, usePlane } from "@react-three/cannon";
-import vertexShader from "./components/shaders/vertexShader";
-import fragmentShader from "./components/shaders/fragmentShader";
-import rockTextureAo from "../images/coast_sand_rocks_02_ao_1k.jpg";
-import rockTextureArm from "../images/coast_sand_rocks_02_arm_1k.jpg";
-import rockTextureDiff from "../images/coast_sand_rocks_02_diff_1k.jpg";
-import rockTextureGl from "../images/coast_sand_rocks_02_nor_gl_1k.jpg";
-import rockTextureDisp from "../images/coast_sand_rocks_02_disp_1k.jpg";
-import { setInterval } from "timers/promises";
-import { group } from "console";
+// import vertexShader from "./components/shaders/vertexShader";
+// import fragmentShader from "./components/shaders/fragmentShader";
+// import rockTextureAo from "../images/coast_sand_rocks_02_ao_1k.jpg";
+// import rockTextureArm from "../images/coast_sand_rocks_02_arm_1k.jpg";
+// import rockTextureDiff from "../images/coast_sand_rocks_02_diff_1k.jpg";
+// import rockTextureGl from "../images/coast_sand_rocks_02_nor_gl_1k.jpg";
+// import rockTextureDisp from "../images/coast_sand_rocks_02_disp_1k.jpg";
 
-// function Terrain() {
-//   const textures = useTexture({
-//     map: rockTextureDiff.src,
-//     displacementMap: rockTextureDisp.src,
-//   });
+function Tourus() {
+  const [shape, setShape] = useState(0);
+  const ref0 = useRef<THREE.Mesh>(null);
+  const ref1 = useRef<THREE.Mesh>(null);
+  const ref2 = useRef<THREE.Mesh>(null);
+  const ref3 = useRef<THREE.Mesh>(null);
+  const ref4 = useRef<THREE.Mesh>(null);
 
-//   return (
-//     <>
-//       <Sphere args={[10, 10]} rotation-x={-Math.PI / 2}>
-//         <meshStandardMaterial {...textures} />
-//       </Sphere>
-//       <Sphere
-//         args={[10, 10, 160, 160]}
-//         rotation-x={-Math.PI / 2}
-//         position-y={0.1}
-//       >
-//         <meshStandardMaterial
-//           {...textures}
-//           wireframe
-//           color={"white"}
-//           map={null}
-//         />
-//       </Sphere>
-//     </>
-//   );
-//   // return (
-//   //   <mesh position={[0, -2, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-//   //     <planeGeometry args={[100, 100]} />
-//   //     <meshStandardMaterial map={colorTexture} />
-//   //   </mesh>
-//   // );
-// }
-
-function SphereComponent() {
-  const meshRef = useRef<any>(null);
-  const [state, setState] = useState(100);
-  const textures = useTexture({
-    map: rockTextureDiff.src,
-    displacementMap: rockTextureDisp.src,
-    aoMap: rockTextureArm.src,
-    roughnessMap: rockTextureArm.src,
-    metalnessMap: rockTextureArm.src,
-  });
-  // import rockTextureAo from "../images/coast_sand_rocks_02_ao_1k.jpg";
-  // import rockTextureArm from "../images/coast_sand_rocks_02_arm_1k.jpg";
-  // import rockTextureDiff from "../images/coast_sand_rocks_02_diff_1k.jpg";
-  // import rockTextureGl from "../images/coast_sand_rocks_02_nor_gl_1k.jpg";
-  // import rockTextureDisp from "../images/coast_sand_rocks_02_disp_1k.jpg";
-  useFrame(() => {
-    if (meshRef) {
-      // meshRef.current.rotation.x = meshRef.current.rotation.x += 0.001;
-      // meshRef.current.rotation.y = meshRef.current.rotation.y += 0.01;
-      // if ()
+  useFrame((state, delta) => {
+    if (ref1) {
+      // Z
+      ref0.current?.geometry.rotateZ(-0.006);
+      ref1.current?.geometry.rotateZ(0.005);
+      ref2.current?.geometry.rotateZ(-0.0055);
+      ref3.current?.geometry.rotateZ(0.004);
+      ref4.current?.geometry.rotateZ(-0.006);
+      // // Y
+      ref0.current?.geometry.rotateY(0.006);
+      ref1.current?.geometry.rotateY(-0.005);
+      ref2.current?.geometry.rotateY(0.0055);
+      ref3.current?.geometry.rotateY(-0.004);
+      ref4.current?.geometry.rotateY(0.006);
     }
   });
 
   return (
-    <mesh ref={meshRef} position={[0, 2, 0]}>
-      {/* <boxGeometry /> */}
-      <sphereGeometry args={[10, 64]} />
-      {/* <MeshWobbleMaterial color="hotpink" speed={1} factor={0.6} /> */}
-      <meshStandardMaterial {...textures} />
-    </mesh>
+    <group>
+      <mesh rotation-z={0.5} ref={ref0} position={[0, 0, 0]}>
+        <torusGeometry args={[0.2, 0.1, 30, 200, 7]} />
+        <meshLambertMaterial color="#19c2b9" />
+      </mesh>
+      <mesh rotation-z={1} ref={ref1} position={[0, 0, 0]}>
+        <torusGeometry args={[0.5, 0.1, 30, 200, 7]} />
+        <meshLambertMaterial color="#19c2b9" />
+      </mesh>
+      <mesh rotation-z={2} ref={ref2} position={[0, 0, 0]}>
+        <torusGeometry args={[0.8, 0.1, 30, 200, 7]} />
+        <meshLambertMaterial color="#19c2b9" />
+      </mesh>
+      <mesh rotation-z={3} ref={ref3} position={[0, 0, 0]}>
+        <torusGeometry args={[1.1, 0.1, 30, 200, 7]} />
+        <meshLambertMaterial color="#19c2b9" />
+      </mesh>
+      <mesh rotation-z={4} ref={ref4} position={[0, 0, 0]}>
+        <torusGeometry args={[1.4, 0.1, 30, 200, 7]} />
+        <meshLambertMaterial color="#19c2b9" />
+      </mesh>
+    </group>
   );
 }
 
@@ -136,14 +119,16 @@ function HeroComponent({ scrollYProgress }: any) {
       >
         <m.section
           // style={{ y: sectionScroll }}
-          className="relative h-screen  bg-[#c2f6ff] z-0"
+          className="relative h-screen  bg-[#290746] z-0"
         >
-          <Canvas camera={{ position: [0, 5, 50] }}>
+          <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls />
-            <ambientLight intensity={0.5} />
-            <spotLight position={[7, 100, 50]} angle={0.3} />
-            {/* <SphereComponent /> */}
-            {/* <Terrain /> */}
+            <ambientLight intensity={0.01} />
+            <spotLight intensity={0.1} position={[7, 100, 50]} angle={0.3} />
+            {/* <Physics>
+              <PlaneComponent />
+            </Physics> */}
+            <Tourus />
           </Canvas>
           {/* <Image
             src={harold}
@@ -174,7 +159,6 @@ function HeroComponent({ scrollYProgress }: any) {
 //     position: [0, -2, 0],
 //     rotation: [-Math.PI / 2, 0, 0],
 //   }));
-//   const colorTexture = useTexture(`${rockTexture}`);
 
 //   return (
 //     <mesh
@@ -184,6 +168,60 @@ function HeroComponent({ scrollYProgress }: any) {
 //     >
 //       <planeGeometry args={[100, 100]} />
 //       <meshStandardMaterial color="blue" />
+//     </mesh>
+//   );
+// }
+
+// function Terrain() {
+//   const textures = useTexture({
+//     map: rockTextureDiff.src,
+//     displacementMap: rockTextureDisp.src,
+//   });
+
+//   return (
+//     <>
+//       <Sphere args={[10, 10]} rotation-x={-Math.PI / 2}>
+//         <meshStandardMaterial {...textures} />
+//       </Sphere>
+//       <Sphere
+//         args={[10, 10, 160, 160]}
+//         rotation-x={-Math.PI / 2}
+//         position-y={0.1}
+//       >
+//         <meshStandardMaterial
+//           {...textures}
+//           wireframe
+//           color={"white"}
+//           map={null}
+//         />
+//       </Sphere>
+//     </>
+//   );
+// }
+
+// function SphereComponent() {
+//   const meshRef = useRef<any>(null);
+//   const [state, setState] = useState(100);
+//   const textures = useTexture({
+//     map: rockTextureDiff.src,
+//     displacementMap: rockTextureDisp.src,
+//     aoMap: rockTextureArm.src,
+//     roughnessMap: rockTextureArm.src,
+//     metalnessMap: rockTextureArm.src,
+//   });
+//   useFrame(() => {
+//     if (meshRef) {
+//       // meshRef.current.rotation.x = meshRef.current.rotation.x += 0.001;
+//       // meshRef.current.rotation.y = meshRef.current.rotation.y += 0.01;
+//     }
+//   });
+
+//   return (
+//     <mesh ref={meshRef} position={[0, 2, 0]}>
+//       {/* <boxGeometry /> */}
+//       <sphereGeometry args={[10, 64]} />
+//       {/* <MeshWobbleMaterial color="hotpink" speed={1} factor={0.6} /> */}
+//       <meshStandardMaterial {...textures} />
 //     </mesh>
 //   );
 // }
