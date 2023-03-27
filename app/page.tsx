@@ -38,17 +38,17 @@ function Tourus() {
   useFrame((state, delta) => {
     if (ref1) {
       // Z
-      ref0.current?.geometry.rotateZ(-0.006);
-      ref1.current?.geometry.rotateZ(0.005);
-      ref2.current?.geometry.rotateZ(-0.0055);
-      ref3.current?.geometry.rotateZ(0.004);
-      ref4.current?.geometry.rotateZ(-0.006);
+      ref0.current?.geometry.rotateZ(-0.003);
+      ref1.current?.geometry.rotateZ(0.002);
+      ref2.current?.geometry.rotateZ(-0.0025);
+      ref3.current?.geometry.rotateZ(0.001);
+      ref4.current?.geometry.rotateZ(-0.001);
       // // Y
-      ref0.current?.geometry.rotateY(0.006);
-      ref1.current?.geometry.rotateY(-0.005);
-      ref2.current?.geometry.rotateY(0.0055);
-      ref3.current?.geometry.rotateY(-0.004);
-      ref4.current?.geometry.rotateY(0.006);
+      ref0.current?.geometry.rotateY(0.003);
+      ref1.current?.geometry.rotateY(-0.002);
+      ref2.current?.geometry.rotateY(0.0025);
+      ref3.current?.geometry.rotateY(-0.001);
+      ref4.current?.geometry.rotateY(0.001);
     }
   });
 
