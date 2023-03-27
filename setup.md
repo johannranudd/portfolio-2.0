@@ -30,11 +30,5 @@ framer motion:
 
 `npm install framer-motion`
 
-vanta and three:
-
-`npm i vanta`
-`npm i three@0.122.0`
-`https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js`
-`npm i --save-dev @types/vanta`
-`npm i --save-dev @types/three`
-create file named vanta.d.ts and insert: `declare module "vanta/dist/vanta.birds.min";`
+three:
+`npm i react-three`
