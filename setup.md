@@ -1,4 +1,4 @@
-1. `npx create-next-app@latest --typescript`
+1. `npx create-next-app@latest --typescript .`
 2. `npm install -D tailwindcss postcss autoprefixer`
 3. `npx tailwindcss init -p`
 
@@ -25,3 +25,12 @@ create color theme:
 `npm i next-themes`
 `npm i react-icons`
 `npm i sharp` ?????
+
+framer motion:
+
+`npm install framer-motion`
+
+three:
+`npm install three @types/three @react-three/fiber`
+drei:
+`npm install @react-three/drei`
