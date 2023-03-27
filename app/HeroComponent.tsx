@@ -28,35 +28,30 @@ export default function HeroComponent() {
   }, [scrollYProgress]);
 
   return (
-    <>
-      <div ref={heroRef} className="relative border border-red-500 -z-50">
-        <m.section
-          style={{ y: sectionScroll }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative h-screen  bg-[#290746]"
-        >
-          <Canvas camera={{ position: [0, 0, 2] }}>
-            <OrbitControls autoRotate autoRotateSpeed={0.1} />
-            <ambientLight intensity={0.01} />
-            <spotLight intensity={0.1} position={[7, 100, 50]} angle={0.3} />
-            <Tourus />
-          </Canvas>
-        </m.section>
+    <div ref={heroRef} className="relative border border-red-500 -z-50">
+      <m.section
+        style={{ y: sectionScroll }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="relative h-screen  bg-[#290746]"
+      >
+        <Canvas camera={{ position: [0, 0, 2] }}>
+          <OrbitControls autoRotate autoRotateSpeed={0.1} />
+          <ambientLight intensity={0.01} />
+          <spotLight intensity={0.1} position={[7, 100, 50]} angle={0.3} />
+          <Tourus />
+        </Canvas>
+      </m.section>
 
-        <div
-          ref={heroTextRef}
-          className="absolute bg-red-500 md:mx-sidebarWidth"
-        >
-          <p>hello my name is</p>
-          <h1 className="text-2xl">Johann Ranudd</h1>
-          <p>- Front-end developer</p>
-          <button className="cursor-pointer border hover:bg-blue-500">
-            click
-          </button>
-        </div>
+      <div ref={heroTextRef} className="absolute bg-red-500 md:mx-sidebarWidth">
+        <p>hello my name is</p>
+        <h1 className="text-2xl">Johann Ranudd</h1>
+        <p>- Front-end developer</p>
+        <button className="cursor-pointer border hover:bg-blue-500">
+          click
+        </button>
       </div>
-    </>
+    </div>
   );
 }
