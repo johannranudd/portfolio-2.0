@@ -77,27 +77,32 @@ export default function FeaturedProject({
       className={`relative w-full text-white md:text-black duration-300`}
     >
       <div
-        className={`absolute h-full flex flex-col justify-center space-y-2 ${
+        className={`absolute h-full flex flex-col justify-between space-y-2 p-4 xs:p-6 md:p-0 ${
           !reversed ? "md:items-end" : "md:items-start"
         } `}
       >
-        <m.div variants={featuredVariant}>
-          <p className="text-md z-40">Featured project</p>
-          <h4 className="text-xl z-40">project name</h4>
+        <m.div className="z-40" variants={featuredVariant}>
+          <p className="text-md">Featured project</p>
+          <h4 className="text-xl">project name</h4>
         </m.div>
         <m.p
           variants={projectInfoVariant}
-          className="p-4 bg-[#2445c9] rounded-md w-[60%] z-40"
+          className="z-40 rounded-sm text-white md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100"
+          // className="z-40 rounded-sm md:w-[60%] md:p-4 md:bg-[#2445c9]"
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum autem
-          cupiditate accusamus voluptatem in. Eius iure ut ratione, aliquam
-          dignissimos accusamus neque, tempore consequatur optio, sapiente cum
-          quidem ad delectus.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam velit
+          labore ut quas illum, odio ex eveniet pariatur fugit, exercitationem
+          minima veritatis quidem at, accusamus vitae porro reprehenderit ipsa
+          sapiente. Sapiente quo perspiciatis ullam et!
         </m.p>
-        <ul className="flex space-x-3 z-40">
+        <ul className="flex flex-wrap z-40">
           {tech.map((t: any, indexy: number) => {
             return (
-              <m.li variants={projectInfoVariant} key={indexy}>
+              <m.li
+                variants={projectInfoVariant}
+                key={indexy}
+                className={`mr-4 ${reversed ? "md:mr-4" : "md:mr-0 md:ml-4"}`}
+              >
                 {t}
               </m.li>
             );
@@ -112,21 +117,34 @@ export default function FeaturedProject({
           </Link>
         </m.div>
       </div>
-      <Link href={"https://twitter.com/"}>
-        <div
-          className={`relative h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
-            !reversed ? "md:mr-auto" : "md:ml-auto"
-          } `}
-        >
-          <div className="z-10 absolute w-full h-full  rounded-md bg-[#000000ba] md:bg-[#00000046] hover:bg-transparent duration-300"></div>
-          <Image
-            src={imageUrl}
-            alt={alt}
-            fill={true}
-            className="object-cover object-top rounded-md"
-          />
-        </div>
-      </Link>
+      <CardImageAndBackdrop imageUrl={imageUrl} alt={alt} reversed={reversed} />
     </m.li>
+  );
+}
+function CardImageAndBackdrop({
+  imageUrl,
+  alt,
+  reversed,
+}: {
+  imageUrl: any;
+  alt: any;
+  reversed: boolean;
+}) {
+  return (
+    <Link href={"https://twitter.com/"}>
+      <div
+        className={`relative h-[30rem] 3xs:h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+          !reversed ? "md:mr-auto" : "md:ml-auto"
+        } `}
+      >
+        <div className="z-10 absolute w-full h-full  rounded-sm bg-[#000000ba] md:bg-[#00000046] md:hover:bg-transparent duration-300"></div>
+        <Image
+          src={imageUrl}
+          alt={alt}
+          fill={true}
+          className="object-cover object-top rounded-sm"
+        />
+      </div>
+    </Link>
   );
 }
