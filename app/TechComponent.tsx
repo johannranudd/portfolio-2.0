@@ -1,6 +1,6 @@
 export default function TechComponent() {
   return (
-    <div id="scroll-to-me" className="bg-white">
+    <div id="scroll-to-me">
       <div className="px-2 md:mx-sidebarWidth">
         <section>
           <p>

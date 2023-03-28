@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-  /* --primary: #000, */
-  /* --secondary: #000, */
+  --primary: #2c2c3c;
+  --secondary: #aeb3ac;
+  --thirdClr: #5aa0aa;
+  --fourthClr: #315495;
+  --fifthClr: #635959;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #aeb3ac;
+    --secondary: #2c2c3c;
+    --third: #5aa0aa;
+    --fourth: #315495;
+    --fifth: #635959;
+  }
+} */
 
 * {
   box-sizing: border-box;
@@ -17,7 +30,6 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  /* color:#201616 */
 }
 
 /* main {
@@ -35,6 +47,7 @@ body {
 } */
 
 body {
+  background-color: var(--primary);
 }
 
 a {

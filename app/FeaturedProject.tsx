@@ -28,10 +28,10 @@ export default function FeaturedProject({
       x: 0,
       opacity: 1,
       transition: {
-        delay: 0.2,
+        delay: 0.1,
         ease: "easeIn",
         when: "beforeChildren",
-        duration: 0.1,
+        duration: 0.05,
         staggerChildren: 0.1,
       },
     },
@@ -43,7 +43,7 @@ export default function FeaturedProject({
       x: 0,
       opacity: 1,
       transition: {
-        delay: 0.5,
+        delay: 0.3,
         duration: 0.3,
       },
     },
@@ -77,7 +77,7 @@ export default function FeaturedProject({
       className={`relative w-full text-white md:text-black duration-300`}
     >
       <div
-        className={`absolute h-full flex flex-col justify-between space-y-2 p-4 xs:p-6 md:p-0 ${
+        className={`absolute h-full flex flex-col justify-between space-y-2 p-4 text-white xs:p-6 md:p-0 ${
           !reversed ? "md:items-end" : "md:items-start"
         } `}
       >
@@ -88,7 +88,6 @@ export default function FeaturedProject({
         <m.p
           variants={projectInfoVariant}
           className="z-40 rounded-sm text-white md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100"
-          // className="z-40 rounded-sm md:w-[60%] md:p-4 md:bg-[#2445c9]"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam velit
           labore ut quas illum, odio ex eveniet pariatur fugit, exercitationem
