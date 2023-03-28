@@ -16,31 +16,63 @@ export default function FeaturedProject({
   //   const liRef = useRef<HTMLLIElement>(null);
   const { ref, inView } = useInView();
   const animation = useAnimation();
-
-  useEffect(() => {
-    console.log("element is in view??:", index, inView);
-    if (inView) {
-      animation.start({
-        x: 0,
-        opacity: 1,
-        transition: {
-          delay: 0.2,
-          duration: 0.1,
-        },
-      });
-    } else {
-      animation.start({ x: "-20px", opacity: 0 });
-    }
-  }, [inView]);
   let reversed = false;
   if (index % 2 == 0) {
     reversed = true;
   }
+  // const childAnimation = useAnimation();
+
+  const cardVariants = {
+    hiddenState: () => ({ x: reversed ? "-30px" : "30px", opacity: 0 }),
+    animateState: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        ease: "easeIn",
+        when: "beforeChildren",
+        duration: 0.1,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const featuredVariant = {
+    hiddenState: { x: 0, opacity: 0 },
+    animateState: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 0.3,
+      },
+    },
+  };
+
+  const projectInfoVariant = {
+    hiddenState: () => ({ x: reversed ? "-30px" : "30px", opacity: 0 }),
+    animateState: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
+  useEffect(() => {
+    if (!inView) {
+      animation.start("hiddenState");
+    } else {
+      animation.start("animateState");
+    }
+  }, [inView]);
 
   return (
     <m.li
       ref={ref}
       key={id}
+      variants={cardVariants}
       animate={animation}
       className={`relative w-full text-white md:text-black duration-300`}
     >
@@ -49,27 +81,36 @@ export default function FeaturedProject({
           !reversed ? "md:items-end" : "md:items-start"
         } `}
       >
-        <p className="text-md z-50">Featured project</p>
-        <h4 className="text-xl z-50">project name</h4>
-        <p className="p-4 bg-[#2445c9] rounded-md w-[60%] z-50">
+        <m.div variants={featuredVariant}>
+          <p className="text-md z-40">Featured project</p>
+          <h4 className="text-xl z-40">project name</h4>
+        </m.div>
+        <m.p
+          variants={projectInfoVariant}
+          className="p-4 bg-[#2445c9] rounded-md w-[60%] z-40"
+        >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum autem
           cupiditate accusamus voluptatem in. Eius iure ut ratione, aliquam
           dignissimos accusamus neque, tempore consequatur optio, sapiente cum
           quidem ad delectus.
-        </p>
-        <ul className="flex space-x-3 z-50">
-          {/* {tech.map((t, indexy) => {
-            return <li key={indexy}>{t}</li>;
-          })} */}
+        </m.p>
+        <ul className="flex space-x-3 z-40">
+          {tech.map((t: any, indexy: number) => {
+            return (
+              <m.li variants={projectInfoVariant} key={indexy}>
+                {t}
+              </m.li>
+            );
+          })}
         </ul>
-        <div className="flex space-x-3 z-50">
+        <m.div variants={featuredVariant} className="flex space-x-3 z-40">
           <Link href={`https://github.com/`}>
             <FaGithub />
           </Link>
           <Link href={`https://github.com/`}>
             <FaLink />
           </Link>
-        </div>
+        </m.div>
       </div>
       <Link href={"https://twitter.com/"}>
         <div
