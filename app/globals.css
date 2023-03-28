@@ -1,13 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* :root {
+:root {
+  --primary: #2c2c3c;
+  --secondary: #aeb3ac;
+  --thirdClr: #5aa0aa;
+  --fourthClr: #315495;
+  --fifthClr: #635959;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #aeb3ac;
+    --secondary: #2c2c3c;
+    --third: #5aa0aa;
+    --fourth: #315495;
+    --fifth: #635959;
+  }
 } */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  /* border: 1px solid red; */
 }
 
 html,
@@ -31,6 +47,7 @@ body {
 } */
 
 body {
+  background-color: var(--primary);
 }
 
 a {

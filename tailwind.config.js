@@ -21,6 +21,13 @@ module.exports = {
         "2xl": "1440px",
         "3xl": "1536px",
       },
+      colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        thirdClr: "var(--thirdClr)",
+        fourthClr: "var(--fourthClr)",
+        fifthClr: "var(---fifthClr)",
+      },
       gridTemplateColumns: {
         "auto-grid-220": "repeat(auto-fit, minmax(210px, 1fr))",
       },
