@@ -5,6 +5,7 @@ import React, {
   useContext,
   Dispatch,
   SetStateAction,
+  useRef,
 } from "react";
 
 export interface ContextInterface {
@@ -12,17 +13,24 @@ export interface ContextInterface {
   setMenuIsOpen: Dispatch<SetStateAction<boolean>>;
   windowWidth: number;
   setWindowWidth: Dispatch<SetStateAction<number>>;
+  heroTextRefNumber: number;
+  setHeroTextRefNumber: Dispatch<SetStateAction<number>>;
 }
+// heroTextRefNumber: React.RefObject<HTMLElement>;
+// heroTextRefNumber: useRef<HTMLElement>(null),
 
 export const Context = createContext<ContextInterface>({
   menuIsOpen: false,
   setMenuIsOpen: () => false,
   windowWidth: 0,
   setWindowWidth: () => {},
+  heroTextRefNumber: 0,
+  setHeroTextRefNumber: () => 0,
 });
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [heroTextRefNumber, setHeroTextRefNumber] = useState(0);
   const [windowWidth, setWindowWidth] = useState(() => {
     if (typeof window !== "undefined") {
       return window.innerWidth;
@@ -33,7 +41,14 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <Context.Provider
-      value={{ menuIsOpen, setMenuIsOpen, windowWidth, setWindowWidth }}
+      value={{
+        menuIsOpen,
+        setMenuIsOpen,
+        windowWidth,
+        setWindowWidth,
+        heroTextRefNumber,
+        setHeroTextRefNumber,
+      }}
     >
       {children}
     </Context.Provider>
