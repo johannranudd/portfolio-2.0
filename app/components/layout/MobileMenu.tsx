@@ -5,9 +5,16 @@ import { pageStructure } from "./pageStructure";
 import Link from "next/link";
 import BtnColorMode from "../ui/BtnColorMode";
 
+// import {handleScroll}from "../../utils/generics"
+
 export default function MobileMenu() {
-  const { menuIsOpen, setMenuIsOpen, windowWidth, setWindowWidth } =
-    useGlobalContext();
+  const {
+    menuIsOpen,
+    setMenuIsOpen,
+    windowWidth,
+    setWindowWidth,
+    heroTextRefNumber,
+  } = useGlobalContext();
 
   function handleResize() {
     setWindowWidth(window.innerWidth);
@@ -23,6 +30,11 @@ export default function MobileMenu() {
     };
   }, [windowWidth]);
 
+  function closeMenuAndNavigate() {
+    setMenuIsOpen(false);
+    scroll(0, heroTextRefNumber);
+  }
+
   return (
     <>
       {menuIsOpen && (
@@ -37,9 +49,18 @@ export default function MobileMenu() {
           const { id, page, link } = m;
           return (
             <li key={id} className="">
-              <a href={link} className="capitalize">
-                {page}
-              </a>
+              {page === "project" ? (
+                <button onClick={closeMenuAndNavigate} className="capitalize">
+                  {page}
+                </button>
+              ) : (
+                <button
+                  // onClick={() => scroll(0, heroTextRefNumber)}
+                  className="capitalize"
+                >
+                  {page}
+                </button>
+              )}
             </li>
           );
         })}

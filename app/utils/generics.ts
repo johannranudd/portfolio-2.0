@@ -2,6 +2,15 @@ import image1 from "../../images/auction.png";
 import image2 from "../../images/ecommerce.png";
 import image3 from "../../images/socialmedia.png";
 
+// export function handleScroll(heroTextRef: any) {
+//   if (heroTextRef.current) {
+//     const rectHeroTextRef = heroTextRef.current?.getBoundingClientRect().height;
+//     const screenHeight = window.innerHeight - rectHeroTextRef;
+//     console.log(screenHeight);
+//     scroll(0, screenHeight);
+//   }
+// }
+
 export function ajustChevron(chevronRef: any, heroRef: any) {
   if (chevronRef.current) {
     const chevronTop: any = chevronRef.current?.getBoundingClientRect().top;

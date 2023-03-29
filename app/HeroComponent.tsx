@@ -3,11 +3,13 @@ import { useEffect, useRef } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { adjustHeroText, ajustChevron } from "./utils/generics";
+import { adjustHeroText, ajustChevron, handleScroll } from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
+import { useGlobalContext } from "@/context/context";
 
 export default function HeroComponent() {
+  const { heroTextRefNumber, setHeroTextRefNumber } = useGlobalContext();
   const { scrollYProgress } = useScroll();
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -16,6 +18,13 @@ export default function HeroComponent() {
 
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef);
+
+    if (heroTextRef.current) {
+      const rectHeroTextRef =
+        heroTextRef.current?.getBoundingClientRect().height;
+      const screenHeight = window.innerHeight - rectHeroTextRef;
+      setHeroTextRefNumber(screenHeight);
+    }
   }, []);
 
   useEffect(() => {
@@ -30,15 +39,6 @@ export default function HeroComponent() {
       );
     };
   }, [scrollYProgress]);
-
-  function handleScroll() {
-    if (heroTextRef.current) {
-      const rectHeroTextRef =
-        heroTextRef.current?.getBoundingClientRect().height;
-      const screenHeight = window.innerHeight - rectHeroTextRef;
-      scroll(0, screenHeight);
-    }
-  }
 
   return (
     <>
@@ -71,8 +71,7 @@ export default function HeroComponent() {
         </div>
       </div>
       <button
-        // href="#projectsSection"
-        onClick={handleScroll}
+        onClick={() => scroll(0, heroTextRefNumber)}
         ref={chevronRef}
         className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] text-red-500 cursor-pointer"
       >
