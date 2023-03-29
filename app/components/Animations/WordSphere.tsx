@@ -31,7 +31,7 @@ const arrayOfWords = [
 
 export default function WordSphere() {
   return (
-    <div className="h-full w-full bg-[#092643]">
+    <div className="h-full w-full bg-primary">
       <Canvas
         dpr={[1, 2]}
         camera={{
