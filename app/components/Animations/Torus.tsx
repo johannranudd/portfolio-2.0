@@ -67,17 +67,17 @@ export default function Tourus() {
       ref1.current?.geometry.rotateX(-0.0006);
       ref2.current?.geometry.rotateX(-0.001);
       ref3.current?.geometry.rotateX(0.0008);
-      ref4.current?.geometry.rotateX(-0.0004);
+      ref4.current?.geometry.rotateX(-0.0003);
       // Y
       ref1.current?.geometry.rotateY(-0.0006);
       ref2.current?.geometry.rotateY(-0.001);
       ref3.current?.geometry.rotateY(0.0008);
-      ref4.current?.geometry.rotateY(-0.0004);
+      ref4.current?.geometry.rotateY(-0.0003);
       // Z
       ref1.current?.geometry.rotateZ(-0.0006);
       ref2.current?.geometry.rotateZ(-0.001);
       ref3.current?.geometry.rotateZ(0.0008);
-      ref4.current?.geometry.rotateZ(-0.0004);
+      ref4.current?.geometry.rotateZ(-0.0003);
     }
   });
 

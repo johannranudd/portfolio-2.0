@@ -51,7 +51,9 @@ export default function HeroComponent() {
           className="relative h-screen  bg-[#290746]"
         >
           {/* <Canvas camera={{ position: [0, 0, 2] }}>
-            <OrbitControls autoRotate autoRotateSpeed={0.1} />
+            <OrbitControls
+            //  autoRotate autoRotateSpeed={0.1}
+            />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.1} position={[7, 100, 50]} angle={0.3} />
             <Tourus />
