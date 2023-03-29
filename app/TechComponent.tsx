@@ -1,110 +1,25 @@
+import WordSphere from "./components/Animations/WordSphere";
+
 export default function TechComponent() {
   return (
-    <div id="scroll-to-me">
-      <div className="px-2 md:mx-sidebarWidth">
-        <section>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
-            esse excepturi fugiat, dolorem soluta adipisci ipsa dicta
-            voluptatibus rerum amet laudantium, qui, perspiciatis illo
-            consequuntur placeat accusantium suscipit numquam nisi
-            reprehenderit! Velit aliquam molestiae doloribus amet aperiam
-            voluptas at hic saepe. Nemo cum assumenda officia quisquam eveniet
-            repellendus dignissimos aliquam porro sapiente libero adipisci
-            laboriosam, ab quasi autem laudantium, delectus unde, at odio
-            doloribus magni doloremque fugit eaque voluptas. Eveniet neque
-            blanditiis perferendis voluptatibus mollitia quia alias beatae.
-            Dolore alias distinctio dicta doloremque exercitationem praesentium
-            optio sit iusto ipsum libero! Obcaecati rerum unde non porro
-            cupiditate voluptatem sapiente. Consectetur.
+    <section className="relative text-white">
+      <div
+        // id="scroll-to-me"
+        className="px-4 space-y-6 max-w-screen-lg mx-auto md:grid md:grid-cols-2 md:space-y-0"
+      >
+        <div className="md:ml-sidebarWidth">
+          <h2 className="text-xl">About me</h2>
+          <p className="w-full">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
+            esse consectetur iusto quia quas quo repellat explicabo at pariatur
+            veritatis, voluptatem quae autem ipsam ex accusantium deleniti, odit
+            molestias eum dicta voluptates illum nisi quod.
           </p>
-        </section>
-        <section>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
-            esse excepturi fugiat, dolorem soluta adipisci ipsa dicta
-            voluptatibus rerum amet laudantium, qui, perspiciatis illo
-            consequuntur placeat accusantium suscipit numquam nisi
-            reprehenderit! Velit aliquam molestiae doloribus amet aperiam
-            voluptas at hic saepe. Nemo cum assumenda officia quisquam eveniet
-            repellendus dignissimos aliquam porro sapiente libero adipisci
-            laboriosam, ab quasi autem laudantium, delectus unde, at odio
-            doloribus magni doloremque fugit eaque voluptas. Eveniet neque
-            blanditiis perferendis voluptatibus mollitia quia alias beatae.
-            Dolore alias distinctio dicta doloremque exercitationem praesentium
-            optio sit iusto ipsum libero! Obcaecati rerum unde non porro
-            cupiditate voluptatem sapiente. Consectetur.
-          </p>
-        </section>
-        <section>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
-            esse excepturi fugiat, dolorem soluta adipisci ipsa dicta
-            voluptatibus rerum amet laudantium, qui, perspiciatis illo
-            consequuntur placeat accusantium suscipit numquam nisi
-            reprehenderit! Velit aliquam molestiae doloribus amet aperiam
-            voluptas at hic saepe. Nemo cum assumenda officia quisquam eveniet
-            repellendus dignissimos aliquam porro sapiente libero adipisci
-            laboriosam, ab quasi autem laudantium, delectus unde, at odio
-            doloribus magni doloremque fugit eaque voluptas. Eveniet neque
-            blanditiis perferendis voluptatibus mollitia quia alias beatae.
-            Dolore alias distinctio dicta doloremque exercitationem praesentium
-            optio sit iusto ipsum libero! Obcaecati rerum unde non porro
-            cupiditate voluptatem sapiente. Consectetur.
-          </p>
-        </section>
-        <section>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
-            esse excepturi fugiat, dolorem soluta adipisci ipsa dicta
-            voluptatibus rerum amet laudantium, qui, perspiciatis illo
-            consequuntur placeat accusantium suscipit numquam nisi
-            reprehenderit! Velit aliquam molestiae doloribus amet aperiam
-            voluptas at hic saepe. Nemo cum assumenda officia quisquam eveniet
-            repellendus dignissimos aliquam porro sapiente libero adipisci
-            laboriosam, ab quasi autem laudantium, delectus unde, at odio
-            doloribus magni doloremque fugit eaque voluptas. Eveniet neque
-            blanditiis perferendis voluptatibus mollitia quia alias beatae.
-            Dolore alias distinctio dicta doloremque exercitationem praesentium
-            optio sit iusto ipsum libero! Obcaecati rerum unde non porro
-            cupiditate voluptatem sapiente. Consectetur.
-          </p>
-        </section>
-        <section>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
-            esse excepturi fugiat, dolorem soluta adipisci ipsa dicta
-            voluptatibus rerum amet laudantium, qui, perspiciatis illo
-            consequuntur placeat accusantium suscipit numquam nisi
-            reprehenderit! Velit aliquam molestiae doloribus amet aperiam
-            voluptas at hic saepe. Nemo cum assumenda officia quisquam eveniet
-            repellendus dignissimos aliquam porro sapiente libero adipisci
-            laboriosam, ab quasi autem laudantium, delectus unde, at odio
-            doloribus magni doloremque fugit eaque voluptas. Eveniet neque
-            blanditiis perferendis voluptatibus mollitia quia alias beatae.
-            Dolore alias distinctio dicta doloremque exercitationem praesentium
-            optio sit iusto ipsum libero! Obcaecati rerum unde non porro
-            cupiditate voluptatem sapiente. Consectetur.
-          </p>
-        </section>
-        <section>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe odit
-            esse excepturi fugiat, dolorem soluta adipisci ipsa dicta
-            voluptatibus rerum amet laudantium, qui, perspiciatis illo
-            consequuntur placeat accusantium suscipit numquam nisi
-            reprehenderit! Velit aliquam molestiae doloribus amet aperiam
-            voluptas at hic saepe. Nemo cum assumenda officia quisquam eveniet
-            repellendus dignissimos aliquam porro sapiente libero adipisci
-            laboriosam, ab quasi autem laudantium, delectus unde, at odio
-            doloribus magni doloremque fugit eaque voluptas. Eveniet neque
-            blanditiis perferendis voluptatibus mollitia quia alias beatae.
-            Dolore alias distinctio dicta doloremque exercitationem praesentium
-            optio sit iusto ipsum libero! Obcaecati rerum unde non porro
-            cupiditate voluptatem sapiente. Consectetur.
-          </p>
-        </section>
+        </div>
+        <div className="-z-50 h-[20rem] lg:h-[25rem]">
+          <WordSphere />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
