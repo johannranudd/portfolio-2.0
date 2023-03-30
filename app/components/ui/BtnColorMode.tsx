@@ -20,7 +20,7 @@ const BtnColorMode = () => {
 
   return (
     <div className="flex justify-evenly items-center">
-      <div className="text-[1.7rem]">
+      <div className="text-xl">
         {/* {currentTheme === "dark" ? (
           <button
             onClick={() => setTheme("light")}

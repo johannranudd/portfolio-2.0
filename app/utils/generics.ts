@@ -2,6 +2,40 @@ import image1 from "../../images/auction.png";
 import image2 from "../../images/ecommerce.png";
 import image3 from "../../images/socialmedia.png";
 
+export const arrayOfTechShort = [
+  "Next.js",
+  "TypeScript",
+  "JS",
+  "React",
+  "Node",
+  "Prisma",
+];
+
+export const arrayOfTech = [
+  "HTML",
+  "CSS",
+  "Sass",
+  "Bootstrap",
+  "JS",
+  "REST API",
+  "React",
+  "Next.js",
+  "Framer",
+  "Git",
+  "Node",
+  "Express",
+  "TypeScript",
+  "Prisma",
+  "PostgreSQL",
+  "Adobe XD",
+  "Figma",
+  "Tailwind",
+  "Styled Components",
+  "Three.js",
+  "WordPress",
+  "Elementor",
+];
+
 // export function handleScroll(heroTextRef: any) {
 //   if (heroTextRef.current) {
 //     const rectHeroTextRef = heroTextRef.current?.getBoundingClientRect().height;
@@ -23,17 +57,42 @@ export function ajustChevron(chevronRef: any, heroRef: any) {
   }
 }
 
-export function adjustHeroText(heroRef: any, heroTextRef: any) {
-  if (heroRef.current && heroTextRef.current) {
+export function getHeroHeight(headingRef: any) {
+  if (headingRef.current) {
+    const headingHeight: any =
+      headingRef.current?.getBoundingClientRect().height;
+
+    if (window.innerWidth >= 640) {
+      const newHeight = headingHeight * 1.8;
+      const screenHeight = window.innerHeight - newHeight;
+      return screenHeight;
+    } else if (window.innerWidth >= 400) {
+      const newHeight = headingHeight * 3.26;
+      const screenHeight = window.innerHeight - newHeight;
+      return screenHeight;
+    } else if (window.innerWidth < 400) {
+      const newHeight = headingHeight * 3;
+      const screenHeight = window.innerHeight - newHeight;
+      return screenHeight;
+    }
+  }
+}
+
+export function adjustHeroText(
+  heroRef: any,
+  heroTextRef: any,
+  headingRef: any
+) {
+  if (heroRef.current && heroTextRef.current && headingRef.current) {
     const { bottom }: any = heroRef.current?.getBoundingClientRect();
-    const { height }: any = heroTextRef.current?.getBoundingClientRect();
-    if (typeof bottom === "number" && heroTextRef.current) {
-      const bottomHalf = bottom / 2 - height;
-      if (window.innerWidth < 1024) {
-        heroTextRef.current.style.bottom = `${bottomHalf + 15}px`;
-      } else {
-        heroTextRef.current.style.bottom = `${bottomHalf + 40}px`;
-      }
+    const { height }: any = headingRef.current?.getBoundingClientRect();
+    const bottomHalf = bottom / 2 - height;
+    if (height && window.innerWidth >= 640) {
+      const newHeight = height / 1.5;
+      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+    } else if (height && window.innerWidth < 640) {
+      const newHeight = height * 1.9;
+      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
   }
 }

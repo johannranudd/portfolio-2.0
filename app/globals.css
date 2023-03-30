@@ -3,6 +3,7 @@
 @tailwind utilities;
 :root {
   --primary: #2c2c3c;
+  --primary-transparent: #2c2c3cde;
   --secondary: #aeb3ac;
   --thirdClr: #5aa0aa;
   --fourthClr: #315495;
@@ -65,6 +66,21 @@ a {
   height: 100%;
   z-index: 999;
   /* border-radius: 5px; */
+}
+
+.triangle {
+  /* width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+
+  border-left: 5px solid red; */
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+
+  border-left: 4px solid var(--thirdClr);
 }
 
 @media (prefers-color-scheme: dark) {
