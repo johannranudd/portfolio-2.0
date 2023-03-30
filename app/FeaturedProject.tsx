@@ -74,10 +74,10 @@ export default function FeaturedProject({
       key={id}
       variants={cardVariants}
       animate={animation}
-      className={`relative w-full text-white md:text-black duration-300`}
+      className={`relative w-full   duration-300`}
     >
       <div
-        className={`absolute h-full flex flex-col justify-between space-y-2 p-4 text-white xs:p-6 md:p-0 ${
+        className={`absolute h-full flex flex-col justify-between space-y-2 p-4  xs:p-6 md:p-0 ${
           !reversed ? "md:items-end" : "md:items-start"
         } `}
       >
@@ -87,7 +87,7 @@ export default function FeaturedProject({
         </m.div>
         <m.p
           variants={projectInfoVariant}
-          className="z-40 rounded-sm text-white md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100"
+          className="z-40 rounded-sm md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam velit
           labore ut quas illum, odio ex eveniet pariatur fugit, exercitationem
