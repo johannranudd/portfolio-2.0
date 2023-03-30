@@ -87,11 +87,12 @@ export function adjustHeroText(
     const { bottom }: any = heroRef.current?.getBoundingClientRect();
     const { height }: any = headingRef.current?.getBoundingClientRect();
     const bottomHalf = bottom / 2 - height;
-    if (height && window.innerWidth >= 640) {
+    if (height && bottom && window.innerWidth >= 640) {
       const newHeight = height / 1.5;
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-    } else if (height && window.innerWidth < 640) {
+    } else if (height && bottom && window.innerWidth < 640) {
       const newHeight = height * 1.9;
+      // console.log(Math.floor(bottomHalf - newHeight));
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
   }
