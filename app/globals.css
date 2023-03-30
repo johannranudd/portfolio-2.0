@@ -67,6 +67,21 @@ a {
   /* border-radius: 5px; */
 }
 
+.triangle {
+  /* width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+
+  border-left: 5px solid red; */
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+
+  border-left: 4px solid var(--thirdClr);
+}
+
 @media (prefers-color-scheme: dark) {
   /* html {
     color-scheme: dark;

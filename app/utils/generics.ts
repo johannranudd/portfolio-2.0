@@ -2,6 +2,40 @@ import image1 from "../../images/auction.png";
 import image2 from "../../images/ecommerce.png";
 import image3 from "../../images/socialmedia.png";
 
+export const arrayOfTechShort = [
+  "Next.js",
+  "TypeScript",
+  "JS",
+  "React",
+  "Node",
+  "Prisma",
+];
+
+export const arrayOfTech = [
+  "HTML",
+  "CSS",
+  "Sass",
+  "Bootstrap",
+  "JS",
+  "REST API",
+  "React",
+  "Next.js",
+  "Framer",
+  "Git",
+  "Node",
+  "Express",
+  "TypeScript",
+  "Prisma",
+  "PostgreSQL",
+  "Adobe XD",
+  "Figma",
+  "Tailwind",
+  "Styled Components",
+  "Three.js",
+  "WordPress",
+  "Elementor",
+];
+
 // export function handleScroll(heroTextRef: any) {
 //   if (heroTextRef.current) {
 //     const rectHeroTextRef = heroTextRef.current?.getBoundingClientRect().height;

@@ -3,44 +3,20 @@ import * as THREE from "three";
 import { useRef, useState, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Text, TrackballControls } from "@react-three/drei";
-
-const arrayOfWords = [
-  "HTML",
-  "CSS",
-  "Sass",
-  "Bootstrap",
-  "JS",
-  "REST API",
-  "React",
-  "Next.js",
-  "Framer",
-  "Git",
-  "Node",
-  "Express",
-  "TypeScript",
-  "Prisma",
-  "PostgreSQL",
-  "Adobe XD",
-  "Figma",
-  "Tailwind",
-  "Styled Components",
-  "Three.js",
-  "WordPress",
-  "Elementor",
-];
+import { arrayOfTech } from "../../utils/generics";
 
 export default function WordSphere() {
   return (
-    <div className="h-full w-full bg-primary">
+    <div className="h-full w-full bg-transparent">
       <Canvas
         dpr={[1, 2]}
         camera={{
-          position: [0, 0, 35],
+          position: [0, 0, 30],
           fov: 90,
         }}
       >
         <fog attach="fog" args={["#202025", 0, 80]} />
-        <Cloud count={arrayOfWords.length} radius={20} />
+        <Cloud count={arrayOfTech.length} radius={20} />
         <OrbitControls autoRotate autoRotateSpeed={2.5} />
       </Canvas>
     </div>
@@ -93,7 +69,7 @@ function Cloud({ count, radius }: { count: number; radius: number }) {
       spherical.set(radius, phi, theta);
       temp.push([
         new THREE.Vector3().setFromSpherical(spherical),
-        arrayOfWords[i % arrayOfWords.length],
+        arrayOfTech[i % arrayOfTech.length],
       ]);
     }
     return temp;
