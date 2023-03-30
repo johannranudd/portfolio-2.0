@@ -4,40 +4,36 @@ import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 // import { adjustHeroText } from "./utils/generics";
-import { adjustHeroText, ajustChevron } from "./utils/generics";
+import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
 
 export default function HeroComponent() {
-  const { heroTextRefNumber, setHeroTextRefNumber } = useGlobalContext();
+  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } =
+    useGlobalContext();
   const { scrollYProgress } = useScroll();
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const chevronOpacity = useTransform(scrollYProgress, [0, 0.03], [1, 0]);
+  const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0]);
   const heroRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef);
-
-    if (heroTextRef.current) {
-      const rectHeroTextRef =
-        heroTextRef.current?.getBoundingClientRect().height;
-      const screenHeight = window.innerHeight - rectHeroTextRef;
-      setHeroTextRefNumber(screenHeight);
-    }
-  }, []);
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
+  }, [windowWidth]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      // const current = scrollYProgress.get();
       ajustChevron(chevronRef, heroRef);
-      adjustHeroText(heroRef, heroTextRef);
+      adjustHeroText(heroRef, heroTextRef, headingRef);
     });
     return () => {
       window.removeEventListener("scroll", () =>
-        adjustHeroText(heroRef, heroTextRef)
+        adjustHeroText(heroRef, heroTextRef, headingRef)
       );
     };
   }, [scrollYProgress]);
@@ -63,15 +59,15 @@ export default function HeroComponent() {
         </m.section>
         <div className="max-w-screen-lg mx-auto text-lg xxs:text-xl  ">
           <div className="px-2 md:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="absolute space-y-6">
-              <p className="text-thirdClr">Hello my name is</p>
-              <h1 className="text-4xl xxs:text-5xl sm:text-6xl">
+            <div ref={heroTextRef} className="absolute">
+              <p className="mb-4 text-thirdClr">Hello my name is</p>
+              <h1
+                ref={headingRef}
+                className="text-4xl xxs:text-5xl sm:text-6xl"
+              >
                 Johann Ranudd
               </h1>
-              <p>- Front-end developer</p>
-              <button className="cursor-pointer border hover:bg-blue-500">
-                click
-              </button>
+              <p className="mt-4">- Front-end developer</p>
             </div>
           </div>
         </div>

@@ -49,6 +49,7 @@ module.exports = {
       },
       colors: {
         primary: "var(--primary)",
+        "primary-transparent": "var(--primary-transparent)",
         secondary: "var(--secondary)",
         thirdClr: "var(--thirdClr)",
         thirdClrDark: "var(--thirdClrDark)",
@@ -56,6 +57,7 @@ module.exports = {
         fourthClrDark: "var(--fourthClrDark)",
       },
       boxShadow: {
+        "#0": "rgba(0, 0, 0, 0.2) 0px -7px 10px 0px;",
         "#1": "rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;",
         "#3": "rgba(0, 0, 0, 0.35) 0px 5px 15px",
         "#5": "rgba(0, 0, 0, 0.7) 0px 3px 8px",

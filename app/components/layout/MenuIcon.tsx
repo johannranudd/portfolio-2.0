@@ -13,17 +13,17 @@ export default function MenuIcon() {
       className="cursor-pointer space-y-1.5 mdlg:hidden"
     >
       <div
-        className={`w-8 h-[3px] duration-300 rounded-md bg-black  ${
+        className={`w-8 h-[3px] duration-300 rounded-md bg-white  ${
           menuIsOpen && "rotate-45 translate-y-[9px]"
         }`}
       ></div>
       <div
-        className={`w-8 h-[3px] duration-300 rounded-md bg-black ${
+        className={`w-8 h-[3px] duration-300 rounded-md bg-white ${
           menuIsOpen && "bg-transparent"
         }`}
       ></div>
       <div
-        className={`w-8 h-[3px] duration-300 rounded-md bg-black ${
+        className={`w-8 h-[3px] duration-300 rounded-md bg-white ${
           menuIsOpen && "-rotate-45 translate-y-[-9px]"
         }`}
       ></div>
