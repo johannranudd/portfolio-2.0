@@ -43,7 +43,7 @@ function Word({ children, ...props }: any) {
       ref.current.quaternion.copy(camera.quaternion);
       // Animate font color
       const material = ref.current.material as THREE.MeshBasicMaterial;
-      material.color.lerp(color.set(hovered ? "#fa2720" : "white"), 0.1);
+      material.color.lerp(color.set(hovered ? "#fa2720" : "#5aa0aa"), 0.1);
     }
   });
 

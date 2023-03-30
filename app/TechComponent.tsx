@@ -3,14 +3,14 @@ import { arrayOfTechShort } from "./utils/generics";
 
 export default function TechComponent() {
   return (
-    <section className="relative px-2 md:px-4 space-y-6 max-w-screen-lg mx-auto text-white md:ml-sidebarWidth">
-      <h2 className="text-xl ">About me</h2>
+    <section className="px-2 md:px-4 max-w-screen-lg mx-auto text-white ">
       <div
         // id="scroll-to-me"
-        className="grid gap-y-6 sm:gap-y-0 sm:gap-x-6 sm:grid-cols-2"
+        className="grid gap-y-6 sm:grid-cols-2"
       >
-        <div className="space-y-3">
-          <p className="w-full">
+        <div className="md:ml-sidebarWidth space-y-6 mlg:space-y-0 md:flex md:flex-col md:justify-between">
+          <h2 className="text-xl mlg:mt-10">About me</h2>
+          <p className="">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
             esse consectetur iusto quia quas quo repellat explicabo at pariatur
             veritatis, voluptatem quae autem ipsam ex accusantium deleniti, odit
@@ -19,17 +19,15 @@ export default function TechComponent() {
           <ul className="grid grid-cols-2">
             {arrayOfTechShort.map((m, i) => {
               return (
-                <div key={i}>
-                  <li className="flex items-center space-x-1">
-                    <div className="triangle"></div>
-                    <p>{m}</p>
-                  </li>
-                </div>
+                <li key={i} className="flex items-center space-x-1">
+                  <div className="triangle"></div>
+                  <p>{m}</p>
+                </li>
               );
             })}
           </ul>
         </div>
-        <div className="-z-50 h-[14rem] xxs:h-[18rem]  sm:h-[20] md:h-[23]">
+        <div className="-z-50 h-[14rem] xxs:h-[18rem]  sm:h-[15rem] mlg:h-[20rem] self-center">
           <WordSphere />
         </div>
       </div>
