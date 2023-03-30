@@ -3,10 +3,10 @@ import { arrayOfTechShort } from "./utils/generics";
 
 export default function TechComponent() {
   return (
-    <section className="px-2 md:px-4 max-w-screen-lg mx-auto text-white ">
+    <section className="px-2 pb-16 md:px-4 max-w-screen-lg mx-auto text-white ">
       <div
         // id="scroll-to-me"
-        className="grid gap-y-6 sm:grid-cols-2"
+        className="grid gap-y-16 sm:gap-y-0 sm:grid-cols-2"
       >
         <div className="md:ml-sidebarWidth space-y-6 mlg:space-y-0 md:flex md:flex-col md:justify-between">
           <h2 className="text-xl mlg:mt-10">About me</h2>

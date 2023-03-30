@@ -1,3 +1,4 @@
+import ContactComponent from "./ContactComponent";
 import HeroComponent from "./HeroComponent";
 import ProjectsComponent from "./ProjectsComponent";
 import TechComponent from "./TechComponent";
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroComponent />
       <ProjectsComponent />
       <TechComponent />
+      <ContactComponent />
     </div>
   );
 }
