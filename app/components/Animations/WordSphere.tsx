@@ -1,8 +1,8 @@
 "use client";
 import * as THREE from "three";
-import { useRef, useState, useMemo, useEffect } from "react";
+import { useRef, useState, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Text, TrackballControls } from "@react-three/drei";
+import { OrbitControls, Text } from "@react-three/drei";
 import { arrayOfTech } from "../../utils/generics";
 
 export default function WordSphere() {

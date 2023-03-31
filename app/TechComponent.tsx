@@ -20,12 +20,9 @@ export default function TechComponent() {
       initial={{ opacity: 0 }}
       animate={animation}
       id="techSection"
-      className="px-2 pb-16 sm:px-4 max-w-screen-lg mx-auto text-white  "
+      className="px-2 pb-16 sm:px-4 max-w-screen-lg mx-auto"
     >
-      <div
-        // id="scroll-to-me"
-        className="sm:grid sm:gap-y-16 sm:gap-y-0 sm:grid-cols-2"
-      >
+      <div className="sm:grid sm:gap-y-16 sm:gap-y-0 sm:grid-cols-2">
         <div className="md:ml-sidebarWidth space-y-6 mlg:space-y-0 md:flex md:flex-col md:justify-between">
           <div className="relative py-16">
             <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">

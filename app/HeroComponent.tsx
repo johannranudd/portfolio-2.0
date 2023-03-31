@@ -40,11 +40,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section
-        ref={heroRef}
-        id="heroSection"
-        className="relative -z-50 text-white"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         <m.div style={{ y: sectionScroll }} className="relative h-screen">
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
@@ -56,7 +52,7 @@ export default function HeroComponent() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 0.5 }}
             transition={{ delay: 0.5, duration: 1.5 }}
-            className="absolute top-0 left-0 w-full h-full bg-primary opacity-50"
+            className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
           ></m.div>
         </m.div>
         <m.div
@@ -86,7 +82,7 @@ export default function HeroComponent() {
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] text-white cursor-pointer hover:text-thirdClr duration-300"
+        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
       >
         <BsChevronCompactDown />
       </m.button>

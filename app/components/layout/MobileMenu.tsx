@@ -1,11 +1,7 @@
 "use client";
 import { useGlobalContext } from "@/context/context";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { pageStructure } from "./pageStructure";
-import Link from "next/link";
-import BtnColorMode from "../ui/BtnColorMode";
-
-// import {handleScroll}from "../../utils/generics"
 
 export default function MobileMenu() {
   const {
@@ -18,7 +14,7 @@ export default function MobileMenu() {
 
   function handleResize() {
     setWindowWidth(window.innerWidth);
-    if (windowWidth > 1024) {
+    if (windowWidth >= 768) {
       setMenuIsOpen(false);
     }
   }
@@ -34,7 +30,6 @@ export default function MobileMenu() {
     setMenuIsOpen(false);
     scroll(0, heroTextRefNumber);
   }
-  // bg-[#00000082]
   return (
     <>
       {menuIsOpen && (
@@ -50,6 +45,7 @@ export default function MobileMenu() {
       >
         {pageStructure.map((m) => {
           const { id, page, link } = m;
+
           return (
             <li key={id} className="w-full">
               {page === "project" ? (
@@ -71,7 +67,6 @@ export default function MobileMenu() {
             </li>
           );
         })}
-        <BtnColorMode />
       </ul>
     </>
   );

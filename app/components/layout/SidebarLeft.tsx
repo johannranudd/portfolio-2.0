@@ -1,6 +1,5 @@
 "use client";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import BtnColorMode from "../ui/BtnColorMode";
 import { motion as m } from "framer-motion";
 
 export default function SidebarLeft() {
@@ -8,13 +7,24 @@ export default function SidebarLeft() {
     <m.nav
       initial={{ y: "100%" }}
       animate={{ y: 0, transition: { ease: "linear", delay: 0.5 } }}
-      className="hidden md:flex fixed h-screen w-sidebarWidth flex flex-col justify-end text-white text-lg"
+      className="hidden md:flex fixed h-screen w-sidebarWidth flex flex-col justify-end text-lg"
     >
-      <div className="flex flex-col items-center space-y-3 ">
-        <BtnColorMode />
-        <FaGithub className="cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300" />
-        <FaLinkedin className="cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300" />
-        <div className="w-[2px] h-28 bg-white"></div>
+      <div className="flex flex-col items-center space-y-6 ">
+        <a
+          href="https://github.com/johannranudd"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithub className="cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/johann-ranudd/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedin className="cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300" />
+        </a>
+        <div className="w-[2px] h-28 bg-secondary"></div>
       </div>
     </m.nav>
   );

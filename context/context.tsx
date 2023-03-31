@@ -5,7 +5,6 @@ import React, {
   useContext,
   Dispatch,
   SetStateAction,
-  useRef,
 } from "react";
 
 export interface ContextInterface {
@@ -16,8 +15,6 @@ export interface ContextInterface {
   heroTextRefNumber: number;
   setHeroTextRefNumber: Dispatch<SetStateAction<number>>;
 }
-// heroTextRefNumber: React.RefObject<HTMLElement>;
-// heroTextRefNumber: useRef<HTMLElement>(null),
 
 export const Context = createContext<ContextInterface>({
   menuIsOpen: false,

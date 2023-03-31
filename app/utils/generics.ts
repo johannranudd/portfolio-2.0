@@ -36,15 +36,6 @@ export const arrayOfTech = [
   "Elementor",
 ];
 
-// export function handleScroll(heroTextRef: any) {
-//   if (heroTextRef.current) {
-//     const rectHeroTextRef = heroTextRef.current?.getBoundingClientRect().height;
-//     const screenHeight = window.innerHeight - rectHeroTextRef;
-//     console.log(screenHeight);
-//     scroll(0, screenHeight);
-//   }
-// }
-
 export function ajustChevron(chevronRef: any, heroRef: any) {
   if (chevronRef.current) {
     const chevronTop: any = chevronRef.current?.getBoundingClientRect().top;
@@ -92,7 +83,6 @@ export function adjustHeroText(
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     } else if (height && bottom && window.innerWidth < 640) {
       const newHeight = height * 1.9;
-      // console.log(Math.floor(bottomHalf - newHeight));
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
   }
@@ -103,12 +93,16 @@ export const projectsArray = [
     id: 1,
     imageUrl: image2,
     alt: "alt text",
+    link: "https://next13-ts-ca-jr.vercel.app/",
+    githubLink: "https://github.com/johannranudd/next13-ts-ca-jr",
     tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
   },
   {
     id: 2,
     imageUrl: image1,
     alt: "alt text",
+    link: "https://semester-project-2-jr.netlify.app/",
+    githubLink: "https://github.com/johannranudd/semester-project-2-jr",
     tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
   },
 
@@ -116,6 +110,8 @@ export const projectsArray = [
     id: 3,
     imageUrl: image3,
     alt: "alt text",
+    link: "https://js2-ca-jr.netlify.app/",
+    githubLink: "https://github.com/johannranudd/js2_CA_jr",
     tech: ["JavaScript", "SASS", "Rest API", "HTML"],
   },
 ];
