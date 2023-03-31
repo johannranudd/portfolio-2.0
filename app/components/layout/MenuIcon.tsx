@@ -14,7 +14,7 @@ export default function MenuIcon() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}
-      className="relative w-[50px] h-full cursor-pointer group"
+      className="relative w-[30px] h-full cursor-pointer group"
     >
       <m.div
         initial={{ rotate: 60 }}

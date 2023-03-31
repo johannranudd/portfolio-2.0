@@ -34,32 +34,39 @@ export default function MobileMenu() {
     setMenuIsOpen(false);
     scroll(0, heroTextRefNumber);
   }
-
+  // bg-[#00000082]
   return (
     <>
       {menuIsOpen && (
-        <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-[#00000082] mt-navbarWidth"></div>
+        <div
+          onClick={() => setMenuIsOpen(false)}
+          className="absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-[#00000082] mt-navbarWidth cursor-pointer"
+        ></div>
       )}
       <ul
         className={`absolute top-0 mt-navbarWidth z-50 ${
           menuIsOpen ? "left-0" : "-left-[1200px]"
-        } w-full xxs:w-[300px] h-screen flex flex-col justify-evenly items-center bg-pink-500 text-2xl duration-300`}
+        } w-full xxs:w-[300px] h-screen flex flex-col justify-evenly items-center bg-primary text-2xl duration-300`}
       >
         {pageStructure.map((m) => {
           const { id, page, link } = m;
           return (
-            <li key={id} className="">
+            <li key={id} className="w-full">
               {page === "project" ? (
-                <button onClick={closeMenuAndNavigate} className="capitalize">
-                  {page}
-                </button>
-              ) : (
                 <button
-                  // onClick={() => scroll(0, heroTextRefNumber)}
-                  className="capitalize"
+                  onClick={closeMenuAndNavigate}
+                  className="py-2 w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
                 >
                   {page}
                 </button>
+              ) : (
+                <a
+                  href={link}
+                  onClick={() => setMenuIsOpen(false)}
+                  className="inline-block text-center py-2 w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+                >
+                  {page}
+                </a>
               )}
             </li>
           );

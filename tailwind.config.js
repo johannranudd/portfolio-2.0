@@ -59,7 +59,7 @@ module.exports = {
       },
       boxShadow: {
         "#0": "rgba(0, 0, 0, 0.2) 0px -7px 10px 0px;",
-        "#1": "rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;",
+        "#1": "rgba(0, 0, 0, 0.2) 0px 4px 10px 0px;",
         "#3": "rgba(0, 0, 0, 0.35) 0px 5px 15px",
         "#5": "rgba(0, 0, 0, 0.7) 0px 3px 8px",
         "#6": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",

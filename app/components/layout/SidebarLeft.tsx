@@ -12,8 +12,8 @@ export default function SidebarLeft() {
     >
       <div className="flex flex-col items-center space-y-3 ">
         <BtnColorMode />
-        <FaGithub />
-        <FaLinkedin />
+        <FaGithub className="cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300" />
+        <FaLinkedin className="cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300" />
         <div className="w-[2px] h-28 bg-white"></div>
       </div>
     </m.nav>

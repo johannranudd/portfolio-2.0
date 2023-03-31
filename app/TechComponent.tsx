@@ -19,7 +19,8 @@ export default function TechComponent() {
       ref={ref}
       initial={{ opacity: 0 }}
       animate={animation}
-      className="px-2 pb-16 md:px-4 max-w-screen-lg mx-auto text-white  "
+      id="techSection"
+      className="px-2 pb-16 sm:px-4 max-w-screen-lg mx-auto text-white  "
     >
       <div
         // id="scroll-to-me"

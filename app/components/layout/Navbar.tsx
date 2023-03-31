@@ -1,4 +1,3 @@
-import Link from "next/link";
 import MenuIcon from "./MenuIcon";
 import MobileMenu from "./MobileMenu";
 import Logo from "../ui/Logo";

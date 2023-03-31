@@ -19,7 +19,7 @@ const BtnColorMode = () => {
   //   const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
-    <div className="flex justify-evenly items-center">
+    <div className="flex justify-evenly items-center cursor-pointer hover:text-thirdClr hover:translate-y-[-3px] duration-300">
       <div className="text-xl">
         {/* {currentTheme === "dark" ? (
           <button

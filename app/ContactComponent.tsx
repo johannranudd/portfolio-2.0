@@ -16,7 +16,8 @@ export default function ContactComponent() {
       ref={ref}
       initial={{ opacity: 0 }}
       animate={animation}
-      className="px-2 md:px-4 max-w-[660px] mx-auto pb-20 space-y-6 text-center text-white"
+      id="contactSection"
+      className="px-2 sm:px-4 max-w-[660px] mx-auto pb-20 space-y-6 text-center text-white"
     >
       <h2 className="text-3xl">Get In Touch</h2>
       <p>
@@ -25,7 +26,7 @@ export default function ContactComponent() {
       </p>
       <a
         href="mailto:johnrand380@gmail.com"
-        className="inline-block border text-xl p-2 rounded-sm hover:border-thirdClr hover:bg-thirdClr-transparent duration-300"
+        className="inline-block text-xl text-thirdClr p-2 rounded-sm border border-thirdClr hover:bg-thirdClr-transparent duration-300"
       >
         Say Hello
       </a>

@@ -65,7 +65,7 @@ export default function HeroComponent() {
           transition={{ duration: 0.5 }}
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
-          <div className="px-2 md:px-4 md:mx-sidebarWidth">
+          <div className="px-2 sm:px-4 md:mx-sidebarWidth">
             <div ref={heroTextRef} className="absolute">
               <p className="mb-4 text-thirdClr">Hello my name is</p>
               <h1
@@ -86,7 +86,7 @@ export default function HeroComponent() {
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] text-white cursor-pointer"
+        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] text-white cursor-pointer hover:text-thirdClr duration-300"
       >
         <BsChevronCompactDown />
       </m.button>
