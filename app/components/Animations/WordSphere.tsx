@@ -17,7 +17,7 @@ export default function WordSphere() {
       >
         <fog attach="fog" args={["#202025", 0, 80]} />
         <Cloud count={arrayOfTech.length} radius={20} />
-        <OrbitControls autoRotate autoRotateSpeed={2.5} />
+        <OrbitControls autoRotate autoRotateSpeed={2.5} enableZoom={false} />
       </Canvas>
     </div>
   );

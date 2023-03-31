@@ -3,9 +3,11 @@
 @tailwind utilities;
 :root {
   --primary: #2c2c3c;
+  /* --primary: #fff; */
   --primary-transparent: #2c2c3cde;
   --secondary: #aeb3ac;
   --thirdClr: #5aa0aa;
+  --thirdClr-transparent: #5a9faa5e;
   --fourthClr: #315495;
   --fifthClr: #635959;
 }

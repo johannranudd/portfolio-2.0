@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-// import { adjustHeroText } from "./utils/generics";
 import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
@@ -32,33 +31,41 @@ export default function HeroComponent() {
       adjustHeroText(heroRef, heroTextRef, headingRef);
     });
     return () => {
-      window.removeEventListener("scroll", () =>
-        adjustHeroText(heroRef, heroTextRef, headingRef)
-      );
+      window.removeEventListener("scroll", () => {
+        ajustChevron(chevronRef, heroRef);
+        adjustHeroText(heroRef, heroTextRef, headingRef);
+      });
     };
   }, [scrollYProgress]);
 
   return (
     <>
-      <div ref={heroRef} id="heroSection" className="relative -z-50 text-white">
-        <m.section
-          style={{ y: sectionScroll }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative h-screen"
-        >
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative -z-50 text-white"
+      >
+        <m.div style={{ y: sectionScroll }} className="relative h-screen">
           <Canvas camera={{ position: [0, 0, 2] }}>
-            <OrbitControls
-            //  autoRotate autoRotateSpeed={0.1}
-            />
+            <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
-            <spotLight intensity={0.1} position={[7, 100, 50]} angle={0.3} />
+            <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
             <Tourus />
           </Canvas>
-        </m.section>
-        <div className="max-w-screen-lg mx-auto text-lg xxs:text-xl  ">
-          <div className="px-2 md:px-4 md:mx-sidebarWidth">
+          <m.div
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ delay: 0.5, duration: 1.5 }}
+            className="absolute top-0 left-0 w-full h-full bg-primary opacity-50"
+          ></m.div>
+        </m.div>
+        <m.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
+        >
+          <div className="px-2 sm:px-4 md:mx-sidebarWidth">
             <div ref={heroTextRef} className="absolute">
               <p className="mb-4 text-thirdClr">Hello my name is</p>
               <h1
@@ -70,13 +77,16 @@ export default function HeroComponent() {
               <p className="mt-4">- Front-end developer</p>
             </div>
           </div>
-        </div>
-      </div>
+        </m.div>
+      </section>
       <m.button
         onClick={() => scroll(0, heroTextRefNumber)}
         ref={chevronRef}
         style={{ opacity: chevronOpacity }}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] text-white cursor-pointer"
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
+        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] text-white cursor-pointer hover:text-thirdClr duration-300"
       >
         <BsChevronCompactDown />
       </m.button>

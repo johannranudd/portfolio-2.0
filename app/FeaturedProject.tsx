@@ -16,6 +16,7 @@ export default function FeaturedProject({
   //   const liRef = useRef<HTMLLIElement>(null);
   const { ref, inView } = useInView();
   const animation = useAnimation();
+
   let reversed = false;
   if (index % 2 == 0) {
     reversed = true;
@@ -23,6 +24,7 @@ export default function FeaturedProject({
   // const childAnimation = useAnimation();
 
   const cardVariants = {
+    //todo: choose to animate once or more times, animation.start("hiddenState");
     hiddenState: () => ({ x: reversed ? "-30px" : "30px", opacity: 0 }),
     animateState: {
       x: 0,
@@ -50,6 +52,7 @@ export default function FeaturedProject({
   };
 
   const projectInfoVariant = {
+    //todo: choose to animate once or more times, animation.start("hiddenState");
     hiddenState: () => ({ x: reversed ? "-30px" : "30px", opacity: 0 }),
     animateState: {
       x: 0,
@@ -61,9 +64,8 @@ export default function FeaturedProject({
   };
 
   useEffect(() => {
-    if (!inView) {
-      animation.start("hiddenState");
-    } else {
+    //todo: choose to animate once or more times, animation.start("hiddenState");
+    if (inView) {
       animation.start("animateState");
     }
   }, [inView]);
@@ -73,6 +75,8 @@ export default function FeaturedProject({
       ref={ref}
       key={id}
       variants={cardVariants}
+      //todo: choose to animate once or more times, animation.start("hiddenState");
+      initial="hiddenState"
       animate={animation}
       className={`relative w-full   duration-300`}
     >
