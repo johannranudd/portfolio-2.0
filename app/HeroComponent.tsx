@@ -47,7 +47,7 @@ export default function HeroComponent() {
       >
         <m.div style={{ y: sectionScroll }} className="relative h-screen">
           <Canvas camera={{ position: [0, 0, 2] }}>
-            <OrbitControls />
+            <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
             <Tourus />
