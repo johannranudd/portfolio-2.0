@@ -1,3 +1,4 @@
+import LineThroughComponent from "./components/Animations/LineThroughComponent";
 import WordSphere from "./components/Animations/WordSphere";
 import { arrayOfTechShort } from "./utils/generics";
 
@@ -9,7 +10,12 @@ export default function TechComponent() {
         className="grid gap-y-16 sm:gap-y-0 sm:grid-cols-2"
       >
         <div className="md:ml-sidebarWidth space-y-6 mlg:space-y-0 md:flex md:flex-col md:justify-between">
-          <h2 className="text-xl mlg:mt-10">About me</h2>
+          <div className="relative py-16">
+            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-50 bg-primary">
+              About me
+            </h2>
+            <LineThroughComponent />
+          </div>
           <p className="">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
             esse consectetur iusto quia quas quo repellat explicabo at pariatur
