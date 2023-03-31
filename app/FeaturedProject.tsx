@@ -10,10 +10,10 @@ export default function FeaturedProject({
   id,
   imageUrl,
   alt,
+  link,
   tech,
   index,
 }: any) {
-  //   const liRef = useRef<HTMLLIElement>(null);
   const { ref, inView } = useInView();
   const animation = useAnimation();
 
@@ -21,10 +21,8 @@ export default function FeaturedProject({
   if (index % 2 == 0) {
     reversed = true;
   }
-  // const childAnimation = useAnimation();
 
   const cardVariants = {
-    //todo: choose to animate once or more times, animation.start("hiddenState");
     hiddenState: () => ({ x: reversed ? "-30px" : "30px", opacity: 0 }),
     animateState: {
       x: 0,
@@ -52,7 +50,6 @@ export default function FeaturedProject({
   };
 
   const projectInfoVariant = {
-    //todo: choose to animate once or more times, animation.start("hiddenState");
     hiddenState: () => ({ x: reversed ? "-30px" : "30px", opacity: 0 }),
     animateState: {
       x: 0,
@@ -64,7 +61,6 @@ export default function FeaturedProject({
   };
 
   useEffect(() => {
-    //todo: choose to animate once or more times, animation.start("hiddenState");
     if (inView) {
       animation.start("animateState");
     }
@@ -75,10 +71,9 @@ export default function FeaturedProject({
       ref={ref}
       key={id}
       variants={cardVariants}
-      //todo: choose to animate once or more times, animation.start("hiddenState");
       initial="hiddenState"
       animate={animation}
-      className={`relative w-full   duration-300`}
+      className={`relative w-full duration-300`}
     >
       <div
         className={`absolute h-full flex flex-col justify-between space-y-2 p-4  xs:p-6 md:p-0 ${
@@ -120,23 +115,30 @@ export default function FeaturedProject({
           </Link>
         </m.div>
       </div>
-      <CardImageAndBackdrop imageUrl={imageUrl} alt={alt} reversed={reversed} />
+      <CardImageAndBackdrop
+        imageUrl={imageUrl}
+        alt={alt}
+        link={link}
+        reversed={reversed}
+      />
     </m.li>
   );
 }
 function CardImageAndBackdrop({
   imageUrl,
   alt,
+  link,
   reversed,
 }: {
   imageUrl: any;
   alt: any;
+  link: string;
   reversed: boolean;
 }) {
   return (
-    <Link href={"https://twitter.com/"}>
+    <Link href={link} target="_blank" rel="noopener noreferrer">
       <div
-        className={`relative h-[30rem] 3xs:h-96 w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+        className={`relative h-[30rem] 3xs:h-96 xxs:h-[20rem] xs:h-[18rem] w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
           !reversed ? "md:mr-auto" : "md:ml-auto"
         } `}
       >

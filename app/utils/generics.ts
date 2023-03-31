@@ -103,12 +103,14 @@ export const projectsArray = [
     id: 1,
     imageUrl: image2,
     alt: "alt text",
+    link: "https://next13-ts-ca-jr.vercel.app/",
     tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
   },
   {
     id: 2,
     imageUrl: image1,
     alt: "alt text",
+    link: "https://semester-project-2-jr.netlify.app/",
     tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
   },
 
@@ -116,6 +118,7 @@ export const projectsArray = [
     id: 3,
     imageUrl: image3,
     alt: "alt text",
+    link: "https://js2-ca-jr.netlify.app/",
     tech: ["JavaScript", "SASS", "Rest API", "HTML"],
   },
 ];

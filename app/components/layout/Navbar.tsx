@@ -1,6 +1,7 @@
 import MenuIcon from "./MenuIcon";
 import MobileMenu from "./MobileMenu";
 import Logo from "../ui/Logo";
+import { DesktopMenu } from "./DesktopMenu";
 
 export default function NavBar() {
   return (
@@ -9,6 +10,7 @@ export default function NavBar() {
         <Logo />
         <MenuIcon />
         <MobileMenu />
+        <DesktopMenu />
       </nav>
     </header>
   );
