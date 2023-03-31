@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <ContextProvider>
-        <body className="relative min-h-screen">
+        <body className="relative min-h-screen bg-primary text-secondary">
           <NavBar />
           <SidebarLeft />
           <SidebarRight />

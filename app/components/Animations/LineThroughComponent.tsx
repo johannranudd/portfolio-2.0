@@ -13,9 +13,6 @@ export default function LineThroughComponent() {
         transition: { ease: "easeOut", delay: 0.1, duration: 1.5 },
       });
     }
-    // else {
-    //   animation.start({ x: "-100vw" });
-    // }
   }, [inView]);
 
   return (
@@ -23,7 +20,7 @@ export default function LineThroughComponent() {
       <m.div
         initial={{ x: "-100vw" }}
         animate={animation}
-        className="absolute top-[52%] h-[2px] w-[100%] bg-white"
+        className="absolute top-[52%] h-[2px] w-[100%] bg-primary"
       ></m.div>
     </div>
   );

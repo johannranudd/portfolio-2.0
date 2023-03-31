@@ -6,7 +6,7 @@ export default function SidebarRight() {
     <m.nav
       initial={{ y: "100%" }}
       animate={{ y: 0, transition: { ease: "linear", delay: 0.5 } }}
-      className="hidden md:flex z-0 fixed right-0 h-screen w-sidebarWidth flex-col justify-end text-white "
+      className="hidden md:flex z-0 fixed right-0 h-screen w-sidebarWidth flex-col justify-end"
     >
       <div className="flex flex-col items-center justify-between h-[9rem]">
         <a
@@ -15,7 +15,7 @@ export default function SidebarRight() {
         >
           johnrand380@gmail.com
         </a>
-        <div className="w-[2px] h-12 bg-white"></div>
+        <div className="w-[2px] h-12 bg-secondary"></div>
       </div>
     </m.nav>
   );

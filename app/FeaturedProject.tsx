@@ -1,16 +1,16 @@
 "use client";
 import Link from "next/link";
-import { projectsArray } from "./utils/generics";
 import { FaGithub, FaLink } from "react-icons/fa";
 import Image from "next/image";
 import { motion as m, useAnimation } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 export default function FeaturedProject({
   id,
   imageUrl,
   alt,
   link,
+  githubLink,
   tech,
   index,
 }: any) {
@@ -107,12 +107,12 @@ export default function FeaturedProject({
           })}
         </ul>
         <m.div variants={featuredVariant} className="flex space-x-3 z-40">
-          <Link href={`https://github.com/`}>
+          <a href={githubLink} target="_blank" rel="noopener noreferrer">
             <FaGithub />
-          </Link>
-          <Link href={`https://github.com/`}>
+          </a>
+          <a href={link} target="_blank" rel="noopener noreferrer">
             <FaLink />
-          </Link>
+          </a>
         </m.div>
       </div>
       <CardImageAndBackdrop
