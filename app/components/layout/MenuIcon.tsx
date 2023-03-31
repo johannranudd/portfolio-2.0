@@ -14,20 +14,22 @@ export default function MenuIcon() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}
-      className="relative w-[50px] h-full cursor-pointer"
+      className="relative w-[50px] h-full cursor-pointer group"
     >
+      <m.div
+        initial={{ rotate: 60 }}
+        animate={menuIsOpen ? { rotate: 225, x: "-6px" } : { rotate: 60, x: 0 }}
+        transition={{ duration: 0.1, ease: "linear" }}
+        className={`absolute top-1/2 left-[5.8px] w-6 h-[2.5px]  duration-[400ms] rounded-md bg-white group-hover:bg-thirdClr`}
+      ></m.div>
+      <m.div
+        initial={{ rotate: -60 }}
+        animate={menuIsOpen ? { rotate: 135, x: "6px" } : { rotate: -60, x: 0 }}
+        transition={{ duration: 0.1, ease: "linear" }}
+        className={`absolute top-1/2 left-[-5.8px] w-6 h-[2.5px]  duration-[400ms] rounded-md bg-white group-hover:bg-thirdClr`}
+      ></m.div>
       <div
-        className={`absolute top-1/2 left-[5.8px] w-6 h-[2.5px] rotate-[60deg] duration-[400ms] rounded-md bg-white 
-        ${menuIsOpen && " rotate-[225deg] translate-x-[-6px]"}
-        `}
-      ></div>
-      <div
-        className={`absolute top-1/2 left-[-5.8px] w-6 h-[2.5px] rotate-[-60deg] duration-[400ms] rounded-md bg-white 
-        ${menuIsOpen && "rotate-[135deg] translate-x-[6px]"}
-        `}
-      ></div>
-      <div
-        className={`absolute top-[calc(50%+10px)]  w-6 h-[2.5px]  duration-[100ms] rounded-md bg-white 
+        className={`absolute top-[calc(50%+10px)]  w-6 h-[2.5px]  duration-[100ms] rounded-md bg-white group-hover:bg-thirdClr 
         ${menuIsOpen && "opacity-0"}
         `}
       ></div>

@@ -91,7 +91,7 @@ export default function Tourus() {
         <torusGeometry args={[0.5, 0.1, 30, 200]} />
         <meshPhysicalMaterial color="#19c2b9" metalness={1} />
       </mesh>
-      <mesh rotation-x={0.4} rotation-y={0.2} rotation-z={3} ref={ref2}>
+      <mesh rotation-x={0.4} rotation-y={0.6} rotation-z={3} ref={ref2}>
         <torusGeometry args={[0.8, 0.1, 30, 200]} />
         <meshPhysicalMaterial color="#19c2b9" metalness={1} />
       </mesh>
@@ -99,22 +99,10 @@ export default function Tourus() {
         <torusGeometry args={[1.1, 0.1, 30, 200]} />
         <meshPhysicalMaterial color="#19c2b9" metalness={1} />
       </mesh>
-      <mesh rotation-x={4} rotation-y={0} rotation-z={4} ref={ref4}>
+      <mesh rotation-x={1} rotation-y={1} rotation-z={4} ref={ref4}>
         <torusGeometry args={[1.4, 0.1, 30, 200]} />
         <meshPhysicalMaterial color="#19c2b9" metalness={1} />
       </mesh>
     </group>
   );
 }
-
-//  <meshPhysicalMaterial
-//  // metalness={1}
-//  // roughness={0}
-//  // clearcoat={1}
-//  // clearcoatRoughness={0}
-//  // envMapIntensity={1}
-//  // map={texture}
-//  // attach="material"
-//  />;
-
-// *color="#19c2b9"
