@@ -1,5 +1,6 @@
 "use client";
 import { useGlobalContext } from "@/context/context";
+import { motion as m } from "framer-motion";
 export default function MenuIcon() {
   const { menuIsOpen, setMenuIsOpen } = useGlobalContext();
 
@@ -8,48 +9,28 @@ export default function MenuIcon() {
   }
 
   return (
-    <div
+    <m.div
       onClick={handleClick}
-      className="cursor-pointer space-y-1.5 mdlg:hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      className="relative w-[50px] h-full cursor-pointer"
     >
       <div
-        className={`w-8 h-[3px] duration-300 rounded-md bg-white  ${
-          menuIsOpen && "rotate-45 translate-y-[9px]"
-        }`}
+        className={`absolute top-1/2 left-[5.8px] w-6 h-[2.5px] rotate-[60deg] duration-[400ms] rounded-md bg-white 
+        ${menuIsOpen && "rotate-[-225deg] translate-x-[-6px]"}
+        `}
       ></div>
       <div
-        className={`w-8 h-[3px] duration-300 rounded-md bg-white ${
-          menuIsOpen && "bg-transparent"
-        }`}
+        className={`absolute top-1/2 left-[-5.8px] w-6 h-[2.5px] rotate-[-60deg] duration-[400ms] rounded-md bg-white 
+        ${menuIsOpen && "rotate-[-135deg] translate-x-[6px]"}
+        `}
       ></div>
       <div
-        className={`w-8 h-[3px] duration-300 rounded-md bg-white ${
-          menuIsOpen && "-rotate-45 translate-y-[-9px]"
-        }`}
+        className={`absolute top-[calc(50%+10px)]  w-6 h-[2.5px]  duration-[100ms] rounded-md bg-white 
+        ${menuIsOpen && "opacity-0"}
+        `}
       ></div>
-    </div>
+    </m.div>
   );
 }
-
-//  return (
-//    <div
-//      onClick={handleClick}
-//      className="ml-auto cursor-pointer pr-2 space-y-1.5 md:hidden"
-//    >
-//      <div
-//        className={`w-8 h-[3px] duration-300 rounded-md bg-secondary dark:bg-primary ${
-//          menuIsOpen && "rotate-45 translate-y-[9px]"
-//        }`}
-//      ></div>
-//      <div
-//        className={`w-8 h-[3px] duration-300 rounded-md bg-secondary ${
-//          menuIsOpen ? "bg-transparent" : "dark:bg-primary"
-//        }`}
-//      ></div>
-//      <div
-//        className={`w-8 h-[3px] duration-300 rounded-md bg-secondary dark:bg-primary ${
-//          menuIsOpen && "-rotate-45 translate-y-[-9px]"
-//        }`}
-//      ></div>
-//    </div>
-//  );

@@ -12,13 +12,13 @@ export default function ProjectsComponent() {
       <div className="max-w-screen-lg md:mx-auto">
         <div className=" px-2 md:px-4 md:mx-sidebarWidth">
           <div className="relative py-16 sm:w-1/2">
-            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-50 bg-primary">
+            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
               Projects
             </h2>
             <LineThroughComponent />
           </div>
 
-          <ul className="flex flex-col w-full  space-y-20">
+          <ul className="flex flex-col w-full space-y-20">
             {projectsArray.map((p: any, index: number) => {
               const all = { ...p, index };
               return <FeaturedProject {...all} key={index} />;

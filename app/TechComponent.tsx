@@ -11,7 +11,7 @@ export default function TechComponent() {
       >
         <div className="md:ml-sidebarWidth space-y-6 mlg:space-y-0 md:flex md:flex-col md:justify-between">
           <div className="relative py-16">
-            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-50 bg-primary">
+            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
               About me
             </h2>
             <LineThroughComponent />
