@@ -16,6 +16,7 @@ export default function FeaturedProject({
   //   const liRef = useRef<HTMLLIElement>(null);
   const { ref, inView } = useInView();
   const animation = useAnimation();
+
   let reversed = false;
   if (index % 2 == 0) {
     reversed = true;

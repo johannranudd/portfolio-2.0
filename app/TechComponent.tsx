@@ -1,13 +1,29 @@
+"use client";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import LineThroughComponent from "./components/Animations/LineThroughComponent";
 import WordSphere from "./components/Animations/WordSphere";
 import { arrayOfTechShort } from "./utils/generics";
+import { motion as m, useAnimation } from "framer-motion";
 
 export default function TechComponent() {
+  const { ref, inView } = useInView();
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start({ opacity: 1, transition: { delay: 0.2 } });
+    }
+  }, [inView]);
   return (
-    <section className="px-2 pb-16 md:px-4 max-w-screen-lg mx-auto text-white ">
+    <m.section
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={animation}
+      className="px-2 pb-16 md:px-4 max-w-screen-lg mx-auto text-white  "
+    >
       <div
         // id="scroll-to-me"
-        className="grid gap-y-16 sm:gap-y-0 sm:grid-cols-2"
+        className="sm:grid sm:gap-y-16 sm:gap-y-0 sm:grid-cols-2"
       >
         <div className="md:ml-sidebarWidth space-y-6 mlg:space-y-0 md:flex md:flex-col md:justify-between">
           <div className="relative py-16">
@@ -37,6 +53,6 @@ export default function TechComponent() {
           <WordSphere />
         </div>
       </div>
-    </section>
+    </m.section>
   );
 }

@@ -52,6 +52,7 @@ module.exports = {
         "primary-transparent": "var(--primary-transparent)",
         secondary: "var(--secondary)",
         thirdClr: "var(--thirdClr)",
+        "thirdClr-transparent": "var(--thirdClr-transparent)",
         thirdClrDark: "var(--thirdClrDark)",
         fourthClr: "var(--fourthClr)",
         fourthClrDark: "var(--fourthClrDark)",
