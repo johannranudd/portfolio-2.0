@@ -20,6 +20,8 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
+    // const screenState = document.body.clientHeight - window.innerHeight <= 0;
+    // console.log(screenState);
     //  if (heroRef !== undefined || heroRef !== null) {
     //    heroRef.current?.style?.setProperty("width", "100vw");
     //    heroRef.current?.style?.setProperty("height", "100vh");
