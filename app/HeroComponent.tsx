@@ -33,10 +33,12 @@ export default function HeroComponent() {
     // console.log("two");
     // console.log(document.body.clientHeight - window.innerHeight <= 0);
     // }, 2000);
-    scroll(1, 0);
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
+    setTimeout(() => {
+      scroll(1, 0);
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -60,11 +62,15 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative -z-50 h-screen w-screen"
+      >
         <m.div
           // style={{ y: sectionScroll }}
           style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-          className="relative h-screen w-screen"
+          className="relative w-full h-full"
         >
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
