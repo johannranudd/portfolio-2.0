@@ -84,7 +84,7 @@ export default function FeaturedProject({
         <m.div className="z-40" variants={featuredVariant}>
           <p
             className={`font-mono text-md text-thirdClr ${
-              !reversed && "text-right"
+              !reversed && "sm:text-right"
             }`}
           >
             Featured project

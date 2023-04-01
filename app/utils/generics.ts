@@ -70,6 +70,29 @@ export function getHeroHeight(headingRef: any) {
   }
 }
 
+export function getItem(key: string) {
+  if (typeof window !== "undefined") {
+    const locStor = localStorage.getItem(key)
+      ? JSON.parse(localStorage.getItem(key) || "")
+      : "";
+    if (locStor != null || locStor != undefined) {
+      return locStor;
+    } else {
+      return "";
+    }
+  } else {
+    return "";
+  }
+}
+
+export function setItem(key: string, content: any) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(content));
+  } else {
+    return getItem(key);
+  }
+}
+
 export function adjustHeroText(
   heroRef: any,
   heroTextRef: any,
