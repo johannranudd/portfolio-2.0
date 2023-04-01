@@ -21,7 +21,13 @@ export default function HeroComponent() {
 
   useEffect(() => {
     if (heroRef !== undefined || heroRef !== null) {
+      if (heroRef.current) {
+        heroRef.current.style.height = "100vh";
+      }
     }
+    // window.addEventListener("DOMContentLoaded", () => {
+
+    // });
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
@@ -51,7 +57,7 @@ export default function HeroComponent() {
       <section
         ref={heroRef}
         id="heroSection"
-        className="relative -z-50 min-h-screen max-w-screen  bg-pink-500"
+        className="relative -z-50 bg-pink-500"
       >
         {heroRef && (
           <div
