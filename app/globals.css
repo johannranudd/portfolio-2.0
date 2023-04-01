@@ -11,6 +11,9 @@
   --thirdClr-transparent: #5a9faa5e;
   --fourthClr: #315495;
   --fifthClr: #635959;
+  /* box shadow */
+  /* --bsOne: rgba(0, 0, 0, 0.2) 0px -7px 10px 0px; */
+  /* --bsTwo: rgba(0, 0, 0, 0.2) 0px 4px 10px 0px; */
 }
 
 * {
