@@ -57,7 +57,7 @@ export default function HeroComponent() {
           <div
             // style={{ y: sectionScroll }}
             // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-            className="relative bg-pink-200 opacity-30 w-full h-full"
+            className="bg-pink-200 opacity-30"
           >
             {/* <Canvas
               // style={{ width: `100vw`, height: "100vh" }}
@@ -69,12 +69,12 @@ export default function HeroComponent() {
               <Tourus />
             </Canvas> */}
 
-            <div
+            {/* <div
               // initial={{ opacity: 1 }}
               // animate={{ opacity: 0.5 }}
               // transition={{ delay: 0.5, duration: 1.5 }}
               className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
-            ></div>
+            ></div> */}
           </div>
         )}
         <div
