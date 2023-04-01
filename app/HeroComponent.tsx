@@ -48,39 +48,16 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50">
-        <div
-          // max-w-screen-lg mx-auto px-2 text-lg xxs:text-xl sm:px-4
-          // absolute bottom-1/2 translate-y-[50%]
-          // [calc(50%+sidebarWidthpx)]
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // transition={{ duration: 0.5 }}
-          className="absolute top-0 left-0 w-full h-full"
-        >
-          <div className="max-w-screen-lg mx-auto h-full flex flex-col justify-center">
-            <div
-              // ref={heroTextRef}
-              className="md:mx-sidebarWidth px-2 text-lg xxs:text-xl sm:px-4"
-            >
-              <p className="font-mono mb-4 text-thirdClr z-50">
-                Hello my name is
-              </p>
-              <h1
-                // ref={headingRef}
-                className="text-4xl xxs:text-5xl sm:text-6xl"
-              >
-                Johann Ranudd
-              </h1>
-              <p className="mt-4 font-mono">- Front-end developer</p>
-            </div>
-          </div>
-        </div>
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative -z-50 h-screen w-screen"
+      >
         {heroRef && (
           <div
             // style={{ y: sectionScroll }}
             // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-            className="relative h-screen w-screen bg-pink-200 opacity-30"
+            className="relative bg-pink-200 opacity-30 w-full h-full"
           >
             {/* <Canvas
               // style={{ width: `100vw`, height: "100vh" }}
@@ -100,8 +77,32 @@ export default function HeroComponent() {
             ></div>
           </div>
         )}
+        <div
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // transition={{ duration: 0.5 }}
+          className="absolute top-0 left-0 w-full h-full"
+        >
+          <div className="max-w-screen-lg mx-auto h-full flex flex-col justify-center bg-[#413278]">
+            <div
+              // ref={heroTextRef}
+              className="md:mx-sidebarWidth px-2 text-lg xxs:text-xl sm:px-4 bg-[#326e78]"
+            >
+              <p className="font-mono mb-4 text-thirdClr z-50">
+                Hello my name is
+              </p>
+              <h1
+                // ref={headingRef}
+                className="text-4xl xxs:text-5xl sm:text-6xl"
+              >
+                Johann Ranudd
+              </h1>
+              <p className="mt-4 font-mono">- Front-end developer</p>
+            </div>
+          </div>
+        </div>
       </section>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <a
           // onClick={() => scroll(0, heroTextRefNumber)}
           // ref={chevronRef}
@@ -114,7 +115,7 @@ export default function HeroComponent() {
         >
           <BsChevronCompactDown />
         </a>
-      </div>
+      </div> */}
     </>
   );
 }
