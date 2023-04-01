@@ -61,6 +61,7 @@ export function getHeroHeight(headingRef: any) {
       // const newHeight = headingHeight * 3.5;
       const screenHeight = window.innerHeight - headingHeight;
       return screenHeight;
+      // todo: check if you can run this, if not, add an achor scroll mode conditionally
     }
     // else if (window.innerWidth < 400) {
     //   const screenHeight = window.innerHeight - headingHeight;
@@ -81,12 +82,36 @@ export function adjustHeroText(
     if (height && bottom && window.innerWidth >= 640) {
       const newHeight = height / 1.3;
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-    } else if (height && bottom && window.innerWidth < 640) {
-      const newHeight = height * 2.1;
-      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
+    // else if (height && bottom && window.innerWidth < 640) {
+    //   const newHeight = height * 2.1;
+    //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+    // }
   }
 }
+
+// export function getItem(key: string) {
+//   if (typeof window !== "undefined") {
+//     const locStor = localStorage.getItem(key)
+//       ? JSON.parse(localStorage.getItem(key) || "")
+//       : "";
+//     if (locStor != null || locStor != undefined) {
+//       return locStor;
+//     } else {
+//       return "";
+//     }
+//   } else {
+//     return "";
+//   }
+// }
+
+// export function setItem(key: string, content: any) {
+//   if (typeof window !== "undefined") {
+//     localStorage.setItem(key, JSON.stringify(content));
+//   } else {
+//     return getItem(key);
+//   }
+// }
 
 export const projectsArray = [
   {

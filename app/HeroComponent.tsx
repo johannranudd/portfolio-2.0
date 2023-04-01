@@ -3,7 +3,13 @@ import { useEffect, useRef } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
+import {
+  adjustHeroText,
+  ajustChevron,
+  getHeroHeight,
+  // getItem,
+  // setItem,
+} from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
@@ -20,15 +26,20 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
+    if (heroRef.current) {
+      console.log(heroRef.current.style.height);
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+    }
   }, []);
 
   useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
+    if (heroRef.current) {
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+    }
   }, [windowWidth]);
 
   useEffect(() => {
