@@ -24,26 +24,26 @@ export default function HeroComponent() {
     //    heroRef.current?.style?.setProperty("width", "100vw");
     //    heroRef.current?.style?.setProperty("height", "100vh");
     //  }
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
+    // adjustHeroText(heroRef, heroTextRef, headingRef);
+    // const screenHeight = getHeroHeight(headingRef);
+    // if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, []);
 
-  useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
-  }, [windowWidth]);
+  // useEffect(() => {
+  //   adjustHeroText(heroRef, heroTextRef, headingRef);
+  //   const screenHeight = getHeroHeight(headingRef);
+  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
+  // }, [windowWidth]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      ajustChevron(chevronRef, heroRef);
-      adjustHeroText(heroRef, heroTextRef, headingRef);
+      // ajustChevron(chevronRef, heroRef);
+      // adjustHeroText(heroRef, heroTextRef, headingRef);
     });
     return () => {
       window.removeEventListener("scroll", () => {
-        ajustChevron(chevronRef, heroRef);
-        adjustHeroText(heroRef, heroTextRef, headingRef);
+        // ajustChevron(chevronRef, heroRef);
+        // adjustHeroText(heroRef, heroTextRef, headingRef);
       });
     };
   }, [scrollYProgress]);
@@ -51,13 +51,13 @@ export default function HeroComponent() {
   return (
     <>
       <section
-        ref={heroRef}
+        // ref={heroRef}
         id="heroSection"
         className="relative -z-50 h-screen w-screen"
       >
         <m.div
           // style={{ y: sectionScroll }}
-          style={windowWidth >= 640 ? { y: sectionScroll } : {}}
+          // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
           className="relative w-full h-full"
         >
           <Canvas camera={{ position: [0, 0, 2] }}>
@@ -81,7 +81,7 @@ export default function HeroComponent() {
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
             <div
-              ref={heroTextRef}
+              // ref={heroTextRef}
               className="absolute bottom-1/2 translate-y-[50%]"
             >
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
@@ -98,10 +98,10 @@ export default function HeroComponent() {
       </section>
       <div className="flex justify-center">
         <m.a
-          onClick={() => scroll(0, heroTextRefNumber)}
-          ref={chevronRef}
+          // onClick={() => scroll(0, heroTextRefNumber)}
+          // ref={chevronRef}
           // href="#projectsSection"
-          style={{ opacity: chevronOpacity }}
+          // style={{ opacity: chevronOpacity }}
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
