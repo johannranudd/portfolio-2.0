@@ -23,6 +23,18 @@ export default function HeroComponent() {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
+
+    setTimeout(() => {
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
