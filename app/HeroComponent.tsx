@@ -33,7 +33,10 @@ export default function HeroComponent() {
     // console.log("two");
     // console.log(document.body.clientHeight - window.innerHeight <= 0);
     // }, 2000);
-    scroll(0, 1);
+    scroll(1, 0);
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, []);
 
   useEffect(() => {
