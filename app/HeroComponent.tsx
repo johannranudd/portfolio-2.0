@@ -19,25 +19,6 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<any>(null);
 
-  // async function makeSmaller() {
-  //   if (heroRef !== undefined || heroRef !== null) {
-  //     // setTimeout(() => {
-  //     heroRef.current?.style?.setProperty("width", "50vw");
-  //     heroRef.current?.style?.setProperty("height", "50vh");
-  //     // }, 2000);
-  //   }
-  // }
-  // async function makeLarger() {
-  //   // setTimeout(() => {
-  //   heroRef.current?.style?.setProperty("width", "100vw");
-  //   heroRef.current?.style?.setProperty("height", "100vh");
-  //   // }, 3000);
-  // }
-
-  // async function readjustCanvas() {
-  //   await makeSmaller();
-  //   await makeLarger();
-  // }
   useEffect(() => {
     if (heroRef !== undefined || heroRef !== null) {
     }
@@ -69,7 +50,7 @@ export default function HeroComponent() {
     <>
       <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         {heroRef && (
-          <m.div
+          <div
             // style={{ y: sectionScroll }}
             // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
             className="relative h-screen w-screen"
@@ -84,18 +65,18 @@ export default function HeroComponent() {
               <Tourus />
             </Canvas> */}
 
-            <m.div
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 0.5 }}
-              transition={{ delay: 0.5, duration: 1.5 }}
+            <div
+              // initial={{ opacity: 1 }}
+              // animate={{ opacity: 0.5 }}
+              // transition={{ delay: 0.5, duration: 1.5 }}
               className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
-            ></m.div>
-          </m.div>
+            ></div>
+          </div>
         )}
-        <m.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+        <div
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // transition={{ duration: 0.5 }}
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
@@ -105,7 +86,7 @@ export default function HeroComponent() {
             >
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
-                ref={headingRef}
+                // ref={headingRef}
                 className="text-4xl xxs:text-5xl sm:text-6xl"
               >
                 Johann Ranudd
@@ -113,21 +94,21 @@ export default function HeroComponent() {
               <p className="mt-4 font-mono">- Front-end developer</p>
             </div>
           </div>
-        </m.div>
+        </div>
       </section>
       <div className="flex justify-center">
-        <m.a
+        <a
           // onClick={() => scroll(0, heroTextRefNumber)}
           // ref={chevronRef}
           // href="#projectsSection"
           // style={{ opacity: chevronOpacity }}
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
+          // initial={{ y: 100 }}
+          // animate={{ y: 0 }}
+          // transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
           className="fixed bottom-12 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
         >
           <BsChevronCompactDown />
-        </m.a>
+        </a>
       </div>
     </>
   );
