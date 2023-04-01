@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -18,11 +18,13 @@ export default function HeroComponent() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -52,12 +54,21 @@ export default function HeroComponent() {
         className="relative -z-50 h-screen w-screen"
       >
         <m.div style={{ y: sectionScroll }} className="relative h-full">
-          <Canvas className="absolute" camera={{ position: [0, 0, 2] }}>
-            <OrbitControls enableZoom={false} />
-            <ambientLight intensity={0.01} />
-            <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
-            <Tourus />
-          </Canvas>
+          {mounted && (
+            <div className="h-screen w-screen overflow-hidden">
+              <Canvas camera={{ position: [0, 0, 2] }}>
+                <OrbitControls enableZoom={false} />
+                <ambientLight intensity={0.01} />
+                <spotLight
+                  intensity={0.5}
+                  position={[7, 100, 50]}
+                  angle={0.3}
+                />
+                <Tourus />
+              </Canvas>
+            </div>
+          )}
+
           <m.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 0.5 }}
