@@ -20,14 +20,14 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log("initial");
-      if (heroRef !== undefined || heroRef !== null) {
-        heroRef.current?.style?.setProperty("width", "100vw");
-        heroRef.current?.style?.setProperty("height", "100vh");
-      }
-    }, 1000);
+    // setTimeout(() => {
 
+    // }, 1000);
+    console.log("initial");
+    if (heroRef !== undefined || heroRef !== null) {
+      heroRef.current?.style?.setProperty("width", "100vw");
+      heroRef.current?.style?.setProperty("height", "90vh");
+    }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
@@ -37,7 +37,7 @@ export default function HeroComponent() {
     console.log("window");
     if (heroRef !== undefined || heroRef !== null) {
       heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "100vh");
+      heroRef.current?.style?.setProperty("height", "90vh");
     }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
@@ -47,7 +47,7 @@ export default function HeroComponent() {
   useEffect(() => {
     console.log("scroll");
     heroRef.current?.style?.setProperty("width", "100vw");
-    heroRef.current?.style?.setProperty("height", "100vh");
+    heroRef.current?.style?.setProperty("height", "90vh");
     window.addEventListener("scroll", () => {
       ajustChevron(chevronRef, heroRef);
       adjustHeroText(heroRef, heroTextRef, headingRef);
@@ -62,7 +62,11 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50">
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative -z-50 h-screen w-screen"
+      >
         <m.div
           // style={{ y: sectionScroll }}
           style={windowWidth >= 640 ? { y: sectionScroll } : {}}
