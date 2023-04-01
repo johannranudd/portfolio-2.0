@@ -68,10 +68,7 @@ export default function HeroComponent() {
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div
-              ref={heroTextRef}
-              className="absolute bottom-1/2 translate-y-[-50%]"
-            >
+            <div ref={heroTextRef} className="absolute bottom-1/2">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
