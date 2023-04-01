@@ -47,7 +47,7 @@ export default function MobileMenu() {
 
           return (
             <li key={id} className="h-full w-full">
-              {page === "project" ? (
+              {page === "projects" ? (
                 <button
                   onClick={closeMenuAndNavigate}
                   className="h-full w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"

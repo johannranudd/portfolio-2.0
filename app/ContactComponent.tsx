@@ -8,7 +8,10 @@ export default function ContactComponent() {
   const animation = useAnimation();
   useEffect(() => {
     if (inView) {
-      animation.start({ opacity: 1, transition: { delay: 0.2 } });
+      animation.start({
+        opacity: 1,
+        transition: { delay: 0.4, duration: 0.4 },
+      });
     }
   }, [inView]);
   return (

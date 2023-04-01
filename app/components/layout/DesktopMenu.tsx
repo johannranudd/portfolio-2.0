@@ -8,7 +8,7 @@ export function DesktopMenu() {
       {pageStructure.map((m) => {
         const { id, page, link } = m;
         if (page === "home") return;
-        if (page === "project") {
+        if (page === "projects") {
           return (
             <li key={id} className="hover:text-thirdClr duration-300">
               <button

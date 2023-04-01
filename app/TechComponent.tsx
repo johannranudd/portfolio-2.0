@@ -11,7 +11,10 @@ export default function TechComponent() {
   const animation = useAnimation();
   useEffect(() => {
     if (inView) {
-      animation.start({ opacity: 1, transition: { delay: 0.4 } });
+      animation.start({
+        opacity: 1,
+        transition: { delay: 0.4, duration: 0.4 },
+      });
     }
   }, [inView]);
   return (
@@ -47,7 +50,7 @@ export default function TechComponent() {
             })}
           </ul>
         </div>
-        <div className="relative -z-50 h-[14rem] xxs:h-[18rem]  sm:h-[15rem] mlg:h-[20rem] self-center">
+        <div className="relative -z-50 h-[14rem] 3xs:h-[16rem] xxs:h-[18rem]  sm:h-[15rem] mlg:h-[20rem] self-center">
           <WordSphere />
           <div className="absolute w-full h-full"></div>
         </div>
