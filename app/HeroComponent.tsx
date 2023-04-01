@@ -26,7 +26,7 @@ export default function HeroComponent() {
     console.log("initial");
     if (heroRef !== undefined || heroRef !== null) {
       heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "50vh");
+      heroRef.current?.style?.setProperty("height", "100vh");
     }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
@@ -37,7 +37,7 @@ export default function HeroComponent() {
     console.log("window");
     if (heroRef !== undefined || heroRef !== null) {
       heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "50vh");
+      heroRef.current?.style?.setProperty("height", "100vh");
     }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
@@ -47,7 +47,7 @@ export default function HeroComponent() {
   useEffect(() => {
     console.log("scroll");
     heroRef.current?.style?.setProperty("width", "100vw");
-    heroRef.current?.style?.setProperty("height", "50vh");
+    heroRef.current?.style?.setProperty("height", "100vh");
     window.addEventListener("scroll", () => {
       ajustChevron(chevronRef, heroRef);
       adjustHeroText(heroRef, heroTextRef, headingRef);
