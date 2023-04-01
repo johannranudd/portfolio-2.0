@@ -22,13 +22,7 @@ export default function HeroComponent() {
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight && windowWidth > 0) setHeroTextRefNumber(screenHeight);
-  }, []);
-
-  useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight && windowWidth > 0) setHeroTextRefNumber(screenHeight);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
@@ -47,7 +41,11 @@ export default function HeroComponent() {
   return (
     <>
       <section ref={heroRef} id="heroSection" className="relative -z-50 ">
-        <m.div style={{ y: sectionScroll }} className="relative h-screen">
+        <m.div
+          // style={{ y: sectionScroll }}
+          style={windowWidth >= 640 ? { y: sectionScroll } : {}}
+          className="relative h-screen"
+        >
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
@@ -68,7 +66,7 @@ export default function HeroComponent() {
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="absolute bottom-1/2">
+            <div ref={heroTextRef} className="absolute">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
