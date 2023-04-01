@@ -19,13 +19,29 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<any>(null);
 
+  async function makeSmaller() {
+    if (heroRef !== undefined || heroRef !== null) {
+      setTimeout(() => {
+        heroRef.current?.style?.setProperty("width", "50vw");
+        heroRef.current?.style?.setProperty("height", "50vh");
+      }, 2000);
+    }
+  }
+  async function makeLarger() {
+    setTimeout(() => {
+      heroRef.current?.style?.setProperty("width", "100vw");
+      heroRef.current?.style?.setProperty("height", "100vh");
+    }, 3000);
+  }
+
+  async function readjustCanvas() {
+    await makeSmaller();
+    await makeLarger();
+  }
   useEffect(() => {
     // const screenState = document.body.clientHeight - window.innerHeight <= 0;
     // console.log(screenState);
-    // if (heroRef !== undefined || heroRef !== null) {
-    //   heroRef.current?.style?.setProperty("width", "100vw");
-    //   heroRef.current?.style?.setProperty("height", "100vh");
-    // }
+    readjustCanvas();
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
