@@ -49,16 +49,16 @@ export default function HeroComponent() {
   }, [scrollYProgress]);
 
   return (
-    <>
+    <div className="h-screen w-screen max-h-screen max-w-screen">
       <section
         // ref={heroRef}
         id="heroSection"
-        className="relative -z-50 h-screen w-screen"
+        className="relative -z-50 h-screen w-screen max-h-screen max-w-screen"
       >
         <m.div
           // style={{ y: sectionScroll }}
           // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-          className="relative w-full h-full"
+          className="relative w-full h-full max-w-full max-h-full"
         >
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
@@ -110,6 +110,6 @@ export default function HeroComponent() {
           <BsChevronCompactDown />
         </m.a>
       </div>
-    </>
+    </div>
   );
 }
