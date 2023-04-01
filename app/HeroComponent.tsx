@@ -49,30 +49,6 @@ export default function HeroComponent() {
   return (
     <>
       <section ref={heroRef} id="heroSection" className="relative -z-50">
-        {heroRef && (
-          <div
-            // style={{ y: sectionScroll }}
-            // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-            className="relative h-screen w-screen bg-pink-200 opacity-30"
-          >
-            {/* <Canvas
-              // style={{ width: `100vw`, height: "100vh" }}
-              camera={{ position: [0, 0, 2] }}
-            >
-              <OrbitControls enableZoom={false} />
-              <ambientLight intensity={0.01} />
-              <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
-              <Tourus />
-            </Canvas> */}
-
-            <div
-              // initial={{ opacity: 1 }}
-              // animate={{ opacity: 0.5 }}
-              // transition={{ delay: 0.5, duration: 1.5 }}
-              className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
-            ></div>
-          </div>
-        )}
         <div
           // max-w-screen-lg mx-auto px-2 text-lg xxs:text-xl sm:px-4
           // absolute bottom-1/2 translate-y-[50%]
@@ -100,6 +76,30 @@ export default function HeroComponent() {
             </div>
           </div>
         </div>
+        {heroRef && (
+          <div
+            // style={{ y: sectionScroll }}
+            // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
+            className="relative h-screen w-screen bg-pink-200 opacity-30"
+          >
+            {/* <Canvas
+              // style={{ width: `100vw`, height: "100vh" }}
+              camera={{ position: [0, 0, 2] }}
+            >
+              <OrbitControls enableZoom={false} />
+              <ambientLight intensity={0.01} />
+              <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
+              <Tourus />
+            </Canvas> */}
+
+            <div
+              // initial={{ opacity: 1 }}
+              // animate={{ opacity: 0.5 }}
+              // transition={{ delay: 0.5, duration: 1.5 }}
+              className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
+            ></div>
+          </div>
+        )}
       </section>
       <div className="flex justify-center">
         <a
