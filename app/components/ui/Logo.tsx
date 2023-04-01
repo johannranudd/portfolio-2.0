@@ -22,10 +22,29 @@ export default function Logo() {
       if (windowWidth > 0) {
         if (ref !== undefined || ref !== null) {
           ref.current?.click();
+
           console.log("clicked");
         }
       }
     }, 2000);
+    setTimeout(() => {
+      if (windowWidth > 0) {
+        if (ref !== undefined || ref !== null) {
+          ref.current?.click();
+
+          console.log("clicked");
+        }
+      }
+    }, 3000);
+    setTimeout(() => {
+      if (windowWidth > 0) {
+        if (ref !== undefined || ref !== null) {
+          ref.current?.click();
+
+          console.log("clicked");
+        }
+      }
+    }, 5000);
     // clickRef();
 
     // return () => {
