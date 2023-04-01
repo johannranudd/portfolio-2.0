@@ -21,24 +21,14 @@ export default function HeroComponent() {
 
   useEffect(() => {
     // setTimeout(() => {
-    // scroll(0, 1);
-    // console.log("one");
-    // console.log(scrollYProgress);
-    // if (typeof scrollYProgress == "number") {
-    //   scroll(scrollYProgress, 0);
-    // } else {
-    //   console.log(scrollYProgress);
-    //   console.log("not a number");
-    // }
-    // console.log("two");
-    // console.log(document.body.clientHeight - window.innerHeight <= 0);
-    // }, 2000);
-    setTimeout(() => {
-      scroll(1, 0);
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-    }, 1000);
+
+    // }, 1000);
+    if (heroRef !== undefined || heroRef !== null) {
+      heroRef.current?.style?.setProperty("width", "50vw");
+    }
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, []);
 
   useEffect(() => {
