@@ -48,7 +48,11 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative -z-50 h-screen w-screen"
+      >
         <m.div
           // style={{ y: sectionScroll }}
           style={windowWidth >= 640 ? { y: sectionScroll } : {}}
