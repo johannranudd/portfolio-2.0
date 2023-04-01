@@ -11,15 +11,12 @@
   --thirdClr-transparent: #5a9faa5e;
   --fourthClr: #315495;
   --fifthClr: #635959;
-  /* fonts */
-  --special-font: 'font-family: "Poppins", sans-serif';
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* border: 1px solid red; */
 }
 
 html,
@@ -29,9 +26,7 @@ body {
 }
 
 body {
-  /* font-family: 'Josefin Sans', sans-serif; */
   font-family: "Poppins", sans-serif;
-  /* font-family: 'PT Mono', monospace; */
 }
 
 h1,
@@ -53,16 +48,9 @@ a {
   width: 100%;
   height: 100%;
   z-index: 999;
-  /* border-radius: 5px; */
 }
 
 .triangle {
-  /* width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-
-  border-left: 5px solid red; */
   width: 0;
   height: 0;
   border-top: 3px solid transparent;
@@ -72,10 +60,4 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  /* html {
-    color-scheme: dark;
-  }
-  body {
-    background-color: var(--thirdClr);
-  } */
 }

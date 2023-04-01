@@ -39,9 +39,8 @@ export default function MobileMenu() {
         ></div>
       )}
       <ul
-        className={`absolute top-0 mt-navbarWidth z-50 ${
-          menuIsOpen ? "left-0" : "-left-[1200px]"
-        } w-full xxs:w-[300px] h-screen flex flex-col justify-evenly items-center bg-primary text-2xl duration-300`}
+        style={menuIsOpen ? { left: 0 } : { left: "-100vw" }}
+        className={`absolute top-0 mt-navbarWidth z-50  w-full xxs:w-[300px] h-screen flex flex-col justify-evenly items-center bg-primary text-2xl duration-300`}
       >
         {pageStructure.map((m) => {
           const { id, page, link } = m;
