@@ -20,34 +20,22 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
-    // setTimeout(() => {
-
-    // }, 1000);
-    console.log("initial");
-    if (heroRef !== undefined || heroRef !== null) {
-      heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "90vh");
-    }
+    //  if (heroRef !== undefined || heroRef !== null) {
+    //    heroRef.current?.style?.setProperty("width", "100vw");
+    //    heroRef.current?.style?.setProperty("height", "100vh");
+    //  }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, []);
 
   useEffect(() => {
-    console.log("window");
-    if (heroRef !== undefined || heroRef !== null) {
-      heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "90vh");
-    }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
-    console.log("scroll");
-    heroRef.current?.style?.setProperty("width", "100vw");
-    heroRef.current?.style?.setProperty("height", "90vh");
     window.addEventListener("scroll", () => {
       ajustChevron(chevronRef, heroRef);
       adjustHeroText(heroRef, heroTextRef, headingRef);
