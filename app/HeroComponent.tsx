@@ -3,13 +3,7 @@ import { useEffect, useRef } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import {
-  adjustHeroText,
-  ajustChevron,
-  getHeroHeight,
-  // getItem,
-  // setItem,
-} from "./utils/generics";
+import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
@@ -23,23 +17,12 @@ export default function HeroComponent() {
   const heroRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
-  const chevronRef = useRef<any>(null);
+  const chevronRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (heroRef.current) {
-      console.log(heroRef.current.style.height);
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (heroRef.current) {
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-    }
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
@@ -58,10 +41,7 @@ export default function HeroComponent() {
   return (
     <>
       <section ref={heroRef} id="heroSection" className="relative -z-50 ">
-        <m.div
-          style={{ y: sectionScroll }}
-          className="relative h-screen w-screen"
-        >
+        <m.div style={{ y: sectionScroll }} className="relative h-screen">
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
@@ -95,20 +75,17 @@ export default function HeroComponent() {
           </div>
         </m.div>
       </section>
-      <div className="flex justify-center">
-        <m.a
-          onClick={() => scroll(0, heroTextRefNumber)}
-          ref={chevronRef}
-          // href="#projectsSection"
-          style={{ opacity: chevronOpacity }}
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
-          className="fixed bottom-12 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
-        >
-          <BsChevronCompactDown />
-        </m.a>
-      </div>
+      <m.button
+        onClick={() => scroll(0, heroTextRefNumber)}
+        ref={chevronRef}
+        style={{ opacity: chevronOpacity }}
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
+        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
+      >
+        <BsChevronCompactDown />
+      </m.button>
     </>
   );
 }
