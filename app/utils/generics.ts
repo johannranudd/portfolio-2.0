@@ -75,6 +75,7 @@ export function adjustHeroText(
   headingRef: any
 ) {
   if (heroRef.current && heroTextRef.current && headingRef.current) {
+    heroRef.current.style.height = `100vh`;
     const { bottom }: any = heroRef.current?.getBoundingClientRect();
     const { height }: any = headingRef.current?.getBoundingClientRect();
     const bottomHalf = bottom / 2 - height;
