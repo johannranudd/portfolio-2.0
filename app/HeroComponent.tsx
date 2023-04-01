@@ -63,14 +63,14 @@ export default function HeroComponent() {
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
             <div ref={heroTextRef} className="absolute">
-              <p className="mb-4 text-thirdClr">Hello my name is</p>
+              <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
                 className="text-4xl xxs:text-5xl sm:text-6xl"
               >
                 Johann Ranudd
               </h1>
-              <p className="mt-4">- Front-end developer</p>
+              <p className="mt-4 font-mono">- Front-end developer</p>
             </div>
           </div>
         </m.div>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=PT+Mono&family=Poppins&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,41 +11,9 @@
   --thirdClr-transparent: #5a9faa5e;
   --fourthClr: #315495;
   --fifthClr: #635959;
+  /* fonts */
+  --special-font: 'font-family: "Poppins", sans-serif';
 }
-/* 
-.colorSwitch {
-  background-color: var(--primary);
-  color: var(--secondary);
-}
-
-@media (prefers-color-scheme: dark) {
-  .colorSwitch {
-    background-color: var(--secondary);
-    color: var(--primary);
-  }
-} */
-
-/* [data-theme="dark"] {
-  --primary: #aeb3ac;
-  --primary-transparent: #2c2c3cde;
-  --secondary: #2c2c3c;
-  --thirdClr: #5aa0aa;
-  --thirdClr-transparent: #5a9faa5e;
-  --fourthClr: #315495;
-  --fifthClr: #635959;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --primary: #aeb3ac;
-    --primary-transparent: #2c2c3cde;
-    --secondary: #2c2c3c;
-    --thirdClr: #5aa0aa;
-    --thirdClr-transparent: #5a9faa5e;
-    --fourthClr: #315495;
-    --fifthClr: #635959;
-  }
-} */
 
 * {
   box-sizing: border-box;
@@ -59,24 +28,16 @@ body {
   overflow-x: hidden;
 }
 
-/* main {
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: auto;
+body {
+  /* font-family: 'Josefin Sans', sans-serif; */
+  font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Mono', monospace; */
 }
 
-.heroSection,
-.projectsSection,
-.techSection {
-  height: 100vh;
-  scroll-snap-align: center;
-} */
-
-/* body {
-  background-color: var(--primary);
-  color: var(--primary);
-} */
+h1,
+h2 {
+  font-family: "Josefin Sans", sans-serif;
+}
 
 a {
   text-decoration: none;

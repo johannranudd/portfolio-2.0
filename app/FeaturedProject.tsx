@@ -11,6 +11,7 @@ export default function FeaturedProject({
   alt,
   link,
   githubLink,
+  projectName,
   tech,
   index,
 }: any) {
@@ -81,12 +82,18 @@ export default function FeaturedProject({
         } `}
       >
         <m.div className="z-40" variants={featuredVariant}>
-          <p className="text-md">Featured project</p>
-          <h4 className="text-xl">project name</h4>
+          <p
+            className={`font-mono text-md text-thirdClr ${
+              !reversed && "text-right"
+            }`}
+          >
+            Featured project
+          </p>
+          <h4 className="text-xl capitalize">{projectName}</h4>
         </m.div>
         <m.p
           variants={projectInfoVariant}
-          className="z-40 rounded-sm md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100"
+          className="z-40 rounded-sm md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100 shadow-lg"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam velit
           labore ut quas illum, odio ex eveniet pariatur fugit, exercitationem
@@ -107,10 +114,20 @@ export default function FeaturedProject({
           })}
         </ul>
         <m.div variants={featuredVariant} className="flex space-x-3 z-40">
-          <a href={githubLink} target="_blank" rel="noopener noreferrer">
+          <a
+            href={githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+          >
             <FaGithub />
           </a>
-          <a href={link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+          >
             <FaLink />
           </a>
         </m.div>
@@ -142,7 +159,7 @@ function CardImageAndBackdrop({
           !reversed ? "md:mr-auto" : "md:ml-auto"
         } `}
       >
-        <div className="z-10 absolute w-full h-full  rounded-sm bg-[#000000ba] md:bg-[#00000046] md:hover:bg-transparent duration-300"></div>
+        <div className="z-10 absolute w-full h-full  rounded-sm bg-[#000000ba] md:bg-[#00000046] md:hover:bg-transparent shadow-lg duration-300"></div>
         <Image
           src={imageUrl}
           alt={alt}

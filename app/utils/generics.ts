@@ -54,15 +54,15 @@ export function getHeroHeight(headingRef: any) {
       headingRef.current?.getBoundingClientRect().height;
 
     if (window.innerWidth >= 640) {
-      const newHeight = headingHeight * 1.8;
+      const newHeight = headingHeight * 1.9;
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
     } else if (window.innerWidth >= 400) {
-      const newHeight = headingHeight * 3.26;
+      const newHeight = headingHeight * 3.5;
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
     } else if (window.innerWidth < 400) {
-      const newHeight = headingHeight * 3;
+      const newHeight = headingHeight * 3.3;
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
     }
@@ -79,10 +79,10 @@ export function adjustHeroText(
     const { height }: any = headingRef.current?.getBoundingClientRect();
     const bottomHalf = bottom / 2 - height;
     if (height && bottom && window.innerWidth >= 640) {
-      const newHeight = height / 1.5;
+      const newHeight = height / 1.3;
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     } else if (height && bottom && window.innerWidth < 640) {
-      const newHeight = height * 1.9;
+      const newHeight = height * 2.1;
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
   }
@@ -91,16 +91,18 @@ export function adjustHeroText(
 export const projectsArray = [
   {
     id: 1,
+    projectName: "web store",
     imageUrl: image2,
-    alt: "alt text",
+    alt: "web store",
     link: "https://next13-ts-ca-jr.vercel.app/",
     githubLink: "https://github.com/johannranudd/next13-ts-ca-jr",
     tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
   },
   {
     id: 2,
+    projectName: "Auction house website",
     imageUrl: image1,
-    alt: "alt text",
+    alt: "Auction house website",
     link: "https://semester-project-2-jr.netlify.app/",
     githubLink: "https://github.com/johannranudd/semester-project-2-jr",
     tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
@@ -108,8 +110,9 @@ export const projectsArray = [
 
   {
     id: 3,
+    projectName: "social media platform",
     imageUrl: image3,
-    alt: "alt text",
+    alt: "social media platform",
     link: "https://js2-ca-jr.netlify.app/",
     githubLink: "https://github.com/johannranudd/js2_CA_jr",
     tech: ["JavaScript", "SASS", "Rest API", "HTML"],

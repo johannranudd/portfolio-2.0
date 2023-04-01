@@ -20,7 +20,7 @@ export default function LineThroughComponent() {
       <m.div
         initial={{ x: "-100vw" }}
         animate={animation}
-        className="absolute top-[52%] h-[2px] w-[100%] bg-primary"
+        className="absolute top-[52%] h-[1px] w-[100%] bg-secondary"
       ></m.div>
     </div>
   );
