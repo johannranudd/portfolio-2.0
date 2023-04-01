@@ -3,13 +3,12 @@ import ContactComponent from "../ContactComponent";
 import HeroComponent from "../HeroComponent";
 import ProjectsComponent from "../ProjectsComponent";
 import TechComponent from "../TechComponent";
+import TestComponent from "../TestComponent";
 
 export default function TestPage() {
   return (
     <div>
-      <div className="h-screen flex items-center justify-center">
-        <h1>test</h1>
-      </div>
+      <TestComponent />
       {/* <HeroComponent /> */}
       <ProjectsComponent />
       <TechComponent />
