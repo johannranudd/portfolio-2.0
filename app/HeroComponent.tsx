@@ -75,17 +75,19 @@ export default function HeroComponent() {
           </div>
         </m.div>
       </section>
-      <m.button
-        onClick={() => scroll(0, heroTextRefNumber)}
-        ref={chevronRef}
-        style={{ opacity: chevronOpacity }}
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
-      >
-        <BsChevronCompactDown />
-      </m.button>
+      <div className="w-full flex justify-center">
+        <m.button
+          onClick={() => scroll(0, heroTextRefNumber)}
+          ref={chevronRef}
+          style={{ opacity: chevronOpacity }}
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
+          className="fixed bottom-12  text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
+        >
+          <BsChevronCompactDown />
+        </m.button>
+      </div>
     </>
   );
 }
