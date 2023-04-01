@@ -24,9 +24,6 @@ export default function HeroComponent() {
     //    heroRef.current?.style?.setProperty("width", "100vw");
     //    heroRef.current?.style?.setProperty("height", "100vh");
     //  }
-    setTimeout(() => {
-      scroll(0, 100);
-    }, 1000);
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
