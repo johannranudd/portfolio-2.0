@@ -19,24 +19,21 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<any>(null);
 
-  // async function scrolly() {
-  //   await scroll(0, 100);
-  //   await scroll(100, 0);
-  // }
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     scroll(0, 100);
-  //     console.log("one");
-  //     if (typeof scrollYProgress == "number") {
-  //       console.log(scrollYProgress);
-  //       scroll(scrollYProgress, 0);
-  //     } else {
-  //       console.log(scrollYProgress);
-  //       console.log("not a number");
-  //     }
-  //     console.log("two");
-  //   }, 2000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      // scroll(0, 1);
+      // console.log("one");
+      // console.log(scrollYProgress);
+      // if (typeof scrollYProgress == "number") {
+      //   scroll(scrollYProgress, 0);
+      // } else {
+      //   console.log(scrollYProgress);
+      //   console.log("not a number");
+      // }
+      // console.log("two");
+      // console.log(document.body.clientHeight - window.innerHeight <= 0);
+    }, 2000);
+  }, []);
 
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
@@ -45,9 +42,6 @@ export default function HeroComponent() {
   }, [windowWidth]);
 
   useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
     window.addEventListener("scroll", () => {
       ajustChevron(chevronRef, heroRef);
       adjustHeroText(heroRef, heroTextRef, headingRef);
