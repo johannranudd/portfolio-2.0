@@ -1,25 +1,31 @@
 "use client";
 import { motion as m } from "framer-motion";
 import { useRef, useEffect } from "react";
+import { useGlobalContext } from "@/context/context";
 
 export default function Logo() {
+  const { windowWidth } = useGlobalContext();
   const ref = useRef<HTMLAnchorElement>(null);
 
-  function clickRef() {
-    if (ref !== undefined || ref !== null) {
-      ref.current?.click();
-      console.log("clicked");
-    }
-  }
+  // function clickRef() {
+  //   if (ref !== undefined || ref !== null) {
+  //     ref.current?.click();
+  //     console.log("clicked");
+  //   }
+  // }
 
   useEffect(() => {
     // window.addEventListener("DOMContentLoaded", () => {
 
     // });
-    if (ref !== undefined || ref !== null) {
-      ref.current?.click();
-      console.log("clicked");
-    }
+    setTimeout(() => {
+      if (windowWidth > 0) {
+        if (ref !== undefined || ref !== null) {
+          ref.current?.click();
+          console.log("clicked");
+        }
+      }
+    }, 2000);
     // clickRef();
 
     // return () => {
