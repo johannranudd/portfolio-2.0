@@ -26,12 +26,6 @@ export default function HeroComponent() {
     //   heroRef.current?.style?.setProperty("width", "100vw");
     //   heroRef.current?.style?.setProperty("height", "100vh");
     // }
-    setTimeout(() => {
-      scroll(0, 100);
-    }, 2000);
-    setTimeout(() => {
-      scroll(100, 0);
-    }, 3000);
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
@@ -58,25 +52,23 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section
-        ref={heroRef}
-        id="heroSection"
-        className="relative -z-50 h-screen w-screen max-h-screen max-w-screen"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         <m.div
           // style={{ y: sectionScroll }}
           // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-          className="relative w-full h-full max-w-full max-h-full"
+          className="relative h-screen w-screen"
         >
-          <Canvas
-            style={{ width: `100vw`, height: "100vh" }}
-            camera={{ position: [0, 0, 2] }}
-          >
-            <OrbitControls enableZoom={false} />
-            <ambientLight intensity={0.01} />
-            <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
-            <Tourus />
-          </Canvas>
+          {heroRef && (
+            <Canvas
+              // style={{ width: `100vw`, height: "100vh" }}
+              camera={{ position: [0, 0, 2] }}
+            >
+              <OrbitControls enableZoom={false} />
+              <ambientLight intensity={0.01} />
+              <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
+              <Tourus />
+            </Canvas>
+          )}
           <m.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 0.5 }}
