@@ -11,7 +11,7 @@ export default function SidebarRight() {
       <div className="flex flex-col items-center justify-between h-[9rem]">
         <a
           href="mailto:johnrand380@gmail.com"
-          className="rotate-90 pb-[2px] text-[.9rem] hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+          className="rotate-90 pb-[2px] font-mono text-sm hover:text-thirdClr hover:translate-y-[-3px] duration-300"
         >
           johnrand380@gmail.com
         </a>

@@ -47,11 +47,11 @@ export default function MobileMenu() {
           const { id, page, link } = m;
 
           return (
-            <li key={id} className="w-full">
+            <li key={id} className="h-full w-full">
               {page === "project" ? (
                 <button
                   onClick={closeMenuAndNavigate}
-                  className="py-2 w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+                  className="h-full w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
                 >
                   {page}
                 </button>
@@ -59,7 +59,7 @@ export default function MobileMenu() {
                 <a
                   href={link}
                   onClick={() => setMenuIsOpen(false)}
-                  className="inline-block text-center py-2 w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+                  className="inline-block flex justify-center items-center h-full w-full py-2 w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
                 >
                   {page}
                 </a>

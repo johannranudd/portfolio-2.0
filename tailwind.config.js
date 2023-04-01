@@ -11,6 +11,15 @@ module.exports = {
       xs: "480px",
       ...defaultTheme.screens,
     },
+    // font-family: 'PT Mono', monospace;
+    // "special-font": "var(--special-font)",
+    fontFamily: {
+      mono: "PT Mono, monospace",
+    },
+    //
+    //
+    //
+    //
     extend: {
       screens: {
         sm: "640px",
@@ -64,6 +73,7 @@ module.exports = {
         "#5": "rgba(0, 0, 0, 0.7) 0px 3px 8px",
         "#6": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
       },
+
       fontSize: {
         sm: "0.8rem",
         base: "1rem",
