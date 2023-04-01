@@ -9,8 +9,14 @@ import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
 
 export default function HeroComponent() {
-  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } =
-    useGlobalContext();
+  const {
+    heroTextRefNumber,
+    setHeroTextRefNumber,
+    windowWidth,
+    setWindowWidth,
+    windowHeight,
+    setWindowHeight,
+  } = useGlobalContext();
   const { scrollYProgress } = useScroll();
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0]);
@@ -21,44 +27,60 @@ export default function HeroComponent() {
 
   useEffect(() => {
     if (heroRef !== undefined || heroRef !== null) {
-      // if (heroRef.current) {
-      //   heroRef.current.style.height = "100vh";
-      // }
+      if (heroRef.current) {
+        heroRef.current.style.height = "100vh";
+      }
     }
-    // window.addEventListener("DOMContentLoaded", () => {
+    handleResize();
 
-    // });
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, []);
 
+  function handleResize() {
+    setWindowWidth(window.innerWidth);
+    setWindowHeight(window.innerHeight);
+    console.log(windowWidth, " x ", windowHeight);
+    if (heroRef.current) {
+      heroRef.current.style.height = `${windowHeight}px`;
+      heroRef.current.style.width = `${windowWidth}px`;
+    }
+  }
+
   useEffect(() => {
+    handleResize();
+    // window.addEventListener("resize", () => handleResize());
+    // return () => {
+    //   window.removeEventListener("resize", () => handleResize());
+    // };
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
-  }, [windowWidth]);
+  }, [windowWidth, windowHeight]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
+      // handleResize();
       // ajustChevron(chevronRef, heroRef);
       // adjustHeroText(heroRef, heroTextRef, headingRef);
     });
     return () => {
       window.removeEventListener("scroll", () => {
+        // handleResize();
         // ajustChevron(chevronRef, heroRef);
         // adjustHeroText(heroRef, heroTextRef, headingRef);
       });
     };
   }, [scrollYProgress]);
 
-  function fakeFunction() {
-    console.log("hello");
-  }
-
   return (
     <>
-      <section ref={heroRef} id="heroSection">
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative -z-50 bg-pink-500"
+      >
         {heroRef && (
           <div
             // style={{ y: sectionScroll }}
