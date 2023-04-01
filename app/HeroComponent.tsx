@@ -26,39 +26,6 @@ export default function HeroComponent() {
     if (heroRef.current) {
       heroRef.current.style.height = "100vh";
     }
-
-    setTimeout(() => {
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-      if (heroRef.current) {
-        heroRef.current.style.height = "100vh";
-      }
-    }, 1000);
-    setTimeout(() => {
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-      if (heroRef.current) {
-        heroRef.current.style.height = "100vh";
-      }
-    }, 2000);
-    setTimeout(() => {
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-      if (heroRef.current) {
-        heroRef.current.style.height = "100vh";
-      }
-    }, 3000);
-    setTimeout(() => {
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-      if (heroRef.current) {
-        heroRef.current.style.height = "100vh";
-      }
-    }, 4000);
   }, []);
 
   useEffect(() => {
@@ -108,7 +75,7 @@ export default function HeroComponent() {
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="absolute bottom-[50%]">
+            <div ref={heroTextRef} className="absolute">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
