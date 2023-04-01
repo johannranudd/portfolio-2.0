@@ -23,12 +23,42 @@ export default function HeroComponent() {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
+    if (heroRef.current) {
+      heroRef.current.style.height = "100vh";
+    }
 
     setTimeout(() => {
       adjustHeroText(heroRef, heroTextRef, headingRef);
       const screenHeight = getHeroHeight(headingRef);
       if (screenHeight) setHeroTextRefNumber(screenHeight);
+      if (heroRef.current) {
+        heroRef.current.style.height = "100vh";
+      }
+    }, 1000);
+    setTimeout(() => {
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+      if (heroRef.current) {
+        heroRef.current.style.height = "100vh";
+      }
     }, 2000);
+    setTimeout(() => {
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+      if (heroRef.current) {
+        heroRef.current.style.height = "100vh";
+      }
+    }, 3000);
+    setTimeout(() => {
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+      if (heroRef.current) {
+        heroRef.current.style.height = "100vh";
+      }
+    }, 4000);
   }, []);
 
   useEffect(() => {
