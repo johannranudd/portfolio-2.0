@@ -23,6 +23,12 @@ export default function HeroComponent() {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
+  }, []);
+
+  useEffect(() => {
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
@@ -76,7 +82,7 @@ export default function HeroComponent() {
         </m.div>
       </section>
       <div className="flex justify-center">
-        <m.button
+        <m.a
           onClick={() => scroll(0, heroTextRefNumber)}
           ref={chevronRef}
           // href="#projectsSection"
@@ -87,7 +93,7 @@ export default function HeroComponent() {
           className="fixed bottom-12 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
         >
           <BsChevronCompactDown />
-        </m.button>
+        </m.a>
       </div>
     </>
   );
