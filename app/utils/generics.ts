@@ -58,14 +58,14 @@ export function getHeroHeight(headingRef: any) {
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
     } else if (window.innerWidth >= 400) {
-      const newHeight = headingHeight * 3.5;
-      const screenHeight = window.innerHeight - newHeight;
-      return screenHeight;
-    } else if (window.innerWidth < 400) {
-      const newHeight = headingHeight * 3.3;
-      const screenHeight = window.innerHeight - newHeight;
+      // const newHeight = headingHeight * 3.5;
+      const screenHeight = window.innerHeight - headingHeight;
       return screenHeight;
     }
+    // else if (window.innerWidth < 400) {
+    //   const screenHeight = window.innerHeight - headingHeight;
+    //   return screenHeight;
+    // }
   }
 }
 

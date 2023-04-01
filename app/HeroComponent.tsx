@@ -17,7 +17,7 @@ export default function HeroComponent() {
   const heroRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
-  const chevronRef = useRef<HTMLButtonElement>(null);
+  const chevronRef = useRef<any>(null);
 
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
@@ -75,17 +75,20 @@ export default function HeroComponent() {
           </div>
         </m.div>
       </section>
-      <m.button
-        onClick={() => scroll(0, heroTextRefNumber)}
-        ref={chevronRef}
-        style={{ opacity: chevronOpacity }}
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
-        className="fixed bottom-12 left-1/2 -translate-x-1/2 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
-      >
-        <BsChevronCompactDown />
-      </m.button>
+      <div className="flex justify-center">
+        <m.a
+          onClick={() => scroll(0, heroTextRefNumber)}
+          ref={chevronRef}
+          // href="#projectsSection"
+          style={{ opacity: chevronOpacity }}
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
+          className="fixed bottom-12 text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
+        >
+          <BsChevronCompactDown />
+        </m.a>
+      </div>
     </>
   );
 }
