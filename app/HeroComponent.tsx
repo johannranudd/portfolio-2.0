@@ -20,6 +20,14 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
+    setTimeout(() => {
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+      const screenHeight = getHeroHeight(headingRef);
+      if (screenHeight) setHeroTextRefNumber(screenHeight);
+      console.log("ello");
+    }, 2000);
+  }, []);
+  useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
