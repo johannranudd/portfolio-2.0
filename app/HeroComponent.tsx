@@ -19,14 +19,25 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<any>(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-      const screenHeight = getHeroHeight(headingRef);
-      if (screenHeight) setHeroTextRefNumber(screenHeight);
-      console.log("ello");
-    }, 2000);
-  }, []);
+  // async function scrolly() {
+  //   await scroll(0, 100);
+  //   await scroll(100, 0);
+  // }
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     scroll(0, 100);
+  //     console.log("one");
+  //     if (typeof scrollYProgress == "number") {
+  //       console.log(scrollYProgress);
+  //       scroll(scrollYProgress, 0);
+  //     } else {
+  //       console.log(scrollYProgress);
+  //       console.log("not a number");
+  //     }
+  //     console.log("two");
+  //   }, 2000);
+  // }, []);
+
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
@@ -34,6 +45,9 @@ export default function HeroComponent() {
   }, [windowWidth]);
 
   useEffect(() => {
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
     window.addEventListener("scroll", () => {
       ajustChevron(chevronRef, heroRef);
       adjustHeroText(heroRef, heroTextRef, headingRef);
@@ -48,11 +62,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section
-        ref={heroRef}
-        id="heroSection"
-        className="relative -z-50 h-screen w-screen"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         <m.div
           // style={{ y: sectionScroll }}
           style={windowWidth >= 640 ? { y: sectionScroll } : {}}
