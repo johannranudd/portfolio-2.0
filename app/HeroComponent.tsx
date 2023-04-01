@@ -43,7 +43,7 @@ export default function HeroComponent() {
       <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         <m.div
           // style={{ y: sectionScroll }}
-          style={windowWidth >= 640 ? { y: sectionScroll } : {}}
+          style={windowWidth >= 640 ? { y: sectionScroll } : { y: 0 }}
           className="relative h-screen"
         >
           <Canvas camera={{ position: [0, 0, 2] }}>
