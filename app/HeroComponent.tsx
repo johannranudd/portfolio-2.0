@@ -23,9 +23,6 @@ export default function HeroComponent() {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
-    if (heroRef.current) {
-      heroRef.current.style.height = "100vh";
-    }
   }, []);
 
   useEffect(() => {
@@ -55,7 +52,7 @@ export default function HeroComponent() {
         className="relative -z-50 h-screen w-screen"
       >
         <m.div style={{ y: sectionScroll }} className="relative h-full">
-          <Canvas camera={{ position: [0, 0, 2] }}>
+          <Canvas className="absolute" camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
@@ -75,7 +72,7 @@ export default function HeroComponent() {
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="absolute">
+            <div ref={heroTextRef} className="absolute bottom-[50%]">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
