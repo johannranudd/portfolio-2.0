@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -18,14 +18,13 @@ export default function HeroComponent() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
-    if (heroRef.current) {
-      heroRef.current.style.height = "100vh";
-    }
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -55,12 +54,21 @@ export default function HeroComponent() {
         className="relative -z-50 h-screen w-screen"
       >
         <m.div style={{ y: sectionScroll }} className="relative h-full">
-          <Canvas camera={{ position: [0, 0, 2] }}>
-            <OrbitControls enableZoom={false} />
-            <ambientLight intensity={0.01} />
-            <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
-            <Tourus />
-          </Canvas>
+          {mounted && (
+            <div className="h-screen w-screen overflow-hidden">
+              <Canvas camera={{ position: [0, 0, 2] }}>
+                <OrbitControls enableZoom={false} />
+                <ambientLight intensity={0.01} />
+                <spotLight
+                  intensity={0.5}
+                  position={[7, 100, 50]}
+                  angle={0.3}
+                />
+                <Tourus />
+              </Canvas>
+            </div>
+          )}
+
           <m.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 0.5 }}
@@ -75,7 +83,7 @@ export default function HeroComponent() {
           className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="absolute">
+            <div ref={heroTextRef} className="absolute bottom-[50%]">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
