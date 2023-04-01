@@ -22,10 +22,10 @@ export default function HeroComponent() {
   useEffect(() => {
     // const screenState = document.body.clientHeight - window.innerHeight <= 0;
     // console.log(screenState);
-    //  if (heroRef !== undefined || heroRef !== null) {
-    //    heroRef.current?.style?.setProperty("width", "100vw");
-    //    heroRef.current?.style?.setProperty("height", "100vh");
-    //  }
+    if (heroRef !== undefined || heroRef !== null) {
+      heroRef.current?.style?.setProperty("width", "100vw");
+      heroRef.current?.style?.setProperty("height", "100vh");
+    }
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
@@ -52,11 +52,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section
-        // ref={heroRef}
-        id="heroSection"
-        className="relative -z-50 h-screen w-screen max-h-screen max-w-screen"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         <m.div
           // style={{ y: sectionScroll }}
           // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
