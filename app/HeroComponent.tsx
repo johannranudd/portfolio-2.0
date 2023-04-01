@@ -66,7 +66,10 @@ export default function HeroComponent() {
           // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
           className="relative w-full h-full max-w-full max-h-full"
         >
-          <Canvas camera={{ position: [0, 0, 2] }}>
+          <Canvas
+            style={{ width: `100vw`, height: "100vh" }}
+            camera={{ position: [0, 0, 2] }}
+          >
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
