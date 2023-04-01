@@ -22,7 +22,8 @@
   margin: 0;
 }
 html {
-  min-height: 100%;
+  /* min-height: 100%; */
+  scroll-behavior: smooth;
 }
 
 html,
@@ -45,7 +46,7 @@ a {
   text-decoration: none;
 }
 
-.backdrop::before {
+/* .backdrop::before {
   position: absolute;
   content: " ";
   top: 0;
@@ -64,7 +65,7 @@ a {
   border-bottom: 3px solid transparent;
 
   border-left: 4px solid var(--thirdClr);
-}
+} */
 
 @media (prefers-color-scheme: dark) {
 }

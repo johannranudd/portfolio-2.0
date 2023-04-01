@@ -78,12 +78,13 @@ export default function HeroComponent() {
           </div>
         )}
         <div
+          // translate-y-[-50%]
           // initial={{ opacity: 0 }}
           // animate={{ opacity: 1 }}
           // transition={{ duration: 0.5 }}
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute top-[50%] translate-y-[-50%] left-0 w-full"
         >
-          <div className="max-w-screen-lg mx-auto h-full flex flex-col justify-center bg-[#413278]">
+          <div className="max-w-screen-lg mx-auto bg-[#413278]">
             <div
               // ref={heroTextRef}
               className="md:mx-sidebarWidth px-2 text-lg xxs:text-xl sm:px-4 bg-[#326e78]"

@@ -16,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <ContextProvider>
-        <body className="relative bg-primary text-secondary">
+        <body className="bg-primary text-secondary">
           <NavBar />
           <SidebarLeft />
           <SidebarRight />
