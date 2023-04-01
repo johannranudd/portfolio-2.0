@@ -61,7 +61,6 @@ export function getHeroHeight(headingRef: any) {
       // const newHeight = headingHeight * 3.5;
       const screenHeight = window.innerHeight - headingHeight;
       return screenHeight;
-      // todo: check if you can run this, if not, add an achor scroll mode conditionally
     }
     // else if (window.innerWidth < 400) {
     //   const screenHeight = window.innerHeight - headingHeight;
@@ -82,11 +81,10 @@ export function adjustHeroText(
     if (height && bottom && window.innerWidth >= 640) {
       const newHeight = height / 1.3;
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+    } else if (height && bottom && window.innerWidth < 640) {
+      const newHeight = height * 2.1;
+      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
-    // else if (height && bottom && window.innerWidth < 640) {
-    //   const newHeight = height * 2.1;
-    //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-    // }
   }
 }
 
