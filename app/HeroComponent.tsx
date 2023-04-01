@@ -22,21 +22,13 @@ export default function HeroComponent() {
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) {
-      if (screenHeight > 0) {
-        setHeroTextRefNumber(screenHeight);
-      }
-    }
+    if (screenHeight && windowWidth > 0) setHeroTextRefNumber(screenHeight);
   }, []);
 
   useEffect(() => {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) {
-      if (screenHeight > 0) {
-        setHeroTextRefNumber(screenHeight);
-      }
-    }
+    if (screenHeight && windowWidth > 0) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
