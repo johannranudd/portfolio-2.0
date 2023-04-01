@@ -20,19 +20,20 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      // scroll(0, 1);
-      // console.log("one");
-      // console.log(scrollYProgress);
-      // if (typeof scrollYProgress == "number") {
-      //   scroll(scrollYProgress, 0);
-      // } else {
-      //   console.log(scrollYProgress);
-      //   console.log("not a number");
-      // }
-      // console.log("two");
-      // console.log(document.body.clientHeight - window.innerHeight <= 0);
-    }, 2000);
+    // setTimeout(() => {
+    // scroll(0, 1);
+    // console.log("one");
+    // console.log(scrollYProgress);
+    // if (typeof scrollYProgress == "number") {
+    //   scroll(scrollYProgress, 0);
+    // } else {
+    //   console.log(scrollYProgress);
+    //   console.log("not a number");
+    // }
+    // console.log("two");
+    // console.log(document.body.clientHeight - window.innerHeight <= 0);
+    // }, 2000);
+    scroll(0, 1);
   }, []);
 
   useEffect(() => {
@@ -62,7 +63,7 @@ export default function HeroComponent() {
           style={windowWidth >= 640 ? { y: sectionScroll } : {}}
           className="relative h-screen w-screen"
         >
-          <Canvas className="w-full h-full" camera={{ position: [0, 0, 2] }}>
+          <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
