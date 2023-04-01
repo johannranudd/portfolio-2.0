@@ -82,10 +82,11 @@ export function adjustHeroText(
     if (height && bottom && window.innerWidth >= 640) {
       const newHeight = height / 1.3;
       heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-    } else if (height && bottom && window.innerWidth < 640) {
-      const newHeight = height * 2.1;
-      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
     }
+    // else if (height && bottom && window.innerWidth < 640) {
+    //   const newHeight = height * 2.1;
+    //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+    // }
   }
 }
 
