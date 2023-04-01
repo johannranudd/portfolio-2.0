@@ -11,8 +11,6 @@ module.exports = {
       xs: "480px",
       ...defaultTheme.screens,
     },
-    // font-family: 'PT Mono', monospace;
-    // "special-font": "var(--special-font)",
     fontFamily: {
       mono: "PT Mono, monospace",
     },

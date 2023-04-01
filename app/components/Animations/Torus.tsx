@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
 export default function Tourus() {
-  //   const ref0 = useRef<THREE.Mesh>(null);
   const ref1 = useRef<THREE.Mesh>(null);
   const ref2 = useRef<THREE.Mesh>(null);
   const ref3 = useRef<THREE.Mesh>(null);
