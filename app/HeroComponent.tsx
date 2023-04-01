@@ -23,6 +23,7 @@ export default function HeroComponent() {
     // setTimeout(() => {
 
     // }, 1000);
+    console.log("initial");
     if (heroRef !== undefined || heroRef !== null) {
       heroRef.current?.style?.setProperty("width", "100vw");
     }
@@ -32,12 +33,17 @@ export default function HeroComponent() {
   }, []);
 
   useEffect(() => {
+    console.log("window");
+    if (heroRef !== undefined || heroRef !== null) {
+      heroRef.current?.style?.setProperty("width", "100vw");
+    }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, [windowWidth]);
 
   useEffect(() => {
+    console.log("scroll");
     window.addEventListener("scroll", () => {
       ajustChevron(chevronRef, heroRef);
       adjustHeroText(heroRef, heroTextRef, headingRef);
