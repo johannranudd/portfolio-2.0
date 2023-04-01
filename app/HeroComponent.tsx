@@ -21,17 +21,17 @@ export default function HeroComponent() {
 
   async function makeSmaller() {
     if (heroRef !== undefined || heroRef !== null) {
-      setTimeout(() => {
-        heroRef.current?.style?.setProperty("width", "50vw");
-        heroRef.current?.style?.setProperty("height", "50vh");
-      }, 2000);
+      // setTimeout(() => {
+      heroRef.current?.style?.setProperty("width", "50vw");
+      heroRef.current?.style?.setProperty("height", "50vh");
+      // }, 2000);
     }
   }
   async function makeLarger() {
-    setTimeout(() => {
-      heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "100vh");
-    }, 3000);
+    // setTimeout(() => {
+    heroRef.current?.style?.setProperty("width", "100vw");
+    heroRef.current?.style?.setProperty("height", "100vh");
+    // }, 3000);
   }
 
   async function readjustCanvas() {
