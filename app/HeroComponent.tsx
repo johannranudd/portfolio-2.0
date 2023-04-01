@@ -48,12 +48,12 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50 ">
+      <section ref={heroRef} id="heroSection" className="relative -z-50">
         {heroRef && (
           <div
             // style={{ y: sectionScroll }}
             // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-            className="relative h-screen w-screen"
+            className="relative h-screen w-screen bg-pink-200 opacity-30"
           >
             {/* <Canvas
               // style={{ width: `100vw`, height: "100vh" }}
@@ -74,17 +74,22 @@ export default function HeroComponent() {
           </div>
         )}
         <div
+          // max-w-screen-lg mx-auto px-2 text-lg xxs:text-xl sm:px-4
+          // absolute bottom-1/2 translate-y-[50%]
+          // [calc(50%+sidebarWidthpx)]
           // initial={{ opacity: 0 }}
           // animate={{ opacity: 1 }}
           // transition={{ duration: 0.5 }}
-          className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
+          className="absolute top-0 left-0 w-full h-full"
         >
-          <div className="px-2 sm:px-4 md:mx-sidebarWidth">
+          <div className="max-w-screen-lg mx-auto h-full flex flex-col justify-center">
             <div
               // ref={heroTextRef}
-              className="absolute bottom-1/2 translate-y-[50%]"
+              className="md:mx-sidebarWidth px-2 text-lg xxs:text-xl sm:px-4"
             >
-              <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
+              <p className="font-mono mb-4 text-thirdClr z-50">
+                Hello my name is
+              </p>
               <h1
                 // ref={headingRef}
                 className="text-4xl xxs:text-5xl sm:text-6xl"
