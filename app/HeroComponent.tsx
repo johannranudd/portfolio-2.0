@@ -21,9 +21,9 @@ export default function HeroComponent() {
 
   useEffect(() => {
     if (heroRef !== undefined || heroRef !== null) {
-      if (heroRef.current) {
-        heroRef.current.style.height = "100vh";
-      }
+      // if (heroRef.current) {
+      //   heroRef.current.style.height = "100vh";
+      // }
     }
     // window.addEventListener("DOMContentLoaded", () => {
 
@@ -52,13 +52,13 @@ export default function HeroComponent() {
     };
   }, [scrollYProgress]);
 
+  function fakeFunction() {
+    console.log("hello");
+  }
+
   return (
     <>
-      <section
-        ref={heroRef}
-        id="heroSection"
-        className="relative -z-50 bg-pink-500"
-      >
+      <section ref={heroRef} id="heroSection">
         {heroRef && (
           <div
             // style={{ y: sectionScroll }}

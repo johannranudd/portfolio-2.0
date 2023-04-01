@@ -6,10 +6,12 @@ import TechComponent from "./TechComponent";
 export default function Home() {
   return (
     <div>
-      <HeroComponent />
-      {/* <ProjectsComponent /> */}
-      {/* <TechComponent /> */}
-      {/* <ContactComponent /> */}
+      <div className="relative h-screen w-screen -z-50 bg-pink-500">
+        <HeroComponent />
+      </div>
+      <ProjectsComponent />
+      <TechComponent />
+      <ContactComponent />
     </div>
   );
 }
