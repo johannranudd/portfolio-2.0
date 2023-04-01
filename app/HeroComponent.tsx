@@ -53,12 +53,12 @@ export default function HeroComponent() {
   return (
     <>
       <section ref={heroRef} id="heroSection" className="relative -z-50 ">
-        <m.div
-          // style={{ y: sectionScroll }}
-          // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
-          className="relative h-screen w-screen"
-        >
-          {heroRef && (
+        {heroRef && (
+          <m.div
+            // style={{ y: sectionScroll }}
+            // style={windowWidth >= 640 ? { y: sectionScroll } : {}}
+            className="relative h-screen w-screen"
+          >
             <Canvas
               // style={{ width: `100vw`, height: "100vh" }}
               camera={{ position: [0, 0, 2] }}
@@ -68,14 +68,15 @@ export default function HeroComponent() {
               <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
               <Tourus />
             </Canvas>
-          )}
-          <m.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 0.5 }}
-            transition={{ delay: 0.5, duration: 1.5 }}
-            className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
-          ></m.div>
-        </m.div>
+
+            <m.div
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0.5 }}
+              transition={{ delay: 0.5, duration: 1.5 }}
+              className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
+            ></m.div>
+          </m.div>
+        )}
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
