@@ -45,7 +45,9 @@ export default function HeroComponent() {
       });
     };
   }, [scrollYProgress]);
-
+  function fakeFunction() {
+    console.log("hello");
+  }
   return (
     <>
       <section
