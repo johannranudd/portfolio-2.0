@@ -57,7 +57,7 @@ export function getHeroHeight(headingRef: any) {
       const newHeight = headingHeight * 1.9;
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
-    } else if (window.innerWidth >= 400) {
+    } else {
       // const newHeight = headingHeight * 3.5;
       const screenHeight = window.innerHeight - headingHeight;
       return screenHeight;
