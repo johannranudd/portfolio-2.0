@@ -51,7 +51,7 @@ export default function HeroComponent() {
       <section
         ref={heroRef}
         id="heroSection"
-        className="relative -z-50 h-screen w-screen max-h-screen max-w-screen"
+        className="relative -z-50 h-screen w-full max-h-screen max-w-screen"
       >
         {heroRef && (
           <div
