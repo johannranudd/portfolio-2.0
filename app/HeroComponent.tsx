@@ -51,7 +51,7 @@ export default function HeroComponent() {
   }, [scrollYProgress]);
 
   return (
-    <div className="h-screen w-screen max-h-screen max-w-screen">
+    <>
       <section
         // ref={heroRef}
         id="heroSection"
@@ -112,6 +112,6 @@ export default function HeroComponent() {
           <BsChevronCompactDown />
         </m.a>
       </div>
-    </div>
+    </>
   );
 }
