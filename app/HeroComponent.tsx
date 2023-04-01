@@ -20,14 +20,14 @@ export default function HeroComponent() {
   const chevronRef = useRef<any>(null);
 
   useEffect(() => {
-    // setTimeout(() => {
+    setTimeout(() => {
+      console.log("initial");
+      if (heroRef !== undefined || heroRef !== null) {
+        heroRef.current?.style?.setProperty("width", "100vw");
+        heroRef.current?.style?.setProperty("height", "100vh");
+      }
+    }, 1000);
 
-    // }, 1000);
-    console.log("initial");
-    if (heroRef !== undefined || heroRef !== null) {
-      heroRef.current?.style?.setProperty("width", "100vw");
-      heroRef.current?.style?.setProperty("height", "100vh");
-    }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
@@ -62,11 +62,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section
-        ref={heroRef}
-        id="heroSection"
-        className="relative -z-50 h-screen w-screen"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50">
         <m.div
           // style={{ y: sectionScroll }}
           style={windowWidth >= 640 ? { y: sectionScroll } : {}}
