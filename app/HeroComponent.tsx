@@ -23,25 +23,29 @@ export default function HeroComponent() {
     // const screenState = document.body.clientHeight - window.innerHeight <= 0;
     // console.log(screenState);
     if (heroRef !== undefined || heroRef !== null) {
-      // setTimeout(() => {
-      //   heroRef.current?.click();
-      //   console.log("clicked");
-      // }, 2000);
-      // heroRef.current?.style?.setProperty("width", "100vw");
-      // heroRef.current?.style?.setProperty("height", "100vh");
+      heroRef.current?.style?.setProperty("width", "100vw");
+      heroRef.current?.style?.setProperty("height", "100vh");
     }
     // adjustHeroText(heroRef, heroTextRef, headingRef);
     // const screenHeight = getHeroHeight(headingRef);
     // if (screenHeight) setHeroTextRefNumber(screenHeight);
   }, []);
 
-  // useEffect(() => {
-  //   adjustHeroText(heroRef, heroTextRef, headingRef);
-  //   const screenHeight = getHeroHeight(headingRef);
-  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
-  // }, [windowWidth]);
+  useEffect(() => {
+    // adjustHeroText(heroRef, heroTextRef, headingRef);
+    // const screenHeight = getHeroHeight(headingRef);
+    // if (screenHeight) setHeroTextRefNumber(screenHeight);
+    if (heroRef !== undefined || heroRef !== null) {
+      heroRef.current?.style?.setProperty("width", "100vw");
+      heroRef.current?.style?.setProperty("height", "100vh");
+    }
+  }, [windowWidth]);
 
   useEffect(() => {
+    if (heroRef !== undefined || heroRef !== null) {
+      heroRef.current?.style?.setProperty("width", "100vw");
+      heroRef.current?.style?.setProperty("height", "100vh");
+    }
     window.addEventListener("scroll", () => {
       // ajustChevron(chevronRef, heroRef);
       // adjustHeroText(heroRef, heroTextRef, headingRef);
