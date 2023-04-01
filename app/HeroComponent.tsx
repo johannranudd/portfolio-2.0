@@ -43,10 +43,10 @@ export default function HeroComponent() {
       <section ref={heroRef} id="heroSection" className="relative -z-50 ">
         <m.div
           // style={{ y: sectionScroll }}
-          style={windowWidth >= 640 ? { y: sectionScroll } : { y: 0 }}
-          className="relative h-screen"
+          style={windowWidth >= 640 ? { y: sectionScroll } : {}}
+          className="relative h-screen w-screen"
         >
-          <Canvas camera={{ position: [0, 0, 2] }}>
+          <Canvas className="w-full h-full" camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
