@@ -54,14 +54,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <m.section
-        initial={{ height: "200vh" }}
-        animate={{ height: "100svh" }}
-        transition={{ delay: 0.5, duration: 1.5 }}
-        ref={heroRef}
-        id="heroSection"
-        className="relative -z-50"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50">
         <m.div style={{ y: sectionScroll }} className="h-full">
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
@@ -98,7 +91,7 @@ export default function HeroComponent() {
             </div>
           </div>
         </m.div>
-      </m.section>
+      </section>
       <div className="w-full flex justify-center">
         <m.button
           onClick={() => scroll(0, heroTextRefNumber)}
