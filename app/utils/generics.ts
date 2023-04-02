@@ -76,6 +76,7 @@ export function adjustHeroText(
 ) {
   if (heroRef.current && heroTextRef.current && headingRef.current) {
     if (typeof window !== "undefined") {
+      // try to change values here to trigger mobile browser behaviour
       heroRef.current.style.height = `100vh`;
       heroTextRef.current.style.position = "absolute";
       const { bottom }: any = heroRef.current?.getBoundingClientRect();
