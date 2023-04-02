@@ -9,8 +9,13 @@ import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
 
 export default function HeroComponent() {
-  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } =
-    useGlobalContext();
+  const {
+    heroTextRefNumber,
+    setHeroTextRefNumber,
+    windowWidth,
+    windowHeight,
+    setWindowHeight,
+  } = useGlobalContext();
   const { scrollYProgress } = useScroll();
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0]);
@@ -25,11 +30,16 @@ export default function HeroComponent() {
   //   if (screenHeight) setHeroTextRefNumber(screenHeight);
   // }, []);
 
-  // useEffect(() => {
-  //   adjustHeroText(heroRef, heroTextRef, headingRef);
-  //   const screenHeight = getHeroHeight(headingRef);
-  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
-  // }, [windowWidth]);
+  useEffect(() => {
+    //   adjustHeroText(heroRef, heroTextRef, headingRef);
+    //   const screenHeight = getHeroHeight(headingRef);
+    //   if (screenHeight) setHeroTextRefNumber(screenHeight);
+    // getVH();
+    window.addEventListener("resize", () => getVH());
+    return () => {
+      window.removeEventListener("resize", () => getVH());
+    };
+  }, [windowWidth, windowHeight]);
 
   // useEffect(() => {
   //   window.addEventListener("scroll", () => {
@@ -44,12 +54,27 @@ export default function HeroComponent() {
   //   };
   // }, [scrollYProgress]);
 
+  useEffect(() => {
+    getVH();
+  }, []);
+
+  function getVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    const wh = document.documentElement.style.getPropertyValue("--vh");
+    const whToNumber = Number(wh.slice(0, wh.length - 2));
+    setWindowHeight(whToNumber);
+    if (heroRef) {
+      console.log(heroRef.current?.style.height);
+    }
+  }
   return (
     <>
       <section
         ref={heroRef}
         id="heroSection"
-        className="relative h-screen -z-50 bg-blue-200"
+        style={{ height: windowHeight * 100 }}
+        className="relative -z-50 bg-blue-200"
       ></section>
     </>
   );
