@@ -77,16 +77,7 @@ export function adjustHeroText(
   if (heroRef.current && heroTextRef.current && headingRef.current) {
     if (typeof window !== "undefined") {
       // change values here to trigger mobile browser behaviour
-      heroRef.current.style.height = `101svh`;
-      setTimeout(() => {
-        heroRef.current.style.height = `100svh`;
-      }, 1000);
-      setTimeout(() => {
-        heroRef.current.style.height = `101svh`;
-      }, 1500);
-      setTimeout(() => {
-        heroRef.current.style.height = `100svh`;
-      }, 2000);
+      heroRef.current.style.height = `100svh`;
       // relative h-screen -z-50
       // heroTextRef.current.style.position = "absolute";
 
@@ -95,10 +86,10 @@ export function adjustHeroText(
       const bottomHalf = bottom / 2 - height;
       if (height && bottom && window.innerWidth >= 640) {
         const newHeight = height / 1.3;
-        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        // heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
       } else if (height && bottom && window.innerWidth < 640) {
         const newHeight = height * 2.1;
-        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        // heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
       }
       //  else {
       //   heroTextRef.current.style.bottom = `${bottomHalf - height}px`;
