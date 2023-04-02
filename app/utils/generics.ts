@@ -84,13 +84,21 @@ export function adjustHeroText(
       //
       const heroRefHeight = heroRef.current?.getBoundingClientRect().height;
       // console.log(heroRefHeight);
-      // console.log(window.innerHeight);
       if (heroRefHeight !== window.innerHeight) {
         heroRef.current.style.height = `${window.innerHeight}px`;
-        // console.log(heroRefHeight);
-      } else {
-        console.log("equal");
+        heroRef.current.style.backgroundColor = "red";
       }
+
+      const heroRefHeight2 = heroRef.current?.getBoundingClientRect().height;
+      console.log(heroRefHeight2);
+      console.log(window.innerHeight);
+      if (heroRefHeight2 === window.innerHeight) {
+        heroRef.current.style.height = `${window.innerHeight}px`;
+        heroRef.current.style.backgroundColor = "lightblue";
+      }
+      // else {
+      //   console.log("equal");
+      // }
       //
 
       const { bottom }: any = heroRef.current?.getBoundingClientRect();
