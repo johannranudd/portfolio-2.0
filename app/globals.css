@@ -41,7 +41,7 @@ body {
   /* min-height: calc(var(--vh, 1vh) * 100); */
 }
 #heroSection {
-  height: 100vh;
+  /* height: 100vh; */
   height: 100svh;
   background: rgb(112, 45, 112);
 }
