@@ -52,7 +52,9 @@ export async function relaoadInitialToFitMobileScreen(windowWidth: any) {
   const initialRender = getItem("initial");
   if (!initialRender && windowWidth < 640) {
     setItem("initial", true);
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 }
 
@@ -112,10 +114,11 @@ export function adjustHeroText(
       if (height && bottom && window.innerWidth >= 640) {
         const newHeight = height / 1.3;
         heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-      } else if (height && bottom && window.innerWidth < 640) {
-        const newHeight = height * 2.1;
-        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
       }
+      // else if (height && bottom && window.innerWidth < 640) {
+      //   const newHeight = height * 2.1;
+      //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      // }
       // *not used
       //  else {
       //   heroTextRef.current.style.bottom = `${bottomHalf - height}px`;
