@@ -19,30 +19,30 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
-  }, []);
+  // useEffect(() => {
+  //   adjustHeroText(heroRef, heroTextRef, headingRef);
+  //   const screenHeight = getHeroHeight(headingRef);
+  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
+  // }, []);
 
-  useEffect(() => {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
-  }, [windowWidth]);
+  // useEffect(() => {
+  //   adjustHeroText(heroRef, heroTextRef, headingRef);
+  //   const screenHeight = getHeroHeight(headingRef);
+  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
+  // }, [windowWidth]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      ajustChevron(chevronRef, heroRef);
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-    });
-    return () => {
-      window.removeEventListener("scroll", () => {
-        ajustChevron(chevronRef, heroRef);
-        adjustHeroText(heroRef, heroTextRef, headingRef);
-      });
-    };
-  }, [scrollYProgress]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     ajustChevron(chevronRef, heroRef);
+  //     adjustHeroText(heroRef, heroTextRef, headingRef);
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", () => {
+  //       ajustChevron(chevronRef, heroRef);
+  //       adjustHeroText(heroRef, heroTextRef, headingRef);
+  //     });
+  //   };
+  // }, [scrollYProgress]);
 
   return (
     <>
@@ -51,7 +51,10 @@ export default function HeroComponent() {
         id="heroSection"
         className="relative h-screen -z-50"
       >
-        <m.div style={{ y: sectionScroll }} className=""></m.div>
+        <m.div
+          // style={{ y: sectionScroll }}
+          className=""
+        ></m.div>
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
