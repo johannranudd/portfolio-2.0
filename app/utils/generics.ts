@@ -60,8 +60,8 @@ export async function relaoadInitialToFitMobileScreen(windowWidth: any) {
 
 export function getItem(key: string) {
   if (typeof window !== "undefined") {
-    const locStor = localStorage.getItem(key)
-      ? JSON.parse(localStorage.getItem(key) || "")
+    const locStor = sessionStorage.getItem(key)
+      ? JSON.parse(sessionStorage.getItem(key) || "")
       : "";
     if (locStor !== null || locStor !== undefined) {
       return locStor;
@@ -71,7 +71,7 @@ export function getItem(key: string) {
 
 export function setItem(key: string, value: boolean) {
   if (typeof window !== "undefined") {
-    localStorage.setItem(key, JSON.stringify(value));
+    sessionStorage.setItem(key, JSON.stringify(value));
   }
 }
 
