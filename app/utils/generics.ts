@@ -77,29 +77,8 @@ export function adjustHeroText(
   if (heroRef.current && heroTextRef.current && headingRef.current) {
     if (typeof window !== "undefined") {
       // change values here to trigger mobile browser behaviour
-      heroRef.current.style.height = `100vh`;
-      // heroRef.current.style.height = `${window.innerHeight}px`;
-      heroTextRef.current.style.position = "absolute";
-
-      //
-      const heroRefHeight = heroRef.current?.getBoundingClientRect().height;
-      // console.log(heroRefHeight);
-      if (heroRefHeight !== window.innerHeight) {
-        heroRef.current.style.height = `${window.innerHeight}px`;
-        heroRef.current.style.backgroundColor = "red";
-      }
-
-      const heroRefHeight2 = heroRef.current?.getBoundingClientRect().height;
-      console.log(heroRefHeight2);
-      console.log(window.innerHeight);
-      if (heroRefHeight2 === window.innerHeight) {
-        heroRef.current.style.height = `${window.innerHeight}px`;
-        heroRef.current.style.backgroundColor = "lightblue";
-      }
-      // else {
-      //   console.log("equal");
-      // }
-      //
+      // heroRef.current.style.height = `100vh`;
+      // heroTextRef.current.style.position = "absolute";
 
       const { bottom }: any = heroRef.current?.getBoundingClientRect();
       const { height }: any = headingRef.current?.getBoundingClientRect();
