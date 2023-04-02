@@ -48,6 +48,31 @@ export function ajustChevron(chevronRef: any, heroRef: any) {
   }
 }
 
+export async function relaoadInitialToFitMobileScreen(windowWidth: any) {
+  const initialRender = getItem("initial");
+  if (!initialRender && windowWidth < 640) {
+    setItem("initial", true);
+    location.reload();
+  }
+}
+
+export function getItem(key: string) {
+  if (typeof window !== "undefined") {
+    const locStor = localStorage.getItem(key)
+      ? JSON.parse(localStorage.getItem(key) || "")
+      : "";
+    if (locStor !== null || locStor !== undefined) {
+      return locStor;
+    }
+  }
+}
+
+export function setItem(key: string, value: boolean) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+}
+
 export function getHeroHeight(headingRef: any) {
   if (headingRef.current) {
     const headingHeight: any =
@@ -86,11 +111,12 @@ export function adjustHeroText(
       const bottomHalf = bottom / 2 - height;
       if (height && bottom && window.innerWidth >= 640) {
         const newHeight = height / 1.3;
-        // heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
       } else if (height && bottom && window.innerWidth < 640) {
         const newHeight = height * 2.1;
-        // heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
       }
+      // *not used
       //  else {
       //   heroTextRef.current.style.bottom = `${bottomHalf - height}px`;
       // }
