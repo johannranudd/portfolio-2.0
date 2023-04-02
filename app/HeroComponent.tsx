@@ -30,16 +30,16 @@ export default function HeroComponent() {
   //   if (screenHeight) setHeroTextRefNumber(screenHeight);
   // }, []);
 
-  useEffect(() => {
-    //   adjustHeroText(heroRef, heroTextRef, headingRef);
-    //   const screenHeight = getHeroHeight(headingRef);
-    //   if (screenHeight) setHeroTextRefNumber(screenHeight);
-    // getVH();
-    window.addEventListener("resize", () => getVH());
-    return () => {
-      window.removeEventListener("resize", () => getVH());
-    };
-  }, [windowWidth, windowHeight]);
+  // useEffect(() => {
+  //   adjustHeroText(heroRef, heroTextRef, headingRef);
+  //   const screenHeight = getHeroHeight(headingRef);
+  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
+  // getVH();
+  // window.addEventListener("resize", () => getVH());
+  // return () => {
+  //   window.removeEventListener("resize", () => getVH());
+  // };
+  // }, [windowWidth, windowHeight]);
 
   // useEffect(() => {
   //   window.addEventListener("scroll", () => {
@@ -54,27 +54,27 @@ export default function HeroComponent() {
   //   };
   // }, [scrollYProgress]);
 
-  useEffect(() => {
-    getVH();
-  }, []);
+  // useEffect(() => {
+  //   getVH();
+  // }, []);
 
-  function getVH() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    const wh = document.documentElement.style.getPropertyValue("--vh");
-    const whToNumber = Number(wh.slice(0, wh.length - 2));
-    setWindowHeight(whToNumber);
-    if (heroRef) {
-      console.log(heroRef.current?.style.height);
-    }
-  }
+  // function getVH() {
+  //   let vh = window.innerHeight * 0.01;
+  //   document.documentElement.style.setProperty("--vh", `${vh}px`);
+  //   const wh = document.documentElement.style.getPropertyValue("--vh");
+  //   const whToNumber = Number(wh.slice(0, wh.length - 2));
+  //   setWindowHeight(whToNumber);
+  //   if (heroRef) {
+  //     console.log(heroRef.current?.style.height);
+  //   }
+  // }
   return (
     <>
       <section
         ref={heroRef}
         id="heroSection"
-        style={{ height: windowHeight * 100 }}
-        className="relative -z-50 bg-blue-200"
+        // style={{ height: "svh" }}
+        // className="relative -z-50 bg-blue-200"
       ></section>
     </>
   );
