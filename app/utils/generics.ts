@@ -78,7 +78,21 @@ export function adjustHeroText(
     if (typeof window !== "undefined") {
       // change values here to trigger mobile browser behaviour
       heroRef.current.style.height = `100vh`;
+      // heroRef.current.style.height = `${window.innerHeight}px`;
       heroTextRef.current.style.position = "absolute";
+
+      //
+      const heroRefHeight = heroRef.current?.getBoundingClientRect().height;
+      // console.log(heroRefHeight);
+      // console.log(window.innerHeight);
+      if (heroRefHeight !== window.innerHeight) {
+        heroRef.current.style.height = `${window.innerHeight}px`;
+        // console.log(heroRefHeight);
+      } else {
+        console.log("equal");
+      }
+      //
+
       const { bottom }: any = heroRef.current?.getBoundingClientRect();
       const { height }: any = headingRef.current?.getBoundingClientRect();
       const bottomHalf = bottom / 2 - height;
