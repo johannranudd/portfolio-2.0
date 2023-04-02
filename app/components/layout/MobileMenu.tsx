@@ -41,7 +41,7 @@ export default function MobileMenu() {
       <ul
         style={menuIsOpen ? { left: 0 } : { left: "-100vw" }}
         id="mobileMenu"
-        className={`absolute top-0 z-50  w-full xxs:w-[300px]  flex flex-col justify-evenly items-center bg-primary text-2xl duration-300 `}
+        className={`absolute top-0 z-50 mt-navbarWidth w-full xxs:w-[300px]  flex flex-col justify-evenly items-center bg-primary text-2xl duration-300 `}
       >
         {pageStructure.map((m) => {
           const { id, page, link } = m;
