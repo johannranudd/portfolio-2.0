@@ -26,22 +26,11 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
 
-  function clickRef() {
-    if (heroTextRef !== undefined || heroTextRef !== null) {
-      heroTextRef.current?.click();
-      console.log("clicked");
-    }
-  }
-
   useEffect(() => {
     // relaoadInitialToFitMobileScreen(windowWidth);
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
-    clickRef();
-    setTimeout(() => {
-      clickRef();
-    }, 1000);
   }, []);
 
   useEffect(() => {
