@@ -3,7 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
+import {
+  adjustHeroText,
+  ajustChevron,
+  getHeroHeight,
+  getItem,
+  relaoadInitialToFitMobileScreen,
+  setItem,
+} from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
@@ -20,6 +27,7 @@ export default function HeroComponent() {
   const chevronRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    relaoadInitialToFitMobileScreen(windowWidth);
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
