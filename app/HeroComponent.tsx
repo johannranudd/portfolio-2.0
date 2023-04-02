@@ -27,7 +27,7 @@ export default function HeroComponent() {
   const chevronRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    relaoadInitialToFitMobileScreen(windowWidth);
+    // relaoadInitialToFitMobileScreen(windowWidth);
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);

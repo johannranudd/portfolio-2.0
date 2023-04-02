@@ -7,28 +7,21 @@ export default function Logo() {
   const { windowWidth } = useGlobalContext();
   const ref = useRef<HTMLAnchorElement>(null);
 
-  // function clickRef() {
-  //   if (ref !== undefined || ref !== null) {
-  //     ref.current?.click();
-  //     console.log("clicked");
-  //   }
-  // }
+  function clickRef() {
+    if (ref !== undefined || ref !== null) {
+      ref.current?.click();
+      console.log("clicked");
+    }
+  }
 
   useEffect(() => {
-    // window.addEventListener("DOMContentLoaded", () => {
-    // });
-    // setTimeout(() => {
-    //   if (windowWidth > 0) {
-    //     if (ref !== undefined || ref !== null) {
-    //       ref.current?.click();
-    //       console.log("clicked");
-    //     }
-    //   }
-    // }, 2000);
-    // clickRef();
-    // return () => {
-    //   window.removeEventListener("DOMContentLoaded", () => clickRef());
-    // };
+    setTimeout(() => {
+      clickRef();
+    }, 2000);
+    window.addEventListener("DOMContentLoaded", () => clickRef());
+    return () => {
+      window.removeEventListener("DOMContentLoaded", () => clickRef());
+    };
   }, []);
   return (
     <m.a
