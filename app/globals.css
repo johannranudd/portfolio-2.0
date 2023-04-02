@@ -37,8 +37,8 @@ body {
   /* min-height: calc(100vh - calc(100vh - 100%)); */
   /* min-height: -webkit-fill-available; */
   font-family: "Poppins", sans-serif;
-  min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  min-height: calc(var(--vh, 1vh) * 100);
+  /* min-height: 100vh;  */
+  /* min-height: calc(var(--vh, 1vh) * 100); */
 }
 
 h1,
