@@ -49,32 +49,8 @@ export default function HeroComponent() {
       <section
         ref={heroRef}
         id="heroSection"
-        className="relative h-screen -z-50"
-      >
-        <m.div
-          // style={{ y: sectionScroll }}
-          className=""
-        ></m.div>
-        <m.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
-        >
-          <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="absolute bottom-[50%]">
-              <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
-              <h1
-                ref={headingRef}
-                className="text-4xl xxs:text-5xl sm:text-6xl"
-              >
-                Johann Ranudd
-              </h1>
-              <p className="mt-4 font-mono">- Front-end developer</p>
-            </div>
-          </div>
-        </m.div>
-      </section>
+        className="relative h-screen -z-50 bg-blue-200"
+      ></section>
     </>
   );
 }
