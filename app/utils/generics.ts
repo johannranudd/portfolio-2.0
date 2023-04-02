@@ -77,10 +77,16 @@ export function adjustHeroText(
   if (heroRef.current && heroTextRef.current && headingRef.current) {
     if (typeof window !== "undefined") {
       // change values here to trigger mobile browser behaviour
-      heroRef.current.style.height = `50svh`;
+      heroRef.current.style.height = `101svh`;
       setTimeout(() => {
         heroRef.current.style.height = `100svh`;
-      }, 3000);
+      }, 1000);
+      setTimeout(() => {
+        heroRef.current.style.height = `101svh`;
+      }, 1500);
+      setTimeout(() => {
+        heroRef.current.style.height = `100svh`;
+      }, 2000);
       // relative h-screen -z-50
       // heroTextRef.current.style.position = "absolute";
 
