@@ -46,29 +46,36 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50">
-        <m.div style={{ y: sectionScroll }} className="h-full">
+      <section
+        ref={heroRef}
+        id="heroSection"
+        className="relative h-screen w-full z-50 border-4 border-blue-500 "
+      >
+        <m.div
+          style={{ y: sectionScroll }}
+          className="h-full border border-pink-500"
+        >
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
             <Tourus />
           </Canvas>
-          <m.div
+          {/* <m.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 0.5 }}
             transition={{ delay: 0.5, duration: 1.5 }}
             className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
-          ></m.div>
+          ></m.div> */}
         </m.div>
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="max-w-screen-lg mx-auto text-lg xxs:text-xl"
+          className="max-w-screen-lg mx-auto text-lg xxs:text-xl border-2 border-red-500"
         >
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
-            <div ref={heroTextRef} className="">
+            <div ref={heroTextRef} className="absolute">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1
                 ref={headingRef}
