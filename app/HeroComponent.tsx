@@ -47,7 +47,7 @@ export default function HeroComponent() {
   return (
     <>
       <section ref={heroRef} id="heroSection" className="relative -z-50">
-        <m.div style={{ y: sectionScroll }} className="relative h-full">
+        <m.div style={{ y: sectionScroll }} className="h-full">
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
