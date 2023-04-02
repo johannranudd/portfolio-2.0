@@ -28,21 +28,6 @@ export default function HeroComponent() {
 
   useEffect(() => {
     // relaoadInitialToFitMobileScreen(windowWidth);
-    if (heroRef.current) {
-      heroRef.current.style.height = `100svh`;
-      setTimeout(() => {
-        if (heroRef.current) heroRef.current.style.height = `50svh`;
-      }, 1000);
-      setTimeout(() => {
-        if (heroRef.current) heroRef.current.style.height = `100svh`;
-      }, 1500);
-      setTimeout(() => {
-        if (heroRef.current) heroRef.current.style.height = `50svh`;
-      }, 2000);
-      setTimeout(() => {
-        if (heroRef.current) heroRef.current.style.height = `100svh`;
-      }, 2500);
-    }
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
