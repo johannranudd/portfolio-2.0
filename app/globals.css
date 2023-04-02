@@ -37,8 +37,13 @@ body {
   /* min-height: calc(100vh - calc(100vh - 100%)); */
   /* min-height: -webkit-fill-available; */
   font-family: "Poppins", sans-serif;
-  /* min-height: 100vh;  */
+  min-height: 100vh;
   /* min-height: calc(var(--vh, 1vh) * 100); */
+}
+#heroSection {
+  height: 100vh;
+  height: 100svh;
+  background: rgb(112, 45, 112);
 }
 
 h1,
