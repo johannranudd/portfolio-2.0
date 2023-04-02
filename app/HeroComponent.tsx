@@ -23,8 +23,6 @@ export default function HeroComponent() {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
-
-    // if (heroTextRef)
   }, []);
 
   useEffect(() => {
