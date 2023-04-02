@@ -75,16 +75,19 @@ export function adjustHeroText(
   headingRef: any
 ) {
   if (heroRef.current && heroTextRef.current && headingRef.current) {
-    heroRef.current.style.height = `100vh`;
-    const { bottom }: any = heroRef.current?.getBoundingClientRect();
-    const { height }: any = headingRef.current?.getBoundingClientRect();
-    const bottomHalf = bottom / 2 - height;
-    if (height && bottom && window.innerWidth >= 640) {
-      const newHeight = height / 1.3;
-      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-    } else if (height && bottom && window.innerWidth < 640) {
-      const newHeight = height * 2.1;
-      heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+    if (typeof window !== "undefined") {
+      heroRef.current.style.height = `100vh`;
+      heroTextRef.current.style.position = "absolute";
+      const { bottom }: any = heroRef.current?.getBoundingClientRect();
+      const { height }: any = headingRef.current?.getBoundingClientRect();
+      const bottomHalf = bottom / 2 - height;
+      if (height && bottom && window.innerWidth >= 640) {
+        const newHeight = height / 1.3;
+        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      } else if (height && bottom && window.innerWidth < 640) {
+        const newHeight = height * 2.1;
+        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      }
     }
   }
 }
