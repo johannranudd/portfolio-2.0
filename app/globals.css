@@ -46,6 +46,9 @@ body {
   /* min-height: -webkit-fill-available; */
   /* background: rgb(112, 45, 112); */
 }
+#mobileMenu {
+  height: calc(100svh - 50px);
+}
 
 h1,
 h2 {

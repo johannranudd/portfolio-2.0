@@ -40,7 +40,8 @@ export default function MobileMenu() {
       )}
       <ul
         style={menuIsOpen ? { left: 0 } : { left: "-100vw" }}
-        className={`absolute top-0 mt-navbarWidth z-50  w-full xxs:w-[300px] h-[calc(100vh-50px)] flex flex-col justify-evenly items-center bg-primary text-2xl duration-300 `}
+        id="mobileMenu"
+        className={`absolute top-0 mt-navbarWidth z-50  w-full xxs:w-[300px]  flex flex-col justify-evenly items-center bg-primary text-2xl duration-300 `}
       >
         {pageStructure.map((m) => {
           const { id, page, link } = m;
