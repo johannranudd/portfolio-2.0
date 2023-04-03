@@ -101,10 +101,12 @@ export function adjustHeroText(
   heroTextRef: any,
   headingRef: any
 ) {
-  if (heroRef.current && heroTextRef.current && headingRef.current) {
+  // if (heroRef.current && heroTextRef.current && headingRef.current) {
+  if (heroRef.current) {
     if (typeof window !== "undefined") {
       // change values here to trigger mobile browser behaviour
-      heroRef.current.style.height = `100svh`;
+      heroRef.current.style.height = `${window.innerHeight}px`;
+      // heroRef.current.style.height = `100svh`;
 
       // setTimeout(() => {
 
@@ -112,13 +114,13 @@ export function adjustHeroText(
       // relative h-screen -z-50
       // heroTextRef.current.style.position = "absolute";
 
-      const { bottom }: any = heroRef.current?.getBoundingClientRect();
-      const { height }: any = headingRef.current?.getBoundingClientRect();
-      const bottomHalf = bottom / 2 - height;
-      if (height && bottom && window.innerWidth >= 640) {
-        const newHeight = height / 1.3;
-        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-      }
+      // const { bottom }: any = heroRef.current?.getBoundingClientRect();
+      // const { height }: any = headingRef.current?.getBoundingClientRect();
+      // const bottomHalf = bottom / 2 - height;
+      // if (height && bottom && window.innerWidth >= 640) {
+      //   const newHeight = height / 1.3;
+      //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      // }
       // else if (height && bottom && window.innerWidth < 640) {
       //   const newHeight = height * 2.1;
       //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
