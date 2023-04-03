@@ -5,19 +5,13 @@ import Image from "next/image";
 import { motion as m, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-export default function FeaturedProject({
-  id,
-  imageUrl,
-  alt,
-  link,
-  githubLink,
-  projectName,
-  tech,
-  index,
-}: any) {
+import { Iproject } from "./utils/generics";
+export default function FeaturedProject(
+  { id, imageUrl, alt, link, githubLink, projectName, tech }: Iproject,
+  index: number
+) {
   const { ref, inView } = useInView();
   const animation = useAnimation();
-
   let reversed = false;
   if (index % 2 == 0) {
     reversed = true;
@@ -101,7 +95,7 @@ export default function FeaturedProject({
           sapiente. Sapiente quo perspiciatis ullam et!
         </m.p>
         <ul className="flex flex-wrap z-40">
-          {tech.map((t: any, indexy: number) => {
+          {tech.map((t: string, indexy: number) => {
             return (
               <m.li
                 variants={projectInfoVariant}
@@ -147,8 +141,8 @@ function CardImageAndBackdrop({
   link,
   reversed,
 }: {
-  imageUrl: any;
-  alt: any;
+  imageUrl: string;
+  alt: string;
   link: string;
   reversed: boolean;
 }) {

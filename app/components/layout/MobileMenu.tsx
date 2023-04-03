@@ -47,14 +47,14 @@ export default function MobileMenu() {
           const { id, page, link } = m;
 
           return (
-            <div key={id} className="h-full w-full">
+            <li key={id} className="h-full w-full">
               {page === "projects" && windowWidth >= 640 ? (
-                <button
+                <a
                   onClick={closeMenuAndNavigate}
                   className="h-full w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
                 >
                   {page}
-                </button>
+                </a>
               ) : (
                 <a
                   href={link}
@@ -64,7 +64,7 @@ export default function MobileMenu() {
                   {page}
                 </a>
               )}
-            </div>
+            </li>
           );
         })}
       </ul>

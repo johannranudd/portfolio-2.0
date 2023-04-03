@@ -1,16 +1,9 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion as m, useScroll, useTransform } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import {
-  adjustHeroText,
-  ajustChevron,
-  getHeroHeight,
-  getItem,
-  relaoadInitialToFitMobileScreen,
-  setItem,
-} from "./utils/generics";
+import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
 import Tourus from "./components/Animations/Torus";
 import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
@@ -21,10 +14,10 @@ export default function HeroComponent() {
   const { scrollYProgress } = useScroll();
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0]);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const heroTextRef = useRef<HTMLDivElement>(null);
-  const chevronRef = useRef<HTMLButtonElement>(null);
+  const heroRef = useRef(null) as React.RefObject<HTMLDivElement>;
+  const headingRef = useRef(null) as React.RefObject<HTMLHeadingElement>;
+  const heroTextRef = useRef(null) as React.RefObject<HTMLDivElement>;
+  const chevronRef = useRef(null) as React.RefObject<HTMLButtonElement>;
 
   async function adjustScroll() {
     adjustHeroText(heroRef, heroTextRef, headingRef);

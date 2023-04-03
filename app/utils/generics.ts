@@ -26,7 +26,6 @@ export const arrayOfTech = [
   "Express",
   "TypeScript",
   "Prisma",
-  "PostgreSQL",
   "Adobe XD",
   "Figma",
   "Tailwind",
@@ -36,11 +35,16 @@ export const arrayOfTech = [
   "Elementor",
 ];
 
-export function ajustChevron(chevronRef: any, heroRef: any) {
+export function ajustChevron(
+  chevronRef: React.RefObject<HTMLButtonElement>,
+  heroRef: React.RefObject<HTMLDivElement>
+) {
   if (chevronRef.current) {
-    const chevronTop: any = chevronRef.current?.getBoundingClientRect().top;
-    const heroBottom: any = heroRef.current?.getBoundingClientRect().bottom;
-    if (heroBottom < chevronTop) {
+    const chevronTop: number | undefined =
+      chevronRef.current?.getBoundingClientRect().top;
+    const heroBottom: number | undefined =
+      heroRef.current?.getBoundingClientRect().bottom;
+    if (heroBottom && heroBottom < chevronTop) {
       chevronRef.current.style.visibility = "hidden";
     } else {
       chevronRef.current.style.visibility = "visible";
@@ -48,36 +52,9 @@ export function ajustChevron(chevronRef: any, heroRef: any) {
   }
 }
 
-export async function relaoadInitialToFitMobileScreen(windowWidth: any) {
-  const initialRender = getItem("initial");
-  if (!initialRender && windowWidth < 640) {
-    setItem("initial", true);
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
-  }
-}
-
-export function getItem(key: string) {
-  if (typeof window !== "undefined") {
-    const locStor = sessionStorage.getItem(key)
-      ? JSON.parse(sessionStorage.getItem(key) || "")
-      : "";
-    if (locStor !== null || locStor !== undefined) {
-      return locStor;
-    }
-  }
-}
-
-export function setItem(key: string, value: boolean) {
-  if (typeof window !== "undefined") {
-    sessionStorage.setItem(key, JSON.stringify(value));
-  }
-}
-
-export function getHeroHeight(headingRef: any) {
+export function getHeroHeight(headingRef: React.RefObject<HTMLDivElement>) {
   if (headingRef.current) {
-    const headingHeight: any =
+    const headingHeight: number =
       headingRef.current?.getBoundingClientRect().height;
 
     if (window.innerWidth >= 640) {
@@ -85,43 +62,58 @@ export function getHeroHeight(headingRef: any) {
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
     } else {
-      // const newHeight = headingHeight * 3.5;
       const screenHeight = window.innerHeight - headingHeight;
       return screenHeight;
     }
-    // else if (window.innerWidth < 400) {
-    //   const screenHeight = window.innerHeight - headingHeight;
-    //   return screenHeight;
-    // }
   }
 }
 
 export function adjustHeroText(
-  heroRef: any,
-  heroTextRef: any,
-  headingRef: any
+  heroRef: React.RefObject<HTMLDivElement>,
+  heroTextRef: React.RefObject<HTMLDivElement>,
+  headingRef: React.RefObject<HTMLHeadingElement>
 ) {
   if (typeof window !== "undefined") {
     if (heroRef.current) {
-      const { bottom }: any = heroRef.current?.getBoundingClientRect();
-      const { height }: any = headingRef.current?.getBoundingClientRect();
-      const bottomHalf = bottom / 2 - height;
-      if (height && bottom && window.innerWidth >= 640) {
-        const newHeight = height / 1.3;
-        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-      } else if (height && bottom && window.innerWidth < 640) {
-        const newHeight = height * 2.1;
-        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      const bottom: number | undefined =
+        heroRef.current?.getBoundingClientRect().bottom;
+      const height: number | undefined =
+        headingRef.current?.getBoundingClientRect().height;
+      if (height && bottom) {
+        const bottomHalf = bottom / 2 - height;
+        if (
+          heroTextRef.current &&
+          height &&
+          bottom &&
+          window.innerWidth >= 640
+        ) {
+          const newHeight = height / 1.3;
+          heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        } else if (
+          heroTextRef.current &&
+          height &&
+          bottom &&
+          window.innerWidth < 640
+        ) {
+          const newHeight = height * 2.1;
+          heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        }
       }
-      // *not used
-      //  else {
-      //   heroTextRef.current.style.bottom = `${bottomHalf - height}px`;
-      // }
     }
   }
 }
 
-export const projectsArray = [
+export interface Iproject {
+  id: number;
+  projectName: string;
+  imageUrl: string;
+  alt: string;
+  link: string;
+  githubLink: string;
+  tech: Array<string>;
+}
+
+export const projectsArray: Array<Iproject> = [
   {
     id: 1,
     projectName: "web store",
