@@ -10,8 +10,7 @@ import React, {
 export interface ContextInterface {
   menuIsOpen: boolean;
   setMenuIsOpen: Dispatch<SetStateAction<boolean>>;
-  windowHeight: number;
-  setWindowHeight: Dispatch<SetStateAction<number>>;
+
   windowWidth: number;
   setWindowWidth: Dispatch<SetStateAction<number>>;
   heroTextRefNumber: number;
@@ -21,8 +20,6 @@ export interface ContextInterface {
 export const Context = createContext<ContextInterface>({
   menuIsOpen: false,
   setMenuIsOpen: () => false,
-  windowHeight: 0,
-  setWindowHeight: () => {},
   windowWidth: 0,
   setWindowWidth: () => {},
   heroTextRefNumber: 0,
@@ -39,13 +36,6 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
       return 0;
     }
   });
-  const [windowHeight, setWindowHeight] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.innerHeight;
-    } else {
-      return 0;
-    }
-  });
 
   return (
     <Context.Provider
@@ -56,8 +46,6 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
         setWindowWidth,
         heroTextRefNumber,
         setHeroTextRefNumber,
-        windowHeight,
-        setWindowHeight,
       }}
     >
       {children}

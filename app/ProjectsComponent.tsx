@@ -1,5 +1,5 @@
 import FeaturedProject from "./FeaturedProject";
-import { projectsArray } from "./utils/generics";
+import { Iproject, projectsArray } from "./utils/generics";
 import LineThroughComponent from "./components/Animations/LineThroughComponent";
 
 export default function ProjectsComponent() {
@@ -18,7 +18,7 @@ export default function ProjectsComponent() {
           </div>
 
           <ul className="flex flex-col w-full space-y-20  md:space-y-36">
-            {projectsArray.map((p: any, index: number) => {
+            {projectsArray.map((p: Iproject, index: number) => {
               const all = { ...p, index };
               return <FeaturedProject {...all} key={index} />;
             })}
