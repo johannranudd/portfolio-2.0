@@ -105,33 +105,10 @@ export function adjustHeroText(
   if (heroRef.current) {
     if (typeof window !== "undefined") {
       // heroRef.current.style.height = `${window.innerHeight / 2}px`;
-
-      // define a function that sets min-height of my-element to window.innerHeight:
-
-      const setHeight = () => {
-        heroRef.current.style.height = `${window.innerHeight}px`;
-      };
-
-      // define mobile screen size:
-
-      let deviceWidth = window.matchMedia("(max-width: 640px)");
-
-      if (deviceWidth.matches) {
-        // set an event listener that detects when innerHeight changes:
-
-        window.addEventListener("resize", setHeight);
-
-        // call the function once to set initial height:
-
-        setHeight();
-      }
-
       // setTimeout(() => {
-
       // }, 1000);
       // relative h-screen -z-50
       // heroTextRef.current.style.position = "absolute";
-
       // const { bottom }: any = heroRef.current?.getBoundingClientRect();
       // const { height }: any = headingRef.current?.getBoundingClientRect();
       // const bottomHalf = bottom / 2 - height;

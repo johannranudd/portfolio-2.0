@@ -34,7 +34,7 @@ export default function HeroComponent() {
 
   useEffect(() => {
     // relaoadInitialToFitMobileScreen(windowWidth)
-    adjustScroll();
+    // adjustScroll();
   }, []);
 
   // useEffect(() => {
@@ -48,18 +48,18 @@ export default function HeroComponent() {
   //   };
   // }, [windowWidth, windowHeight]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      ajustChevron(chevronRef, heroRef);
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-    });
-    return () => {
-      window.removeEventListener("scroll", () => {
-        ajustChevron(chevronRef, heroRef);
-        adjustHeroText(heroRef, heroTextRef, headingRef);
-      });
-    };
-  }, [scrollYProgress]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     ajustChevron(chevronRef, heroRef);
+  //     adjustHeroText(heroRef, heroTextRef, headingRef);
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", () => {
+  //       ajustChevron(chevronRef, heroRef);
+  //       adjustHeroText(heroRef, heroTextRef, headingRef);
+  //     });
+  //   };
+  // }, [scrollYProgress]);
 
   return (
     <>
