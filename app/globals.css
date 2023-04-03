@@ -11,7 +11,7 @@
   --thirdClr-transparent: #5a9faa5e;
   --fourthClr: #315495;
   --fifthClr: #635959;
-  --doc-height: 100%;
+  /* --doc-height: 100%; */
   /* box shadow */
   /* --bsOne: rgba(0, 0, 0, 0.2) 0px -7px 10px 0px; */
   /* --bsTwo: rgba(0, 0, 0, 0.2) 0px 4px 10px 0px; */
@@ -34,10 +34,10 @@ html {
 } */
 
 html {
-  /* height: 100%; */
+  min-height: 100vh;
   scroll-behavior: smooth;
   /* height: fill-available; */
-  height: -webkit-fill-available;
+  /* height: -webkit-fill-available; */
 }
 
 html,
@@ -55,15 +55,18 @@ body {
   font-family: "Poppins", sans-serif;
   /* min-height: 100vh; */
   /* min-height: calc(var(--vh, 1vh) * 100); */
-  min-height: -webkit-fill-available;
-  /* min-height: 100vh;
+  /* min-height: -webkit-fill-available; */
+  min-height: 100vh;
   min-height: -moz-available;
   min-height: -webkit-fill-available;
-  min-height: fill-available; */
+  min-height: fill-available;
 }
 #heroSection {
+  height: 100dvh;
+  position: relative;
+  z-index: 99;
   /* height: 100vh; */
-  height: 100svh;
+  /* height: 100svh; */
   /* height: -webkit-fill-available; */
   /* background: rgb(112, 45, 112); */
 }
