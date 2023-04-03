@@ -16,7 +16,7 @@ import { BsChevronCompactDown } from "react-icons/bs";
 import { useGlobalContext } from "@/context/context";
 
 export default function HeroComponent() {
-  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } =
+  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth, windowHeight } =
     useGlobalContext();
   const { scrollYProgress } = useScroll();
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -26,41 +26,44 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
 
+  function adjustScroll() {
+    adjustHeroText(heroRef, heroTextRef, headingRef);
+    const screenHeight = getHeroHeight(headingRef);
+    if (screenHeight) setHeroTextRefNumber(screenHeight);
+  }
+
   useEffect(() => {
-    // relaoadInitialToFitMobileScreen(windowWidth);
-    // adjustHeroText(heroRef, heroTextRef, headingRef);
-    // const screenHeight = getHeroHeight(headingRef);
-    // if (screenHeight) setHeroTextRefNumber(screenHeight);
-    console.log("useEffect");
-    window.scrollTo(0, 1);
+    // relaoadInitialToFitMobileScreen(windowWidth)
+    adjustScroll();
   }, []);
 
-  // useEffect(() => {
-  //   adjustHeroText(heroRef, heroTextRef, headingRef);
-  //   const screenHeight = getHeroHeight(headingRef);
-  //   if (screenHeight) setHeroTextRefNumber(screenHeight);
-  // }, [windowWidth]);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      adjustScroll();
+    });
+    return () => {
+      window.removeEventListener("resize", () => {
+        adjustScroll();
+      });
+    };
+  }, [windowWidth, windowHeight]);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     ajustChevron(chevronRef, heroRef);
-  //     adjustHeroText(heroRef, heroTextRef, headingRef);
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll", () => {
-  //       ajustChevron(chevronRef, heroRef);
-  //       adjustHeroText(heroRef, heroTextRef, headingRef);
-  //     });
-  //   };
-  // }, [scrollYProgress]);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      ajustChevron(chevronRef, heroRef);
+      adjustHeroText(heroRef, heroTextRef, headingRef);
+    });
+    return () => {
+      window.removeEventListener("scroll", () => {
+        ajustChevron(chevronRef, heroRef);
+        adjustHeroText(heroRef, heroTextRef, headingRef);
+      });
+    };
+  }, [scrollYProgress]);
 
   return (
     <>
-      <section
-        // ref={heroRef}
-        id="heroSection"
-        className="relative -z-50"
-      >
+      <section ref={heroRef} id="heroSection" className="relative -z-50">
         <m.div
           // style={{ y: sectionScroll }}
           className="h-full bg-pink-500"

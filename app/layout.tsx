@@ -19,9 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <ContextProvider>
         <body className="bg-primary text-secondary">
-          <NavBar />
+          {/* <NavBar />
           <SidebarLeft />
-          <SidebarRight />
+          <SidebarRight /> */}
           <main>{children}</main>
         </body>
       </ContextProvider>
