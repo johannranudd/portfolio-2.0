@@ -34,7 +34,7 @@ export default function HeroComponent() {
 
   useEffect(() => {
     // relaoadInitialToFitMobileScreen(windowWidth)
-    // adjustScroll();
+    adjustScroll();
   }, []);
 
   // useEffect(() => {
