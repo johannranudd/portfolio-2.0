@@ -63,7 +63,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50">
+      <section ref={heroRef} id="heroSection">
         <m.div
           // style={{ y: sectionScroll }}
           className="h-full bg-pink-500"
