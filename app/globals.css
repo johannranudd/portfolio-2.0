@@ -34,7 +34,7 @@ html {
 } */
 
 html {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   scroll-behavior: smooth;
   /* height: fill-available; */
   /* height: -webkit-fill-available; */
@@ -56,10 +56,10 @@ body {
   /* min-height: 100vh; */
   /* min-height: calc(var(--vh, 1vh) * 100); */
   /* min-height: -webkit-fill-available; */
-  min-height: 100vh;
+  /* min-height: 100vh;
   min-height: -moz-available;
   min-height: -webkit-fill-available;
-  min-height: fill-available;
+  min-height: fill-available; */
 }
 #heroSection {
   height: 100dvh;
