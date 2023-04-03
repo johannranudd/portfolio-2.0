@@ -23,12 +23,12 @@ export default function TechComponent() {
       initial={{ opacity: 0 }}
       animate={animation}
       id="techSection"
-      className="px-2 pb-32 sm:px-4 max-w-screen-lg mx-auto"
+      className="px-2 py-16 sm:px-4 max-w-screen-lg mx-auto"
     >
       <div className="space-y-10 sm:space-y-0 sm:grid sm:gap-y-16 sm:grid-cols-2">
         <div className="md:ml-sidebarWidth   md:flex md:flex-col md:justify-between">
           <div className="relative py-12">
-            <h2 className="py-6 absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
+            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
               About me
             </h2>
             <LineThroughComponent />

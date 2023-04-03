@@ -20,7 +20,7 @@ export default function ContactComponent() {
       initial={{ opacity: 0 }}
       animate={animation}
       id="contactSection"
-      className="px-2 sm:px-4 max-w-[660px] mx-auto pb-20 space-y-6 text-center"
+      className="px-2 sm:px-4 max-w-[660px] mx-auto py-16 space-y-6 text-center"
     >
       <h2 className="text-3xl">Get In Touch</h2>
       <p>
