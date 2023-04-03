@@ -101,32 +101,18 @@ export function adjustHeroText(
   heroTextRef: any,
   headingRef: any
 ) {
-  // if (heroRef.current && heroTextRef.current && headingRef.current) {
-  if (heroRef.current) {
-    if (typeof window !== "undefined") {
-      // const documentHeight = () => {
-      //   const doc = document.documentElement;
-      //   doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
-      //   // doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
-      //   const c = doc.style.getPropertyValue("--doc-height");
-      //   heroRef.current.style.height = c;
-      //   heroRef.current.style.maxHeight = c;
-      // };
-      // window.addEventListener("resize", documentHeight);
-      // documentHeight();
-      // relative h-screen -z-50
-      // heroTextRef.current.style.position = "absolute";
-      // const { bottom }: any = heroRef.current?.getBoundingClientRect();
-      // const { height }: any = headingRef.current?.getBoundingClientRect();
-      // const bottomHalf = bottom / 2 - height;
-      // if (height && bottom && window.innerWidth >= 640) {
-      //   const newHeight = height / 1.3;
-      //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-      // }
-      // else if (height && bottom && window.innerWidth < 640) {
-      //   const newHeight = height * 2.1;
-      //   heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-      // }
+  if (typeof window !== "undefined") {
+    if (heroRef.current) {
+      const { bottom }: any = heroRef.current?.getBoundingClientRect();
+      const { height }: any = headingRef.current?.getBoundingClientRect();
+      const bottomHalf = bottom / 2 - height;
+      if (height && bottom && window.innerWidth >= 640) {
+        const newHeight = height / 1.3;
+        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      } else if (height && bottom && window.innerWidth < 640) {
+        const newHeight = height * 2.1;
+        heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+      }
       // *not used
       //  else {
       //   heroTextRef.current.style.bottom = `${bottomHalf - height}px`;

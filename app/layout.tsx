@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ContextProvider>
-        <body className="bg-primary text-secondary">
-          {/* <NavBar />
+        <body>
+          <NavBar />
           <SidebarLeft />
-          <SidebarRight /> */}
+          <SidebarRight />
           <main>{children}</main>
         </body>
       </ContextProvider>

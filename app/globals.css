@@ -3,26 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #2c2c3c;
-  --primary-transparent: #2c2c3cde;
-  --secondary: #fdfeff;
-  --thirdClr: #5aa0aa;
-  --thirdClr-transparent: #5a9faa5e;
-  --fourthClr: #315495;
-  --fifthClr: #635959;
-  /* --doc-height: 100%; */
-  /* box shadow */
-  /* --bsOne: rgba(0, 0, 0, 0.2) 0px -7px 10px 0px; */
-  /* --bsTwo: rgba(0, 0, 0, 0.2) 0px 4px 10px 0px; */
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 /* body {
     min-height: 100vh;
     min-height: fill-available;
@@ -33,42 +13,81 @@ html {
     height: -webkit-fill-available;
 } */
 
+/* min-height: 100svh; */
+/* min-height: calc(100vh - calc(100vh - 100%)); */
+/* min-height: -webkit-fill-available; */
+/* min-height: 100vh; */
+/* min-height: calc(var(--vh, 1vh) * 100); */
+/* min-height: -webkit-fill-available; */
+/* min-height: 100vh;
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: fill-available; */
+/* min-height: unset; */
+/* height: 100dvh; */
+/* height: 100vh; */
+/* Remove any conflicting height settings */
+/* min-height: unset; */
+/* height: 100vh; */
+/* height: 100svh; */
+/* height: -webkit-fill-available; */
+/* background: rgb(112, 45, 112); */
+/* min-height: 100vh; */
+/* height: fill-available; */
+/* height: -webkit-fill-available; */
+/* height: var(--doc-height); */
+
+:root {
+  --primary: #2c2c3c;
+  --primary-transparent: #2c2c3cde;
+  --secondary: #fdfeff;
+  --thirdClr: #5aa0aa;
+  --thirdClr-transparent: #5a9faa5e;
+  --fourthClr: #315495;
+  --fifthClr: #635959;
+  /* --doc-height: 100%; */
+  /* box shadow */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 html {
-  /* min-height: 100vh; */
   scroll-behavior: smooth;
-  /* height: fill-available; */
-  /* height: -webkit-fill-available; */
 }
 
 html,
 body {
   max-width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
-  /* height: 100%; */
-  /* height: var(--doc-height); */
 }
 
 body {
-  /* min-height: 100svh; */
-  /* min-height: calc(100vh - calc(100vh - 100%)); */
-  /* min-height: -webkit-fill-available; */
+  background: var(--primary);
+  color: var(--secondary);
   font-family: "Poppins", sans-serif;
-  /* min-height: 100vh; */
-  /* min-height: calc(var(--vh, 1vh) * 100); */
-  /* min-height: -webkit-fill-available; */
-  /* min-height: 100vh;
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: fill-available; */
 }
-#heroSection {
+/* #page {
+  height: 100vh;
   height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   position: relative;
-  z-index: 99;
-  /* height: 100vh; */
-  /* height: 100svh; */
-  /* height: -webkit-fill-available; */
-  /* background: rgb(112, 45, 112); */
+} */
+#heroSection {
+  /* max-width: 100%; */
+  /* height: 100%; */
+  /* position: relative; */
+  z-index: -99;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  position: relative;
 }
 #mobileMenu {
   /* height: calc(100svh - 50px); */
