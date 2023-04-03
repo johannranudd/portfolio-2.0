@@ -35,13 +35,13 @@ export default function MobileMenu() {
       {menuIsOpen && (
         <div
           onClick={() => setMenuIsOpen(false)}
-          className="absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-[#00000082] mt-navbarWidth cursor-pointer"
+          className="absolute top-0 left-0 right-0 bottom-0 -z-20 w-full h-screen bg-[#00000082] mt-navbarWidth cursor-pointer"
         ></div>
       )}
       <ul
         style={menuIsOpen ? { left: 0 } : { left: "-100vw" }}
         id="mobileMenu"
-        className={`absolute top-0 z-50  w-full xxs:w-[300px] h-screen flex flex-col justify-evenly items-center bg-primary text-2xl duration-300 `}
+        className={`absolute top-0 -z-10  w-full xxs:w-[300px] h-screen flex flex-col justify-evenly items-center bg-primary text-2xl duration-300`}
       >
         {pageStructure.map((m) => {
           const { id, page, link } = m;
