@@ -35,14 +35,6 @@ export default function HeroComponent() {
     window.scrollTo(0, 1);
   }, []);
 
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      // This hides the address bar:
-      console.log("load");
-      window.scrollTo(0, 1);
-    }, 0);
-  });
-
   // useEffect(() => {
   //   adjustHeroText(heroRef, heroTextRef, headingRef);
   //   const screenHeight = getHeroHeight(headingRef);
