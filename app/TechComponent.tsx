@@ -26,14 +26,14 @@ export default function TechComponent() {
       className="px-2 pb-32 sm:px-4 max-w-screen-lg mx-auto"
     >
       <div className="space-y-10 sm:space-y-0 sm:grid sm:gap-y-16 sm:grid-cols-2">
-        <div className="md:ml-sidebarWidth space-y-6  md:flex md:flex-col md:justify-between">
-          <div className="relative py-16">
-            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
+        <div className="md:ml-sidebarWidth   md:flex md:flex-col md:justify-between">
+          <div className="relative py-12">
+            <h2 className="py-6 absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
               About me
             </h2>
             <LineThroughComponent />
           </div>
-          <p>
+          <p className="pb-6">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
             esse consectetur iusto quia quas quo repellat explicabo at pariatur
             veritatis, voluptatem quae autem ipsam ex accusantium deleniti, odit
