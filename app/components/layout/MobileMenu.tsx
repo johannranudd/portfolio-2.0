@@ -51,7 +51,7 @@ export default function MobileMenu() {
               {page === "projects" && windowWidth >= 640 ? (
                 <a
                   onClick={closeMenuAndNavigate}
-                  className="h-full w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
+                  className="inline-block h-full w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
                 >
                   {page}
                 </a>
