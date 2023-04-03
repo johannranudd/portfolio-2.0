@@ -105,7 +105,8 @@ export function adjustHeroText(
   if (heroRef.current) {
     if (typeof window !== "undefined") {
       // change values here to trigger mobile browser behaviour
-      heroRef.current.style.height = `${window.innerHeight}px`;
+      heroRef.current.style.height = `${window.innerHeight / 2}px`;
+      // heroRef.current.style.height = `${window.innerHeight}px`;
       // heroRef.current.style.height = `100svh`;
 
       // setTimeout(() => {
