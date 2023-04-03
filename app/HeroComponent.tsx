@@ -37,16 +37,16 @@ export default function HeroComponent() {
     adjustScroll();
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      adjustScroll();
-    });
-    return () => {
-      window.removeEventListener("resize", () => {
-        adjustScroll();
-      });
-    };
-  }, [windowWidth, windowHeight]);
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => {
+  //     adjustScroll();
+  //   });
+  //   return () => {
+  //     window.removeEventListener("resize", () => {
+  //       adjustScroll();
+  //     });
+  //   };
+  // }, [windowWidth, windowHeight]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
