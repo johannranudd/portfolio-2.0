@@ -57,8 +57,12 @@ export function getHeroHeight(headingRef: React.RefObject<HTMLDivElement>) {
     const headingHeight: number =
       headingRef.current?.getBoundingClientRect().height;
 
-    if (window.innerWidth >= 640) {
+    if (window.innerWidth >= 768) {
       const newHeight = headingHeight * 1.9;
+      const screenHeight = window.innerHeight - newHeight;
+      return screenHeight;
+    } else if (window.innerWidth > 640) {
+      const newHeight = headingHeight / 2.1;
       const screenHeight = window.innerHeight - newHeight;
       return screenHeight;
     } else {
@@ -79,24 +83,16 @@ export function adjustHeroText(
         heroRef.current?.getBoundingClientRect().bottom;
       const height: number | undefined =
         headingRef.current?.getBoundingClientRect().height;
-      if (height && bottom) {
+      if (heroTextRef.current && height && bottom) {
         const bottomHalf = bottom / 2 - height;
-        if (
-          heroTextRef.current &&
-          height &&
-          bottom &&
-          window.innerWidth >= 640
-        ) {
+        if (window.innerWidth >= 768) {
           const newHeight = height / 1.3;
           heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
-        } else if (
-          heroTextRef.current &&
-          height &&
-          bottom &&
-          window.innerWidth < 640
-        ) {
-          const newHeight = height * 2.1;
-          heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
+        } else if (window.innerWidth < 768) {
+          heroTextRef.current.style.bottom = `50%`;
+          heroTextRef.current.style.transform = `translateY(50%)`;
+          // const newHeight = height * 2.1;
+          // heroTextRef.current.style.bottom = `${bottomHalf - newHeight}px`;
         }
       }
     }
