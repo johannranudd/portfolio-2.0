@@ -6,14 +6,20 @@ import { motion as m, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { Iproject } from "./utils/generics";
-export default function FeaturedProject(
-  { id, imageUrl, alt, link, githubLink, projectName, tech }: Iproject,
-  index: number
-) {
+export default function FeaturedProject({
+  id,
+  imageUrl,
+  alt,
+  link,
+  githubLink,
+  projectName,
+  tech,
+  index,
+}: Iproject) {
   const { ref, inView } = useInView();
   const animation = useAnimation();
   let reversed = false;
-  if (index % 2 == 0) {
+  if (index && index !== 0 && index % 2 == 1) {
     reversed = true;
   }
 
@@ -78,7 +84,7 @@ export default function FeaturedProject(
         <m.div className="z-40" variants={featuredVariant}>
           <p
             className={`font-mono text-md text-thirdClr ${
-              !reversed && "sm:text-right"
+              !reversed && "md:text-right"
             }`}
           >
             Featured project
@@ -149,7 +155,7 @@ function CardImageAndBackdrop({
   return (
     <Link href={link} target="_blank" rel="noopener noreferrer">
       <div
-        className={`relative h-[30rem] 3xs:h-96 xxs:h-[20rem] xs:h-[18rem] w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+        className={`relative h-[30rem] 3xs:h-96 xxs:h-[20rem] xs:h-[18.5rem] w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
           !reversed ? "md:mr-auto" : "md:ml-auto"
         } `}
       >

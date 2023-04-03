@@ -111,6 +111,7 @@ export interface Iproject {
   link: string;
   githubLink: string;
   tech: Array<string>;
+  index?: number;
 }
 
 export const projectsArray: Array<Iproject> = [
