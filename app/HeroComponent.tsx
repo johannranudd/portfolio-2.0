@@ -26,15 +26,15 @@ export default function HeroComponent() {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<HTMLButtonElement>(null);
 
-  function adjustScroll() {
+  async function adjustScroll() {
     adjustHeroText(heroRef, heroTextRef, headingRef);
     const screenHeight = getHeroHeight(headingRef);
     if (screenHeight) setHeroTextRefNumber(screenHeight);
   }
 
   useEffect(() => {
-    // relaoadInitialToFitMobileScreen(windowWidth)
     adjustScroll();
+    // relaoadInitialToFitMobileScreen(windowWidth)
   }, []);
 
   // useEffect(() => {

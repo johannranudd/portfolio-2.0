@@ -104,16 +104,16 @@ export function adjustHeroText(
   // if (heroRef.current && heroTextRef.current && headingRef.current) {
   if (heroRef.current) {
     if (typeof window !== "undefined") {
-      const documentHeight = () => {
-        const doc = document.documentElement;
-        doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
-        const c = doc.style.getPropertyValue("--doc-height");
-        heroRef.current.style.height = c;
-        heroRef.current.style.maxHeight = c;
-      };
-      window.addEventListener("resize", documentHeight);
-      documentHeight();
-
+      // const documentHeight = () => {
+      //   const doc = document.documentElement;
+      //   doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+      //   // doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+      //   const c = doc.style.getPropertyValue("--doc-height");
+      //   heroRef.current.style.height = c;
+      //   heroRef.current.style.maxHeight = c;
+      // };
+      // window.addEventListener("resize", documentHeight);
+      // documentHeight();
       // relative h-screen -z-50
       // heroTextRef.current.style.position = "absolute";
       // const { bottom }: any = heroRef.current?.getBoundingClientRect();
