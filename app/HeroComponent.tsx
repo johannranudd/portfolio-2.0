@@ -62,12 +62,12 @@ export default function HeroComponent() {
             <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
             <Tourus />
           </Canvas>
-          <m.div
+          {/* <m.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 0.5 }}
             transition={{ delay: 0.5, duration: 1.5 }}
-            className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
-          ></m.div>
+            className="absolute top-0 left-0 w-full bg-pink-500 h-full opacity-50"
+          ></m.div> */}
         </m.div>
         <m.div
           initial={{ opacity: 0 }}
