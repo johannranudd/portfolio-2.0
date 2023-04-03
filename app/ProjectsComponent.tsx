@@ -6,7 +6,7 @@ export default function ProjectsComponent() {
   return (
     <section
       id="projectsSection"
-      className="pb-32 bg-primary z-50 shadow-bsOne"
+      className="pb-16 bg-primary z-50 shadow-bsOne"
     >
       <div className="max-w-screen-lg md:mx-auto">
         <div className=" px-2 sm:px-4 md:mx-sidebarWidth">
