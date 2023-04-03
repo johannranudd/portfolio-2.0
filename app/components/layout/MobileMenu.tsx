@@ -48,7 +48,8 @@ export default function MobileMenu() {
 
           return (
             <li key={id} className="h-full w-full">
-              {page === "projects" && windowWidth >= 640 ? (
+              {page === "projects" ? (
+                // {page === "projects" && windowWidth >= 640 ? (
                 <a
                   onClick={closeMenuAndNavigate}
                   className="inline-block flex justify-center items-center h-full w-full py-2 w-full capitalize hover:text-thirdClr hover:translate-y-[-3px] duration-300"
