@@ -44,7 +44,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  /* height: 100%; */
+  min-height: 100%;
   /* height: var(--doc-height); */
 }
 
@@ -60,11 +60,15 @@ body {
   min-height: -moz-available;
   min-height: -webkit-fill-available;
   min-height: fill-available; */
+  /* min-height: unset; */
 }
 #heroSection {
-  height: 100dvh;
+  /* height: 100dvh; */
   position: relative;
   z-index: 99;
+  /* height: 100vh; */
+  /* Remove any conflicting height settings */
+  /* min-height: unset; */
   /* height: 100vh; */
   /* height: 100svh; */
   /* height: -webkit-fill-available; */
