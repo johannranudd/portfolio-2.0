@@ -55,7 +55,7 @@ export default function HeroComponent() {
 
   return (
     <>
-      <section ref={heroRef} id="heroSection" className="relative -z-50">
+      <section ref={heroRef} id="heroSection">
         <m.div style={{ y: sectionScroll }} className="h-full">
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
@@ -70,6 +70,7 @@ export default function HeroComponent() {
             className="absolute top-0 left-0 w-full bg-primary h-full opacity-50"
           ></m.div>
         </m.div>
+
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -79,7 +80,7 @@ export default function HeroComponent() {
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
             <div
               ref={heroTextRef}
-              className="absolute bottom-[50%] translate-y-[50%] sm:translate-y-[0%]"
+              className="absolute bottom-[50%] translate-y-[50%] "
             >
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
               <h1

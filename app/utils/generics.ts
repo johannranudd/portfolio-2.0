@@ -105,6 +105,7 @@ export function adjustHeroText(
   if (heroRef.current) {
     if (typeof window !== "undefined") {
       // heroRef.current.style.height = `${window.innerHeight}px`;
+      // console.log(heroRef.current?.getBoundingClientRect().height);
       // relative h-screen -z-50
       // heroTextRef.current.style.position = "absolute";
       // const { bottom }: any = heroRef.current?.getBoundingClientRect();
