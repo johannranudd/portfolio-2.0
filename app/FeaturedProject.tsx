@@ -18,9 +18,9 @@ export default function FeaturedProject({
 }: Iproject) {
   const { ref, inView } = useInView();
   const animation = useAnimation();
-  let reversed = false;
+  let reversed = true;
   if (index && index !== 0 && index % 2 == 1) {
-    reversed = true;
+    reversed = false;
   }
 
   const cardVariants = {
@@ -74,21 +74,18 @@ export default function FeaturedProject({
       variants={cardVariants}
       initial="hiddenState"
       animate={animation}
-      className={`relative w-full duration-300`}
+      className={`relative w-full duration-300 mb-20 md:mb-32`}
     >
       <div
         className={`absolute h-full flex flex-col justify-between space-y-2 p-4  xs:p-6 md:p-0 ${
           !reversed ? "md:items-end" : "md:items-start"
         } `}
       >
-        <m.div className="z-40" variants={featuredVariant}>
-          <p
-            className={`font-mono text-md text-thirdClr ${
-              !reversed && "md:text-right"
-            }`}
-          >
-            Featured project
-          </p>
+        <m.div
+          className={`z-40 ${!reversed && "md:text-right"} `}
+          variants={featuredVariant}
+        >
+          <p className={`font-mono text-md text-thirdClr `}>Featured project</p>
           <h4 className="text-xl capitalize">{projectName}</h4>
         </m.div>
         <m.p

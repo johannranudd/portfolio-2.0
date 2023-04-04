@@ -17,7 +17,8 @@ export default function ProjectsComponent() {
             <LineThroughComponent />
           </div>
 
-          <ul className="flex flex-col w-full space-y-20  md:space-y-36">
+          {/* <ul className="flex flex-col w-full space-y-20  md:space-y-36"> */}
+          <ul className="flex flex-col w-full">
             {projectsArray.map((p: Iproject, index: number) => {
               const all = { ...p, index };
               return <FeaturedProject {...all} key={index} />;
