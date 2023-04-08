@@ -14,6 +14,7 @@ export default function FeaturedProject({
   githubLink,
   projectName,
   tech,
+  projectText,
   index,
 }: Iproject) {
   const { ref, inView } = useInView();
@@ -74,7 +75,7 @@ export default function FeaturedProject({
       variants={cardVariants}
       initial="hiddenState"
       animate={animation}
-      className={`relative w-full duration-300 mb-20 md:mb-32`}
+      className={`relative w-full duration-300 mb-24 md:mb-32`}
     >
       <div
         className={`absolute h-full flex flex-col justify-between space-y-2 p-4  xs:p-6 md:p-0 ${
@@ -92,10 +93,7 @@ export default function FeaturedProject({
           variants={projectInfoVariant}
           className="z-40 rounded-sm md:w-[60%] md:p-4 md:bg-gray-600 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-50 md:border md:border-gray-100 shadow-lg"
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam velit
-          labore ut quas illum, odio ex eveniet pariatur fugit, exercitationem
-          minima veritatis quidem at, accusamus vitae porro reprehenderit ipsa
-          sapiente. Sapiente quo perspiciatis ullam et!
+          {projectText}
         </m.p>
         <ul className="flex flex-wrap z-40">
           {tech.map((t: string, indexy: number) => {
@@ -103,7 +101,7 @@ export default function FeaturedProject({
               <m.li
                 variants={projectInfoVariant}
                 key={indexy}
-                className={`mr-4 ${reversed ? "md:mr-4" : "md:mr-0 md:ml-4"}`}
+                className={` mr-4 ${reversed ? "md:mr-4" : "md:mr-0 md:ml-4"}`}
               >
                 {t}
               </m.li>
@@ -152,7 +150,7 @@ function CardImageAndBackdrop({
   return (
     <Link href={link} target="_blank" rel="noopener noreferrer">
       <div
-        className={`relative h-[30rem] 3xs:h-96 xxs:h-[20rem] xs:h-[18.5rem] w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
+        className={`relative h-[28rem] 3xs:h-[24rem] xxs:h-[20rem] xs:h-[18.5rem] w-full md:h-[30vw] md:max-h-[330px] md:w-[65%]  ${
           !reversed ? "md:mr-auto" : "md:ml-auto"
         } `}
       >
