@@ -5,7 +5,7 @@ import image3 from "../../images/socialmedia.png";
 export const arrayOfTechShort = [
   "Next.js",
   "TypeScript",
-  "JS",
+  "Tailwind",
   "React",
   "Node",
   "Prisma",
@@ -15,6 +15,8 @@ export const arrayOfTech = [
   "HTML",
   "CSS",
   "Sass",
+  "JSON",
+  "npm",
   "Bootstrap",
   "JS",
   "REST API",
@@ -107,6 +109,7 @@ export interface Iproject {
   link: string;
   githubLink: string;
   tech: Array<string>;
+  projectText: string;
   index?: number;
 }
 
@@ -119,6 +122,8 @@ export const projectsArray: Array<Iproject> = [
     link: "https://next13-ts-ca-jr.vercel.app/",
     githubLink: "https://github.com/johannranudd/next13-ts-ca-jr",
     tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
+    projectText:
+      "An eCommerce store built with Next.js, Typescript, Tailwind and REST API that uses React Context, useReducer and local storage to manage and persist state. Next-themes to handle color mode",
   },
   {
     id: 2,
@@ -128,6 +133,8 @@ export const projectsArray: Array<Iproject> = [
     link: "https://semester-project-2-jr.netlify.app/",
     githubLink: "https://github.com/johannranudd/semester-project-2-jr",
     tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
+    projectText:
+      "Auction house built with JavaScript, Tailwind, HTML, and REST API that enables users to list items for sale and participate in auction rounds. Features a responsive design and intuitive user interface.",
   },
 
   {
@@ -138,5 +145,7 @@ export const projectsArray: Array<Iproject> = [
     link: "https://js2-ca-jr.netlify.app/",
     githubLink: "https://github.com/johannranudd/js2_CA_jr",
     tech: ["JavaScript", "SASS", "Rest API", "HTML"],
+    projectText:
+      "A social media app built with JavaScript, HTML, SASS and REST API that enables users to create, update, and delete posts, comment and like posts, manage their profile, add contacts, and connect with other users.",
   },
 ];

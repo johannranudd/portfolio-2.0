@@ -34,10 +34,13 @@ export default function TechComponent() {
             <LineThroughComponent />
           </div>
           <p className="pb-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
-            esse consectetur iusto quia quas quo repellat explicabo at pariatur
-            veritatis, voluptatem quae autem ipsam ex accusantium deleniti, odit
-            molestias eum dicta voluptates illum nisi quod.
+            Hi there, my name is Johann Ranudd and I am a passionate front-end
+            web developer based in Norway, with experience in creating
+            full-stack applications. I enrolled in Noroff School of Technologies
+            in 2020 to further develop my skills and knowledge in this field. I
+            have a deep love for creating things, and web development provides
+            me with the perfect opportunity to channel my creativity. Bellow are
+            some of my favorite technologies
           </p>
           <ul className="grid grid-cols-2">
             {arrayOfTechShort.map((m, i) => {
