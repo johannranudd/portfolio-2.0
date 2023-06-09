@@ -24,9 +24,9 @@ export default function ContactComponent() {
     >
       <h2 className="text-3xl">Get In Touch</h2>
       <p>
-        Please don't hesitate to contact me if you have any questions or would
-        like to reach out. My inbox is always open and I will try my best to
-        respond in a timely manner.
+        Don't hesitate to contact me if you have any questions or would like to
+        reach out. My inbox is always open and I will try my best to respond in
+        a timely manner.
       </p>
       <a
         href="mailto:johnrand380@gmail.com"
