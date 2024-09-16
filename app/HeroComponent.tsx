@@ -1,50 +1,50 @@
-"use client";
-import { useEffect, useRef } from "react";
-import { motion as m, useScroll, useTransform } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics";
-import Tourus from "./components/Animations/Torus";
-import { BsChevronCompactDown } from "react-icons/bs";
-import { useGlobalContext } from "@/context/context";
+"use client"
+import { useEffect, useRef } from "react"
+import { motion as m, useScroll, useTransform } from "framer-motion"
+import { Canvas, useThree } from "@react-three/fiber"
+import { OrbitControls } from "@react-three/drei"
+import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics"
+import Tourus from "./components/Animations/Torus"
+import { BsChevronCompactDown } from "react-icons/bs"
+import { useGlobalContext } from "@/context/context"
+import { DirectionalLightHelper, Object3D } from "three"
 
 export default function HeroComponent() {
-  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } =
-    useGlobalContext();
-  const { scrollYProgress } = useScroll();
-  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0]);
-  const heroRef = useRef(null) as React.RefObject<HTMLDivElement>;
-  const headingRef = useRef(null) as React.RefObject<HTMLHeadingElement>;
-  const heroTextRef = useRef(null) as React.RefObject<HTMLDivElement>;
-  const chevronRef = useRef(null) as React.RefObject<HTMLButtonElement>;
+  const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } = useGlobalContext()
+  const { scrollYProgress } = useScroll()
+  const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+  const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0])
+  const heroRef = useRef(null) as React.RefObject<HTMLDivElement>
+  const headingRef = useRef(null) as React.RefObject<HTMLHeadingElement>
+  const heroTextRef = useRef(null) as React.RefObject<HTMLDivElement>
+  const chevronRef = useRef(null) as React.RefObject<HTMLButtonElement>
 
   async function adjustScroll() {
-    adjustHeroText(heroRef, heroTextRef, headingRef);
-    const screenHeight = getHeroHeight(headingRef);
-    if (screenHeight) setHeroTextRefNumber(screenHeight);
+    adjustHeroText(heroRef, heroTextRef, headingRef)
+    const screenHeight = getHeroHeight(headingRef)
+    if (screenHeight) setHeroTextRefNumber(screenHeight)
   }
 
   useEffect(() => {
-    adjustScroll();
-  }, []);
+    adjustScroll()
+  }, [])
 
   useEffect(() => {
-    adjustScroll();
-  }, [windowWidth]);
+    adjustScroll()
+  }, [windowWidth])
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      ajustChevron(chevronRef, heroRef);
-      adjustHeroText(heroRef, heroTextRef, headingRef);
-    });
+      ajustChevron(chevronRef, heroRef)
+      adjustHeroText(heroRef, heroTextRef, headingRef)
+    })
     return () => {
       window.removeEventListener("scroll", () => {
-        ajustChevron(chevronRef, heroRef);
-        adjustHeroText(heroRef, heroTextRef, headingRef);
-      });
-    };
-  }, [scrollYProgress]);
+        ajustChevron(chevronRef, heroRef)
+        adjustHeroText(heroRef, heroTextRef, headingRef)
+      })
+    }
+  }, [scrollYProgress])
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function HeroComponent() {
           <Canvas camera={{ position: [0, 0, 2] }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={0.01} />
-            <spotLight intensity={0.5} position={[7, 100, 50]} angle={0.3} />
+            <directionalLight intensity={1.5} position={[7, 100, 50]} />
             <Tourus />
           </Canvas>
           <m.div
@@ -73,10 +73,7 @@ export default function HeroComponent() {
           <div className="px-2 sm:px-4 md:mx-sidebarWidth">
             <div ref={heroTextRef} className="absolute bottom-[50%]">
               <p className="font-mono mb-4 text-thirdClr">Hello my name is</p>
-              <h1
-                ref={headingRef}
-                className="text-4xl xxs:text-5xl sm:text-6xl"
-              >
+              <h1 ref={headingRef} className="text-4xl xxs:text-5xl sm:text-6xl">
                 Johann Ranudd
               </h1>
               <p className="mt-4 font-mono">- Front-end developer</p>
@@ -98,5 +95,5 @@ export default function HeroComponent() {
         </m.button>
       </div>
     </>
-  );
+  )
 }

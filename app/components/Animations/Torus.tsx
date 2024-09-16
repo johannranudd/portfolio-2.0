@@ -1,32 +1,32 @@
-"use client";
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+"use client"
+import { useRef } from "react"
+import { useFrame } from "@react-three/fiber"
 
 export default function Tourus() {
-  const ref1 = useRef<THREE.Mesh>(null);
-  const ref2 = useRef<THREE.Mesh>(null);
-  const ref3 = useRef<THREE.Mesh>(null);
-  const ref4 = useRef<THREE.Mesh>(null);
+  const ref1 = useRef<THREE.Mesh>(null)
+  const ref2 = useRef<THREE.Mesh>(null)
+  const ref3 = useRef<THREE.Mesh>(null)
+  const ref4 = useRef<THREE.Mesh>(null)
 
   useFrame(() => {
     if (ref1) {
       // Z
-      ref1.current?.geometry.rotateX(-0.001);
-      ref2.current?.geometry.rotateX(-0.0008);
-      ref3.current?.geometry.rotateX(-0.0006);
-      ref4.current?.geometry.rotateX(-0.0002);
+      ref1.current?.geometry.rotateX(-0.001)
+      ref2.current?.geometry.rotateX(-0.0008)
+      ref3.current?.geometry.rotateX(-0.0006)
+      ref4.current?.geometry.rotateX(-0.0002)
       // Y
-      ref1.current?.geometry.rotateY(-0.001);
-      ref2.current?.geometry.rotateY(-0.0008);
-      ref3.current?.geometry.rotateY(-0.0006);
-      ref4.current?.geometry.rotateY(-0.0003);
+      ref1.current?.geometry.rotateY(-0.001)
+      ref2.current?.geometry.rotateY(-0.0008)
+      ref3.current?.geometry.rotateY(-0.0006)
+      ref4.current?.geometry.rotateY(-0.0003)
       // Z
-      ref1.current?.geometry.rotateZ(-0.001);
-      ref2.current?.geometry.rotateZ(-0.0008);
-      ref3.current?.geometry.rotateZ(-0.0006);
-      ref4.current?.geometry.rotateZ(-0.0002);
+      ref1.current?.geometry.rotateZ(-0.001)
+      ref2.current?.geometry.rotateZ(-0.0008)
+      ref3.current?.geometry.rotateZ(-0.0006)
+      ref4.current?.geometry.rotateZ(-0.0002)
     }
-  });
+  })
 
   return (
     <group position={[1, 0, 0]}>
@@ -51,5 +51,5 @@ export default function Tourus() {
         <meshPhysicalMaterial color="#19c2b9" metalness={1} />
       </mesh>
     </group>
-  );
+  )
 }

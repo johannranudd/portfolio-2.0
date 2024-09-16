@@ -1,7 +1,7 @@
-import ContactComponent from "./ContactComponent";
-import HeroComponent from "./HeroComponent";
-import ProjectsComponent from "./ProjectsComponent";
-import TechComponent from "./TechComponent";
+import ContactComponent from "./ContactComponent"
+import HeroComponent from "./HeroComponent"
+import ProjectsComponent from "./ProjectsComponent"
+import TechComponent from "./TechComponent"
 
 export default function Home() {
   return (
@@ -11,5 +11,5 @@ export default function Home() {
       <TechComponent />
       <ContactComponent />
     </div>
-  );
+  )
 }
