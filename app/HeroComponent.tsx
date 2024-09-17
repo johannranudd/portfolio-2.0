@@ -76,7 +76,7 @@ export default function HeroComponent() {
               <h1 ref={headingRef} className="text-4xl xxs:text-5xl sm:text-6xl">
                 Johann Ranudd
               </h1>
-              <p className="mt-4 font-mono">- Front-end developer</p>
+              <p className="mt-4 font-mono">- Software developer</p>
             </div>
           </div>
         </m.div>
