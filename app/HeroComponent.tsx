@@ -1,13 +1,12 @@
 "use client"
 import { useEffect, useRef } from "react"
 import { motion as m, useScroll, useTransform } from "framer-motion"
-import { Canvas, useThree } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 import { adjustHeroText, ajustChevron, getHeroHeight } from "./utils/generics"
 import Tourus from "./components/Animations/Torus"
 import { BsChevronCompactDown } from "react-icons/bs"
 import { useGlobalContext } from "@/context/context"
-import { DirectionalLightHelper, Object3D } from "three"
 
 export default function HeroComponent() {
   const { heroTextRefNumber, setHeroTextRefNumber, windowWidth } = useGlobalContext()
