@@ -6,7 +6,7 @@ import { motion as m, useAnimation } from "framer-motion"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import { Iproject } from "./utils/generics"
-export default function FeaturedProject({ id, imageUrl, alt, link, githubLink, projectName, tech, projectText, index }: Iproject) {
+export default function FeaturedProject({ id, imageUrl, alt, link, projectName, tech, projectText, index }: Iproject) {
   const { ref, inView } = useInView()
   const animation = useAnimation()
   let reversed = true
@@ -73,7 +73,7 @@ export default function FeaturedProject({ id, imageUrl, alt, link, githubLink, p
         } `}
       >
         <m.div className={`z-40 ${!reversed && "md:text-right"} `} variants={featuredVariant}>
-          <p className={`font-mono text-md text-thirdClr `}>Featured project</p>
+          <p className={`font-mono text-md text-thirdClr `}>Web application</p>
           <h4 className="text-xl capitalize">{projectName}</h4>
         </m.div>
         <m.p
@@ -91,7 +91,7 @@ export default function FeaturedProject({ id, imageUrl, alt, link, githubLink, p
             )
           })}
         </ul>
-        <m.div variants={featuredVariant} className="flex space-x-3 z-40">
+        {/* <m.div variants={featuredVariant} className="flex space-x-3 z-40">
           <a
             href={githubLink}
             target="_blank"
@@ -108,7 +108,7 @@ export default function FeaturedProject({ id, imageUrl, alt, link, githubLink, p
           >
             <FaLink />
           </a>
-        </m.div>
+        </m.div> */}
       </div>
       <CardImageAndBackdrop imageUrl={imageUrl} alt={alt} link={link} reversed={reversed} id={id} />
     </m.li>
