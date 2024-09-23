@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link"
-import { FaGithub, FaLink } from "react-icons/fa"
 import Image from "next/image"
 import { motion as m, useAnimation } from "framer-motion"
 import { useEffect } from "react"

@@ -103,40 +103,31 @@ export const projectsArray: Array<Iproject> = [
     id: 1,
     projectName: "Bruusgaard",
     imageUrl: image2,
-    alt: "bruusgaard",
+    alt: "bruusgaard logo",
     link: "https://bruusgaard.no/",
-    // githubLink: "https://github.com/johannranudd/next13-ts-ca-jr",
-    tech: ["Next.JS", "TypeScript", "Tailwind", "Rest API"],
-    // projectText:
-    //   "An eCommerce store built with Next.js, Typescript, Tailwind and REST API that uses React Context, useReducer and local storage to manage and persist state. Next-themes to handle color mode",
+    tech: ["SvelteKit", "Supabase", "TypeScript", "Tailwind"],
     projectText:
       "A web application for a shipping company to manage crew members, vessels, and companies. It also allows for creating courses and online tests for crew members to obtain licenses and certifications, ensuring they are qualified.",
   },
-  // FXC is a high quality financial platform for serious investors and exciting companies in the private market. FXC provides a groundbreaking solution for making the private aftermarket liquid while protecting the vital interests of growth companies
-  // FXC is a high-quality financial platform for serious investors and high-potential companies in the private market. It offers a groundbreaking solution to make the private aftermarket liquid while protecting the vital interests of companies.
   {
     id: 2,
     projectName: "Future Xchange",
     imageUrl: image1,
-    alt: "Future Xchange",
-    link: "https://semester-project-2-jr.netlify.app/",
-    // githubLink: "https://github.com/johannranudd/semester-project-2-jr",
-    tech: ["JavaScript", "Tailwind", "Rest API", "HTML"],
-    // projectText:
-    //   "Auction house built with JavaScript, Tailwind, HTML, and REST API that enables users to list items for sale and participate in auction rounds. Features a responsive design and intuitive user interface.",
+    alt: "Future Xchange logo",
+    link: "https://www.fxc.no/",
+    tech: ["Nuxt.js / Vue", "Node.js", "Fastify", "Sequelize"],
     projectText:
       "FXC is a high-quality financial platform for serious investors and high-potential companies in the private market. It offers a groundbreaking solution to make the private aftermarket liquid while protecting the vital interests of companies.",
   },
 
   {
     id: 3,
-    projectName: "social media platform",
+    projectName: "Ekko media",
     imageUrl: image3,
-    alt: "social media platform",
-    link: "https://js2-ca-jr.netlify.app/",
-    // githubLink: "https://github.com/johannranudd/js2_CA_jr",
-    tech: ["JavaScript", "SASS", "Rest API", "HTML"],
+    alt: "Ekko media logo",
+    link: "https://www.ekkomedia.no/",
+    tech: ["Next.js / React", "TypeScript", "Tailwind", "Vercel"],
     projectText:
-      "A social media app built with JavaScript, HTML, SASS and REST API that enables users to create, update, and delete posts, comment and like posts, manage their profile, add contacts, and connect with other users.",
+      "Norway's first digital marketing agency for real estate, Ekko Media offers innovative solutions for marketing properties, helping companies increase visibility and attract the right buyers through data-driven strategies and advanced tools.",
   },
 ]
