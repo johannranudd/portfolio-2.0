@@ -1,22 +1,22 @@
-"use client";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import LineThroughComponent from "./components/Animations/LineThroughComponent";
-import WordSphere from "./components/Animations/WordSphere";
-import { arrayOfTechShort } from "./utils/generics";
-import { motion as m, useAnimation } from "framer-motion";
+"use client"
+import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
+import LineThroughComponent from "./components/Animations/LineThroughComponent"
+import WordSphere from "./components/Animations/WordSphere"
+import { arrayOfTechShort } from "./utils/generics"
+import { motion as m, useAnimation } from "framer-motion"
 
 export default function TechComponent() {
-  const { ref, inView } = useInView();
-  const animation = useAnimation();
+  const { ref, inView } = useInView()
+  const animation = useAnimation()
   useEffect(() => {
     if (inView) {
       animation.start({
         opacity: 1,
         transition: { delay: 0.4, duration: 0.4 },
-      });
+      })
     }
-  }, [inView]);
+  }, [inView])
   return (
     <m.section
       ref={ref}
@@ -28,20 +28,16 @@ export default function TechComponent() {
       <div className="space-y-10 sm:space-y-0 sm:grid sm:gap-y-16 sm:grid-cols-2">
         <div className="md:ml-sidebarWidth   md:flex md:flex-col md:justify-between">
           <div className="relative py-12">
-            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">
-              About me
-            </h2>
+            <h2 className="absolute top-[50%] -translate-y-[50%] translate-x-[10%] text-3xl z-10 bg-primary">About me</h2>
             <LineThroughComponent />
           </div>
           <p className="pb-6">
-            Hi there, my name is Johann Ranudd and I am a passionate front-end
-            web developer based in Norway, with experience in creating
-            full-stack applications. I enrolled in Noroff School of Technologies
-            in 2020 to further develop my skills and knowledge in this field. I
-            have a deep love for creating things, and web development provides
-            me with the perfect opportunity to channel my creativity. Bellow are
-            some of my favorite technologies
+            Hi there, my name is Johann Ranudd and I am a passionate software developer based in Norway.
+            <br /> I have a deep love for creating things, and software development provides me with the perfect opportunity to channel my
+            creativity.
+            <br /> Ever positive, never negative!
           </p>
+          <h4 className="font-bold pb-4">Main Technologies</h4>
           <ul className="grid grid-cols-2">
             {arrayOfTechShort.map((m, i) => {
               return (
@@ -49,7 +45,7 @@ export default function TechComponent() {
                   <div className="triangle"></div>
                   <p>{m}</p>
                 </li>
-              );
+              )
             })}
           </ul>
         </div>
@@ -59,5 +55,5 @@ export default function TechComponent() {
         </div>
       </div>
     </m.section>
-  );
+  )
 }

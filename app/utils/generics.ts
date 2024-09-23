@@ -2,32 +2,32 @@ import image1 from "../../images/fxc.svg"
 import image2 from "../../images/bg-logo.webp"
 import image3 from "../../images/ekko.png"
 
-export const arrayOfTechShort = ["Next.js", "TypeScript", "Tailwind", "React", "Node", "Prisma"]
+export const arrayOfTechShort = ["Next.js / React", "Nuxt.js / Vue", "SvelteKit", "Node", "TypeScript", "Tailwind", "Prisma", "Supabase"]
 
 export const arrayOfTech = [
-  "HTML",
+  "Elementor",
+  "WordPress",
   "CSS",
   "Sass",
-  "JSON",
-  "npm",
-  "Bootstrap",
   "JS",
-  "REST API",
-  "React",
-  "Next.js",
   "Framer",
   "Git",
+  "Three.js",
+
+  "Next.js",
+  "React",
+  "Nuxt.js",
+  "Vue",
+  "SvelteKit",
   "Node",
-  "Vue.js",
-  "Express",
   "TypeScript",
+  "Tailwind",
   "Prisma",
+  "Supabase",
+  "Express",
+  "Fastify",
   "Adobe XD",
   "Figma",
-  "Tailwind",
-  "Three.js",
-  "WordPress",
-  "Elementor",
 ]
 
 export function ajustChevron(chevronRef: React.RefObject<HTMLButtonElement>, heroRef: React.RefObject<HTMLDivElement>) {
