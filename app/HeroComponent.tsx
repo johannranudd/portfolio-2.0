@@ -86,7 +86,7 @@ export default function HeroComponent() {
           ref={chevronRef}
           style={{ opacity: chevronOpacity }}
           initial={{ y: 100 }}
-          animate={{ y: 0 }}
+          animate={{ y: 0, scale: 1.5 }}
           transition={{ delay: 0.7, duration: 0.3, ease: "linear" }}
           className="fixed bottom-12  text-[3rem] cursor-pointer hover:text-thirdClr duration-300"
         >
