@@ -81,6 +81,14 @@ export default function FeaturedProject({ id, imageUrl, alt, link, projectName, 
         >
           {projectText}
         </m.p>
+        <Link
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`z-40 font-mono text-md text-thirdClr hover:opacity-50 duration-300`}
+        >
+          Visit homepage
+        </Link>
         <ul className="flex flex-wrap z-40">
           {tech.map((t: string, indexy: number) => {
             return (
