@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div>
       <HeroComponent />
-      <ProjectsComponent />
-      <TechComponent />
-      <ContactComponent />
+      {/* <ProjectsComponent /> */}
+      {/* <TechComponent /> */}
+      {/* <ContactComponent /> */}
     </div>
   )
 }
