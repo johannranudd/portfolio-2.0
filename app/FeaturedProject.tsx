@@ -89,7 +89,7 @@ export default function FeaturedProject({ id, imageUrl, alt, link, projectName, 
         >
           Visit homepage
         </Link>
-        <ul className="flex flex-wrap z-40">
+        {/* <ul className="flex flex-wrap z-40">
           {tech.map((t: string, indexy: number) => {
             return (
               <m.li variants={projectInfoVariant} key={indexy} className={` mr-4 ${reversed ? "md:mr-4" : "md:mr-0 md:ml-4"}`}>
@@ -97,7 +97,7 @@ export default function FeaturedProject({ id, imageUrl, alt, link, projectName, 
               </m.li>
             )
           })}
-        </ul>
+        </ul> */}
         {/* <m.div variants={featuredVariant} className="flex space-x-3 z-40">
           <a
             href={githubLink}

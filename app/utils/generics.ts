@@ -101,19 +101,19 @@ export interface Iproject {
 export const projectsArray: Array<Iproject> = [
   {
     id: 1,
-    projectName: "Bruusgaard",
+    projectName: "Martin Bruusgaard & Co",
     imageUrl: image2,
     alt: "bruusgaard logo",
     link: "https://bruusgaard.no/",
     tech: ["SvelteKit", "Supabase", "TypeScript", "Tailwind"],
     projectText:
-      "A web application for a shipping company to manage crew members, vessels, and companies. It also allows for creating courses and online tests for crew members to obtain licenses and certifications, ensuring they are qualified.",
+      "Martin Bruusgaard & Co is a company specializing in standardized gas detection solutions, focusing on safety and cost-efficiency. Products detect hazardous gases, with calibration, maintenance services, and fast access to essential spare parts.",
   },
   {
     id: 2,
-    projectName: "Future Xchange",
+    projectName: "FutureXchange",
     imageUrl: image1,
-    alt: "Future Xchange logo",
+    alt: "FutureXchange logo",
     link: "https://www.fxc.no/",
     tech: ["Nuxt.js / Vue", "Node.js", "Fastify", "Sequelize"],
     projectText:
