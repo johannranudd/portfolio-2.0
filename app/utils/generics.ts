@@ -67,7 +67,6 @@ export const arrayOfTech = [
   "Enterprise Architect",
 ]
 
-
 export function ajustChevron(
   chevronRef: React.RefObject<HTMLButtonElement | null>,
   heroRef: React.RefObject<HTMLDivElement | null>
