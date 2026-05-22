@@ -13,10 +13,10 @@ export default function HeroComponent() {
   const { scrollYProgress } = useScroll()
   const sectionScroll = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   const chevronOpacity = useTransform(scrollYProgress, [0, 0.02], [1, 0])
-  const heroRef = useRef(null) as React.RefObject<HTMLDivElement>
-  const headingRef = useRef(null) as React.RefObject<HTMLHeadingElement>
-  const heroTextRef = useRef(null) as React.RefObject<HTMLDivElement>
-  const chevronRef = useRef(null) as React.RefObject<HTMLButtonElement>
+  const heroRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const heroTextRef = useRef<HTMLDivElement>(null)
+  const chevronRef = useRef<HTMLButtonElement>(null)
 
   async function adjustScroll() {
     adjustHeroText(heroRef, heroTextRef, headingRef)
@@ -44,6 +44,27 @@ export default function HeroComponent() {
       })
     }
   }, [scrollYProgress])
+
+  function smoothScrollTo(targetY: number, duration = 700) {
+    const startY = window.scrollY
+    const distance = targetY - startY
+    const startTime = performance.now()
+
+    function animation(currentTime: number) {
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      const ease = 1 - Math.pow(1 - progress, 3)
+
+      window.scrollTo(0, startY + distance * ease)
+
+      if (progress < 1) {
+        requestAnimationFrame(animation)
+      }
+    }
+
+    requestAnimationFrame(animation)
+  }
 
   return (
     <>
@@ -82,7 +103,7 @@ export default function HeroComponent() {
       </section>
       <div className="w-full flex justify-center">
         <m.button
-          onClick={() => scroll(0, heroTextRefNumber)}
+          onClick={() => smoothScrollTo(heroTextRefNumber)}
           ref={chevronRef}
           style={{ opacity: chevronOpacity }}
           initial={{ y: 100 }}
