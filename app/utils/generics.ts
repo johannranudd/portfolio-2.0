@@ -2,35 +2,75 @@ import image1 from "../../images/fxc.svg"
 import image2 from "../../images/bg-logo.webp"
 import image3 from "../../images/ekko.png"
 
-export const arrayOfTechShort = ["Next.js / React", "Nuxt.js / Vue", "SvelteKit", "Node", "TypeScript", "Tailwind", "Prisma", "Supabase"]
+// export const arrayOfTechShort = ["Next.js / React", "Nuxt.js / Vue", "SvelteKit", "Node", "TypeScript", "Tailwind", "Prisma", "Supabase"]
+
+// export const arrayOfTech = [
+//   "Elementor",
+//   "WordPress",
+//   "CSS",
+//   "Sass",
+//   "JS",
+//   "Framer",
+//   "Git",
+//   "Three.js",
+
+//   "Next.js",
+//   "React",
+//   "Nuxt.js",
+//   "Vue",
+//   "SvelteKit",
+//   "Node",
+//   "TypeScript",
+//   "Tailwind",
+//   "Prisma",
+//   "Supabase",
+//   "Express",
+//   "Fastify",
+//   "Adobe XD",
+//   "Figma",
+// ]
+
+
+export const arrayOfTechShort = [
+  "React | Next.js",
+  "Nuxt.js | Vue",
+  "SvelteKit | Svelte",
+  "Node.js",
+  "TypeScript | JavaScript",
+  "CSS | Tailwind | SASS",
+  "SQL",
+  "Supabase",
+]
 
 export const arrayOfTech = [
-  "Elementor",
   "WordPress",
-  "CSS",
-  "Sass",
-  "JS",
-  "Framer",
-  "Git",
-  "Three.js",
-
-  "Next.js",
+  "SQL",
+  "Node.js",
   "React",
+  "Next.js",
   "Nuxt.js",
   "Vue",
   "SvelteKit",
-  "Node",
+  "Svelte",
   "TypeScript",
-  "Tailwind",
-  "Prisma",
-  "Supabase",
-  "Express",
-  "Fastify",
-  "Adobe XD",
+  "JavaScript",
+  "C",
+  "C++",
   "Figma",
+  "Supabase",
+  "Prisma",
+  "Linux",
+  "Git",
+  "CSS",
+  "Tailwind",
+  "SASS",
+  "Enterprise Architect",
 ]
 
-export function ajustChevron(chevronRef: React.RefObject<HTMLButtonElement>, heroRef: React.RefObject<HTMLDivElement>) {
+export function ajustChevron(
+  chevronRef: React.RefObject<HTMLButtonElement | null>,
+  heroRef: React.RefObject<HTMLDivElement | null>
+) {
   if (chevronRef.current) {
     const chevronTop: number | undefined = chevronRef.current?.getBoundingClientRect().top
     const heroBottom: number | undefined = heroRef.current?.getBoundingClientRect().bottom
@@ -42,7 +82,9 @@ export function ajustChevron(chevronRef: React.RefObject<HTMLButtonElement>, her
   }
 }
 
-export function getHeroHeight(headingRef: React.RefObject<HTMLDivElement>) {
+export function getHeroHeight(
+  headingRef: React.RefObject<HTMLHeadingElement | null>
+) {
   if (headingRef.current) {
     const headingHeight: number = headingRef.current?.getBoundingClientRect().height
 
@@ -62,9 +104,9 @@ export function getHeroHeight(headingRef: React.RefObject<HTMLDivElement>) {
 }
 
 export function adjustHeroText(
-  heroRef: React.RefObject<HTMLDivElement>,
-  heroTextRef: React.RefObject<HTMLDivElement>,
-  headingRef: React.RefObject<HTMLHeadingElement>
+  heroRef: React.RefObject<HTMLDivElement | null>,
+  heroTextRef: React.RefObject<HTMLDivElement | null>,
+  headingRef: React.RefObject<HTMLHeadingElement | null>
 ) {
   if (typeof window !== "undefined") {
     if (heroRef.current) {
